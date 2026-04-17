@@ -84,8 +84,6 @@
     display: flex; align-items: center; gap: 0.35rem;
   }
   .util-btn:hover { background: var(--gold); color: var(--navy-dark); border-color: var(--gold); }
-  .util-btn.owner-btn { background: rgba(196,154,0,0.18); border-color: var(--gold); color: var(--gold-lt); }
-  .util-btn.owner-btn:hover { background: var(--gold); color: var(--navy-dark); }
 
   /* ===== MAIN NAVBAR ===== */
   .navbar {
@@ -776,91 +774,7 @@
   .tool-header h3 { font-family: var(--font-display); font-size: 1.35rem; font-weight: 700; color: var(--navy-dark); }
   .tool-header p { font-size: 0.86rem; color: var(--text-light); margin-top: 3px; }
 
-  /* ===== OWNER PANEL ===== */
-  .owner-overlay {
-    position: fixed; inset: 0;
-    background: rgba(18,43,82,0.80);
-    backdrop-filter: blur(4px);
-    z-index: 9999;
-    display: flex; align-items: center; justify-content: center;
-    opacity: 0; visibility: hidden;
-    transition: all .3s;
-  }
-  .owner-overlay.open { opacity: 1; visibility: visible; }
-  .owner-modal {
-    background: white;
-    border-radius: var(--radius-lg);
-    padding: 2.5rem;
-    width: 360px;
-    max-width: 95vw;
-    box-shadow: 0 24px 80px rgba(0,0,0,0.25);
-    transform: scale(0.92);
-    transition: transform .3s;
-    text-align: center;
-  }
-  .owner-overlay.open .owner-modal { transform: scale(1); }
-  .owner-modal-logo {
-    width: 64px; height: 64px;
-    background: var(--alice);
-    border: 2px solid var(--border);
-    border-radius: 14px;
-    display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 1.2rem;
-    font-size: 1.6rem; color: var(--navy);
-  }
-  .owner-modal h3 { font-family: var(--font-display); font-size: 1.5rem; color: var(--navy-dark); margin-bottom: 0.35rem; }
-  .owner-modal p { font-size: 0.87rem; color: var(--text-light); margin-bottom: 1.5rem; }
-  .pin-input {
-    display: flex; gap: 0.6rem; justify-content: center; margin-bottom: 1.5rem;
-  }
-  .pin-digit {
-    width: 46px; height: 54px;
-    border: 2px solid var(--border);
-    border-radius: 9px;
-    font-size: 1.5rem;
-    font-family: var(--font-display);
-    font-weight: 700;
-    text-align: center;
-    color: var(--navy-dark);
-    outline: none;
-    transition: border-color .2s, box-shadow .2s;
-    background: var(--offwhite);
-  }
-  .pin-digit:focus { border-color: var(--navy-mid); box-shadow: 0 0 0 3px rgba(30,74,133,0.12); background: white; }
-  .pin-error { font-size: 0.82rem; color: #c0392b; font-family: var(--font-ui); margin-bottom: 1rem; display: none; }
-  .pin-error.show { display: block; }
-  .btn-close-modal {
-    position: absolute; top: 1rem; right: 1rem;
-    width: 32px; height: 32px;
-    border-radius: 50%;
-    background: var(--offwhite);
-    border: 1px solid var(--border);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.9rem; color: var(--text-light);
-    cursor: pointer;
-    transition: background .18s;
-  }
-  .btn-close-modal:hover { background: var(--alice); }
-  .owner-modal { position: relative; }
-
-  /* Owner Panel Page */
-  .owner-panel-section {
-    background: var(--offwhite);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 1.8rem;
-    margin-bottom: 1.5rem;
-  }
-  .owner-panel-section h4 {
-    font-family: var(--font-display);
-    font-size: 1.2rem;
-    color: var(--navy-dark);
-    margin-bottom: 1rem;
-    display: flex; align-items: center; gap: 0.6rem;
-  }
-  .owner-panel-section h4 i { color: var(--navy-mid); }
-
-  /* ===== TRAINING UPDATES ===== */
+  /* ===== TRAINING CARDS ===== */
   .training-card {
     background: white;
     border: 1px solid var(--border);
@@ -1116,26 +1030,6 @@
     letter-spacing: 0.04em;
   }
 
-  /* Loading spinner */
-  .iframe-loading {
-    display: flex; align-items: center; justify-content: center;
-    padding: 3rem;
-    background: var(--alice);
-    color: var(--text-light);
-    font-family: var(--font-ui);
-    font-size: 0.9rem;
-    gap: 0.6rem;
-    border-radius: var(--radius-lg);
-  }
-  .spinner {
-    width: 20px; height: 20px;
-    border: 2px solid var(--border);
-    border-top-color: var(--navy);
-    border-radius: 50%;
-    animation: spin .7s linear infinite;
-  }
-  @keyframes spin { to { transform: rotate(360deg); } }
-
   /* Alert */
   .alert {
     padding: 1rem 1.2rem;
@@ -1162,14 +1056,12 @@
     <button class="util-btn" onclick="showPage('lms')"><i class="fas fa-video"></i> LMS</button>
     <button class="util-btn" onclick="showPage('internship')"><i class="fas fa-user-graduate"></i> Internship Portal</button>
     <button class="util-btn" onclick="showPage('podcast')"><i class="fas fa-microphone-alt"></i> Podcast</button>
-    <button class="util-btn owner-btn" onclick="openOwnerLogin()"><i class="fas fa-lock"></i> Owner Login</button>
   </div>
 </div>
 
 <!-- ===== NAVBAR ===== -->
 <nav class="navbar">
   <div class="navbar-inner">
-    <!-- Logo -->
     <div class="nav-logo" onclick="showPage('home')">
       <img src="https://raw.githubusercontent.com/zovacai-cloud/host_image/main/frcc.jpg" alt="FRCC Logo" onerror="this.style.display='none'">
       <div class="nav-logo-text">
@@ -1178,7 +1070,6 @@
       </div>
     </div>
 
-    <!-- Nav Links -->
     <ul class="nav-links" id="navLinks">
       <li class="nav-item">
         <span class="nav-link active" id="nav-home" onclick="showPage('home')">Home</span>
@@ -1209,9 +1100,6 @@
       <li class="nav-item">
         <span class="nav-link" onclick="showPage('training')">Training Calendar</span>
       </li>
-      <li class="nav-item" id="navComplianceItem" style="display:none;">
-        <span class="nav-link" onclick="showPage('compliance')"><i class="fas fa-shield-alt" style="font-size:0.75rem;"></i> Compliance Tool</span>
-      </li>
       <li class="nav-item">
         <span class="nav-link" onclick="showPage('portals')">Portals <i class="fas fa-chevron-down chevron"></i></span>
         <div class="dropdown">
@@ -1226,7 +1114,6 @@
       </li>
     </ul>
 
-    <!-- Hamburger -->
     <button class="hamburger" onclick="toggleMobileNav()" aria-label="Toggle menu">
       <span></span><span></span><span></span>
     </button>
@@ -1424,7 +1311,7 @@
     </div>
   </section>
 
-  <!-- Training Updates Preview -->
+  <!-- Training Updates Preview — cards removed, View All button kept -->
   <section class="section">
     <div class="container">
       <div class="section-head" style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:1rem;">
@@ -1432,43 +1319,9 @@
           <div class="section-label"><i class="fas fa-calendar-alt"></i> Upcoming Training</div>
           <h2 class="section-title">Training <span>Calendar</span></h2>
           <div class="title-line"></div>
+          <p class="section-subtitle">FRCC is an active FoSTaC training partner with FSSAI. Register for on-site or online training programs.</p>
         </div>
         <button class="btn-primary" onclick="showPage('training')">View All <i class="fas fa-arrow-right"></i></button>
-      </div>
-      <div class="grid-3" id="homeTrainingCards">
-        <div class="training-card">
-          <div class="training-card-date"><i class="fas fa-calendar"></i> FoSTaC Training – Basic Level</div>
-          <div class="training-card-body">
-            <div class="training-card-title">Food Safety Training &amp; Certification</div>
-            <div class="training-card-meta">
-              <span><i class="fas fa-map-marker-alt"></i> New Delhi</span>
-              <span><i class="fas fa-users"></i> Open Registration</span>
-            </div>
-            <button class="training-register-btn" onclick="showPage('training')"><i class="fas fa-arrow-right"></i> Register Now</button>
-          </div>
-        </div>
-        <div class="training-card">
-          <div class="training-card-date"><i class="fas fa-calendar"></i> HACCP Implementation</div>
-          <div class="training-card-body">
-            <div class="training-card-title">Hazard Analysis &amp; Critical Control Points</div>
-            <div class="training-card-meta">
-              <span><i class="fas fa-map-marker-alt"></i> Online / On-Site</span>
-              <span><i class="fas fa-users"></i> Open Registration</span>
-            </div>
-            <button class="training-register-btn" onclick="showPage('training')"><i class="fas fa-arrow-right"></i> Register Now</button>
-          </div>
-        </div>
-        <div class="training-card">
-          <div class="training-card-date"><i class="fas fa-calendar"></i> Internal Auditor Training</div>
-          <div class="training-card-body">
-            <div class="training-card-title">ISO / FSSC / OHSAS Internal Auditor</div>
-            <div class="training-card-meta">
-              <span><i class="fas fa-map-marker-alt"></i> New Delhi</span>
-              <span><i class="fas fa-users"></i> Open Registration</span>
-            </div>
-            <button class="training-register-btn" onclick="showPage('training')"><i class="fas fa-arrow-right"></i> Register Now</button>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -1624,7 +1477,6 @@
         <p class="section-subtitle">Select any service below to explore detailed offerings in each compliance domain.</p>
       </div>
 
-      <!-- Tab Navigation -->
       <div class="tabs" id="serviceTabs">
         <button class="tab-btn active" onclick="activateTab('food')" data-tab="food"><i class="fas fa-utensils"></i> Food Safety</button>
         <button class="tab-btn" onclick="activateTab('environment')" data-tab="environment"><i class="fas fa-leaf"></i> Environment</button>
@@ -1896,128 +1748,12 @@
         <div class="title-line"></div>
         <p class="section-subtitle">FRCC is an active FoSTaC training partner with FSSAI. Register for on-site or online training programs.</p>
       </div>
-      <div class="grid-3" id="trainingList">
-        <div class="training-card">
-          <div class="training-card-date"><i class="fas fa-calendar"></i> FSSAI FoSTaC – Basic Level</div>
-          <div class="training-card-body">
-            <div class="training-card-title">Food Safety Training &amp; Certification (FoSTaC)</div>
-            <div class="training-card-meta">
-              <span><i class="fas fa-clock"></i> 1 Day</span>
-              <span><i class="fas fa-map-marker-alt"></i> On-Site / Online</span>
-            </div>
-            <button class="training-register-btn"><i class="fas fa-user-plus"></i> Register</button>
-          </div>
-        </div>
-        <div class="training-card">
-          <div class="training-card-date"><i class="fas fa-calendar"></i> HACCP All Levels</div>
-          <div class="training-card-body">
-            <div class="training-card-title">Hazard Analysis &amp; Critical Control Points</div>
-            <div class="training-card-meta">
-              <span><i class="fas fa-clock"></i> 2 Days</span>
-              <span><i class="fas fa-map-marker-alt"></i> New Delhi</span>
-            </div>
-            <button class="training-register-btn"><i class="fas fa-user-plus"></i> Register</button>
-          </div>
-        </div>
-        <div class="training-card">
-          <div class="training-card-date"><i class="fas fa-calendar"></i> GMP / GHP / GLP</div>
-          <div class="training-card-body">
-            <div class="training-card-title">Good Manufacturing / Hygiene / Lab Practices</div>
-            <div class="training-card-meta">
-              <span><i class="fas fa-clock"></i> 1–2 Days</span>
-              <span><i class="fas fa-map-marker-alt"></i> On-Site</span>
-            </div>
-            <button class="training-register-btn"><i class="fas fa-user-plus"></i> Register</button>
-          </div>
-        </div>
-        <div class="training-card">
-          <div class="training-card-date"><i class="fas fa-calendar"></i> Internal Auditor Training</div>
-          <div class="training-card-body">
-            <div class="training-card-title">ISO / FSSC / OHSAS Internal Auditor</div>
-            <div class="training-card-meta">
-              <span><i class="fas fa-clock"></i> 2 Days</span>
-              <span><i class="fas fa-map-marker-alt"></i> New Delhi</span>
-            </div>
-            <button class="training-register-btn"><i class="fas fa-user-plus"></i> Register</button>
-          </div>
-        </div>
-        <div class="training-card">
-          <div class="training-card-date"><i class="fas fa-calendar"></i> Food Startup Training</div>
-          <div class="training-card-body">
-            <div class="training-card-title">Entrepreneurship &amp; Food Business Setup</div>
-            <div class="training-card-meta">
-              <span><i class="fas fa-clock"></i> 1 Day</span>
-              <span><i class="fas fa-map-marker-alt"></i> Online</span>
-            </div>
-            <button class="training-register-btn"><i class="fas fa-user-plus"></i> Register</button>
-          </div>
-        </div>
-        <div class="training-card">
-          <div class="training-card-date"><i class="fas fa-calendar"></i> Fire Safety Training</div>
-          <div class="training-card-body">
-            <div class="training-card-title">Fire Safety &amp; Emergency Preparedness</div>
-            <div class="training-card-meta">
-              <span><i class="fas fa-clock"></i> Half Day</span>
-              <span><i class="fas fa-map-marker-alt"></i> On-Site</span>
-            </div>
-            <button class="training-register-btn"><i class="fas fa-user-plus"></i> Register</button>
-          </div>
-        </div>
-      </div>
-      <div style="margin-top:2.5rem;" class="iframe-wrapper">
+      <div style="margin-top:1rem;" class="iframe-wrapper">
         <iframe src="https://script.google.com/macros/s/AKfycbybOjA3ubNy71zdhO9wu-It1QiN2QWItRDqwvLDOYY9E-k6JU9IkcSkfi_oThfgZhsp/exec" style="min-height:600px;" title="FRCC Training Registration Form"></iframe>
       </div>
     </div>
   </section>
 </div><!-- end page-training -->
-
-
-<!-- ====================================================== -->
-<!-- PAGE: COMPLIANCE TOOL -->
-<!-- ====================================================== -->
-<div id="page-compliance" class="page">
-  <div class="page-banner">
-    <div class="page-banner-inner">
-      <h1>Compliance Tool</h1>
-      <div class="breadcrumb"><span onclick="showPage('home')" style="cursor:pointer;color:rgba(255,255,255,0.65)">Home</span><span class="sep">/</span><span class="current">Compliance Tool</span></div>
-    </div>
-  </div>
-
-  <!-- LOCKED: shown to non-owners -->
-  <div id="complianceLocked" class="section" style="display:flex;align-items:center;justify-content:center;min-height:55vh;">
-    <div style="text-align:center;max-width:420px;padding:2rem;">
-      <div style="width:72px;height:72px;background:var(--alice);border:2px solid var(--border);border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 1.4rem;font-size:1.8rem;color:var(--navy);">
-        <i class="fas fa-lock"></i>
-      </div>
-      <h2 style="font-family:var(--font-display);font-size:1.8rem;color:var(--navy-dark);margin-bottom:0.5rem;">Owner Access Only</h2>
-      <p style="font-size:0.92rem;color:var(--text-light);line-height:1.75;margin-bottom:1.6rem;">The Compliance Tool is restricted to authorised owner access. Please log in with your PIN to proceed.</p>
-      <button class="btn-primary" onclick="openOwnerLogin()" style="margin:0 auto;display:inline-flex;gap:0.5rem;">
-        <i class="fas fa-unlock-alt"></i> Owner Login
-      </button>
-      <div style="margin-top:1.2rem;">
-        <button onclick="showPage('home')" style="font-size:0.83rem;color:var(--text-light);cursor:pointer;text-decoration:underline;background:none;border:none;">← Back to Home</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- UNLOCKED: shown to owners only -->
-  <div id="complianceUnlocked" style="display:none;">
-    <section class="section">
-      <div class="container">
-        <div class="tool-header">
-          <div class="tool-header-icon"><i class="fas fa-shield-alt"></i></div>
-          <div>
-            <h3>FRCC Compliance Assessment Tool</h3>
-            <p>Use this interactive tool to assess your regulatory compliance status across food safety, environment, and trade domains.</p>
-          </div>
-        </div>
-        <div class="iframe-wrapper">
-          <iframe src="https://script.google.com/macros/s/AKfycbz7q_mjhDiiy1vStiUaslaEF8JzQnR8S90nBhhDc-Zo7AW2NCopcT3rzrSkdyfhSGza/exec" style="min-height:700px;" title="FRCC Compliance Tool"></iframe>
-        </div>
-      </div>
-    </section>
-  </div>
-</div><!-- end page-compliance -->
 
 
 <!-- ====================================================== -->
@@ -2102,7 +1838,7 @@
             <span class="value-pill"><i class="fas fa-check-circle"></i> Expert Interviews</span>
             <span class="value-pill"><i class="fas fa-check-circle"></i> Compliance Tips</span>
           </div>
-          <a href="https://script.google.com/macros/s/AKfycbxIYAqmCl6rAxx9j-U7P_O3xiv0qkvanugIP2QFkAcSOEOek_ztndtec6Lx/exec" target="_blank" rel="noopener">
+          <a href="https://script.google.com/macros/s/AKfycbwojqHQ0Uk62C2SDexDiTpFNlHUHBY04UJdLRYrLUs/dev" target="_blank" rel="noopener">
             <button class="btn-primary" style="font-size:1rem;padding:0.85rem 2rem;">
               <i class="fas fa-external-link-alt"></i> Listen to Podcast
             </button>
@@ -2114,7 +1850,7 @@
           </div>
           <h4 style="font-family:var(--font-display);font-size:1.4rem;color:var(--navy-dark);margin-bottom:0.5rem;">FRCC Podcast</h4>
           <p style="font-size:0.88rem;color:var(--text-light);margin-bottom:1.5rem;line-height:1.7;">Click below to open the FRCC Podcast portal and browse all available episodes.</p>
-          <a href="https://script.google.com/macros/s/AKfycbxIYAqmCl6rAxx9j-U7P_O3xiv0qkvanugIP2QFkAcSOEOek_ztndtec6Lx/exec" target="_blank" rel="noopener">
+          <a href="https://script.google.com/macros/s/AKfycbwojqHQ0Uk62C2SDexDiTpFNlHUHBY04UJdLRYrLUs/dev" target="_blank" rel="noopener">
             <button style="background:var(--navy);color:white;font-family:var(--font-ui);font-weight:700;font-size:0.88rem;padding:0.7rem 1.5rem;border-radius:7px;cursor:pointer;display:inline-flex;align-items:center;gap:0.5rem;border:none;transition:background .2s;" onmouseover="this.style.background='#1e4a85'" onmouseout="this.style.background='var(--navy)'">
               <i class="fas fa-microphone-alt"></i> Open Podcast
             </button>
@@ -2317,76 +2053,6 @@
 
 
 <!-- ====================================================== -->
-<!-- PAGE: OWNER PANEL -->
-<!-- ====================================================== -->
-<div id="page-owner" class="page">
-  <div class="page-banner">
-    <div class="page-banner-inner">
-      <h1><i class="fas fa-lock" style="margin-right:0.5rem;"></i> Owner Panel</h1>
-      <div class="breadcrumb"><span onclick="showPage('home')" style="cursor:pointer;color:rgba(255,255,255,0.65)">Home</span><span class="sep">/</span><span class="current">Owner Panel</span></div>
-    </div>
-  </div>
-  <section class="section">
-    <div class="container" style="max-width:800px;">
-      <div class="alert alert-info" style="margin-bottom:2rem;">
-        <i class="fas fa-shield-alt"></i>
-        <span>You are logged in as the <strong>Website Owner</strong>. Use this panel to manage website content. <a onclick="logoutOwner()" style="cursor:pointer;text-decoration:underline;font-weight:600;">Logout</a></span>
-      </div>
-
-      <div class="owner-panel-section">
-        <h4><i class="fas fa-calendar-alt"></i> Training Updates</h4>
-        <p style="font-size:0.88rem;color:var(--text-light);margin-bottom:1rem;">Add or update training program announcements displayed on the homepage and Training Calendar page.</p>
-        <div class="form-group">
-          <label class="form-label">Training Program Title</label>
-          <input type="text" class="form-control" id="ownerTrainingTitle" placeholder="e.g. FoSTaC Basic Level – Batch 12">
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label">Training Date</label>
-            <input type="date" class="form-control" id="ownerTrainingDate">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Location</label>
-            <input type="text" class="form-control" id="ownerTrainingLocation" placeholder="e.g. New Delhi / Online">
-          </div>
-        </div>
-        <button class="btn-submit" onclick="addTrainingUpdate()"><i class="fas fa-plus"></i> Add Training Update</button>
-        <div id="ownerTrainingList" style="margin-top:1.2rem;"></div>
-      </div>
-
-      <div class="owner-panel-section">
-        <h4><i class="fas fa-cog"></i> Quick Links Management</h4>
-        <p style="font-size:0.88rem;color:var(--text-light);margin-bottom:1rem;">Configure Google Apps Script URLs for dynamic integrations.</p>
-        <div class="form-group">
-          <label class="form-label">Training Calendar App Script URL</label>
-          <input type="url" class="form-control" id="ownerTrainingURL" placeholder="https://script.google.com/macros/s/...">
-        </div>
-        <button class="btn-submit" onclick="saveOwnerSettings()"><i class="fas fa-save"></i> Save Settings</button>
-      </div>
-
-      <div class="owner-panel-section">
-        <h4><i class="fas fa-chart-bar"></i> Website Stats</h4>
-        <div class="grid-3">
-          <div style="text-align:center;background:var(--alice);border-radius:var(--radius);padding:1.2rem;border:1px solid var(--border);">
-            <div style="font-family:var(--font-display);font-size:2rem;color:var(--navy);font-weight:700;" id="statPageViews">—</div>
-            <div style="font-size:0.78rem;color:var(--text-light);font-family:var(--font-ui);text-transform:uppercase;letter-spacing:0.06em;margin-top:4px;">Page Views (Session)</div>
-          </div>
-          <div style="text-align:center;background:var(--alice);border-radius:var(--radius);padding:1.2rem;border:1px solid var(--border);">
-            <div style="font-family:var(--font-display);font-size:2rem;color:var(--navy);font-weight:700;" id="statTraining">6</div>
-            <div style="font-size:0.78rem;color:var(--text-light);font-family:var(--font-ui);text-transform:uppercase;letter-spacing:0.06em;margin-top:4px;">Training Programs</div>
-          </div>
-          <div style="text-align:center;background:var(--alice);border-radius:var(--radius);padding:1.2rem;border:1px solid var(--border);">
-            <div style="font-family:var(--font-display);font-size:2rem;color:var(--navy);font-weight:700;">7</div>
-            <div style="font-size:0.78rem;color:var(--text-light);font-family:var(--font-ui);text-transform:uppercase;letter-spacing:0.06em;margin-top:4px;">Services Active</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</div><!-- end page-owner -->
-
-
-<!-- ====================================================== -->
 <!-- FOOTER -->
 <!-- ====================================================== -->
 <footer class="footer">
@@ -2414,7 +2080,6 @@
         <span class="footer-link-item" onclick="showPage('services')">Our Services</span>
         <span class="footer-link-item" onclick="showPage('actrule')">Act &amp; Rule</span>
         <span class="footer-link-item" onclick="showPage('training')">Training Calendar</span>
-        <span class="footer-link-item" onclick="showPage('compliance')">Compliance Tool</span>
         <span class="footer-link-item" onclick="showPage('contact')">Contact Us</span>
       </div>
     </div>
@@ -2457,65 +2122,21 @@
 
 
 <!-- ====================================================== -->
-<!-- OWNER LOGIN MODAL -->
-<!-- ====================================================== -->
-<div class="owner-overlay" id="ownerOverlay">
-  <div class="owner-modal">
-    <button class="btn-close-modal" onclick="closeOwnerLogin()"><i class="fas fa-times"></i></button>
-    <div class="owner-modal-logo"><i class="fas fa-lock"></i></div>
-    <h3>Owner Access</h3>
-    <p>Enter your 5-digit PIN to access the owner panel.</p>
-    <div class="pin-input" id="pinInput">
-      <input type="password" maxlength="1" class="pin-digit" id="pin0" oninput="pinNav(0)" onkeydown="pinBack(event,0)">
-      <input type="password" maxlength="1" class="pin-digit" id="pin1" oninput="pinNav(1)" onkeydown="pinBack(event,1)">
-      <input type="password" maxlength="1" class="pin-digit" id="pin2" oninput="pinNav(2)" onkeydown="pinBack(event,2)">
-      <input type="password" maxlength="1" class="pin-digit" id="pin3" oninput="pinNav(3)" onkeydown="pinBack(event,3)">
-      <input type="password" maxlength="1" class="pin-digit" id="pin4" oninput="pinNav(4,true)" onkeydown="pinBack(event,4)">
-    </div>
-    <div class="pin-error" id="pinError">Incorrect PIN. Please try again.</div>
-    <button class="btn-submit" style="width:100%;justify-content:center;" onclick="checkPin()"><i class="fas fa-unlock-alt"></i> Verify PIN</button>
-  </div>
-</div>
-
-
-<!-- ====================================================== -->
 <!-- JAVASCRIPT -->
 <!-- ====================================================== -->
 <script>
-  // ===== OWNER PIN (change this to set your PIN) =====
-  const OWNER_PIN = '28947';
-
-  let isOwnerLoggedIn = false;
-  let sessionPageViews = 0;
-
   // ===== PAGE NAVIGATION =====
   function showPage(pageId) {
-    // Gate compliance page for non-owners
-    if (pageId === 'compliance' && !isOwnerLoggedIn) {
-      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-      document.getElementById('page-compliance').classList.add('active');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      document.getElementById('navLinks').classList.remove('open');
-      sessionPageViews++;
-      const el = document.getElementById('statPageViews');
-      if (el) el.textContent = sessionPageViews;
-      return;
-    }
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     const target = document.getElementById('page-' + pageId);
     if (target) {
       target.classList.add('active');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-    // Update nav active state
     document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
     const navEl = document.getElementById('nav-' + pageId);
     if (navEl) navEl.classList.add('active');
-    // Close mobile nav
     document.getElementById('navLinks').classList.remove('open');
-    sessionPageViews++;
-    const el = document.getElementById('statPageViews');
-    if (el) el.textContent = sessionPageViews;
   }
 
   function scrollToSection(id) {
@@ -2544,76 +2165,7 @@
     }, 100);
   }
 
-  // ===== OWNER PIN =====
-  function openOwnerLogin() {
-    if (isOwnerLoggedIn) {
-      showPage('owner');
-      return;
-    }
-    document.getElementById('ownerOverlay').classList.add('open');
-    setTimeout(() => document.getElementById('pin0').focus(), 300);
-  }
-  function closeOwnerLogin() {
-    document.getElementById('ownerOverlay').classList.remove('open');
-    clearPinInputs();
-    document.getElementById('pinError').classList.remove('show');
-  }
-  function clearPinInputs() {
-    for (let i = 0; i < 5; i++) {
-      document.getElementById('pin' + i).value = '';
-    }
-  }
-  function pinNav(idx, last) {
-    const val = document.getElementById('pin' + idx).value;
-    if (val && idx < 4) {
-      document.getElementById('pin' + (idx + 1)).focus();
-    }
-    if (last && val) checkPin();
-  }
-  function pinBack(e, idx) {
-    if (e.key === 'Backspace' && !document.getElementById('pin' + idx).value && idx > 0) {
-      document.getElementById('pin' + (idx - 1)).focus();
-    }
-    if (e.key === 'Enter') checkPin();
-  }
-  function checkPin() {
-    let pin = '';
-    for (let i = 0; i < 5; i++) {
-      pin += document.getElementById('pin' + i).value;
-    }
-    if (pin === OWNER_PIN) {
-      isOwnerLoggedIn = true;
-      closeOwnerLogin();
-      // Show compliance nav item
-      const navComp = document.getElementById('navComplianceItem');
-      if (navComp) navComp.style.display = '';
-      // Unlock compliance page content
-      const locked = document.getElementById('complianceLocked');
-      const unlocked = document.getElementById('complianceUnlocked');
-      if (locked) locked.style.display = 'none';
-      if (unlocked) unlocked.style.display = '';
-      showPage('owner');
-    } else {
-      document.getElementById('pinError').classList.add('show');
-      clearPinInputs();
-      document.getElementById('pin0').focus();
-      setTimeout(() => document.getElementById('pinError').classList.remove('show'), 3000);
-    }
-  }
-  function logoutOwner() {
-    isOwnerLoggedIn = false;
-    // Hide compliance nav item
-    const navComp = document.getElementById('navComplianceItem');
-    if (navComp) navComp.style.display = 'none';
-    // Lock compliance page again
-    const locked = document.getElementById('complianceLocked');
-    const unlocked = document.getElementById('complianceUnlocked');
-    if (locked) locked.style.display = 'flex';
-    if (unlocked) unlocked.style.display = 'none';
-    showPage('home');
-  }
-
-  // ===== CONTACT FORM – mailto:info@frcc.org.in =====
+  // ===== CONTACT FORM =====
   function handleContactForm(e) {
     e.preventDefault();
     const name    = document.getElementById('cf_name').value.trim();
@@ -2636,45 +2188,6 @@
       document.getElementById('contactSuccess').style.display = 'none';
     }, 8000);
   }
-
-  // ===== OWNER TRAINING =====
-  const ownerTrainings = [];
-  function addTrainingUpdate() {
-    const title = document.getElementById('ownerTrainingTitle').value.trim();
-    const date = document.getElementById('ownerTrainingDate').value;
-    const location = document.getElementById('ownerTrainingLocation').value.trim();
-    if (!title) { alert('Please enter a training title.'); return; }
-    ownerTrainings.push({ title, date, location });
-    renderOwnerTrainings();
-    document.getElementById('ownerTrainingTitle').value = '';
-    document.getElementById('ownerTrainingDate').value = '';
-    document.getElementById('ownerTrainingLocation').value = '';
-    document.getElementById('statTraining').textContent = 6 + ownerTrainings.length;
-  }
-  function renderOwnerTrainings() {
-    const list = document.getElementById('ownerTrainingList');
-    if (!ownerTrainings.length) { list.innerHTML = ''; return; }
-    list.innerHTML = '<h5 style="font-family:var(--font-ui);font-size:0.78rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-light);margin-bottom:0.8rem;">Added Trainings (this session)</h5>' +
-      ownerTrainings.map((t, i) => `
-        <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:0.8rem 1rem;margin-bottom:0.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;">
-          <div>
-            <div style="font-weight:600;font-size:0.9rem;">${t.title}</div>
-            <div style="font-size:0.78rem;color:var(--text-light);">${t.date || 'Date TBD'} &nbsp;·&nbsp; ${t.location || 'Location TBD'}</div>
-          </div>
-          <button onclick="ownerTrainings.splice(${i},1);renderOwnerTrainings();" style="color:#c0392b;background:none;border:none;cursor:pointer;font-size:0.85rem;"><i class="fas fa-trash"></i></button>
-        </div>`).join('');
-  }
-  function saveOwnerSettings() {
-    alert('Settings saved for this session.');
-  }
-
-  // ===== CLOSE OVERLAY ON BG CLICK =====
-  document.getElementById('ownerOverlay').addEventListener('click', function(e) {
-    if (e.target === this) closeOwnerLogin();
-  });
-
-  // Increment session page views on load
-  sessionPageViews = 1;
 </script>
 </body>
 </html>
