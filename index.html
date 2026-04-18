@@ -4,10 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FRCC – Food Regulation and Compliance Centre</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700&family=Nunito+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
-  /* ===== CSS VARIABLES ===== */
   :root {
     --navy:      #1a3c6e;
     --navy-dark: #122b52;
@@ -31,7 +30,6 @@
     --font-ui:      'Nunito Sans', sans-serif;
   }
 
-  /* ===== RESET ===== */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body {
@@ -52,49 +50,47 @@
     background: var(--navy-dark);
     color: #d0e4f7;
     font-family: var(--font-ui);
-    font-size: 0.82rem;
+    font-size: 0.84rem;
     font-weight: 500;
-    padding: 0 2rem;
+    padding: 0 2.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    min-height: 38px;
+    min-height: 42px;
     letter-spacing: 0.01em;
   }
-  .utility-left { display: flex; gap: 1.4rem; align-items: center; flex-wrap: wrap; }
+  .utility-left { display: flex; gap: 1.6rem; align-items: center; flex-wrap: wrap; }
   .utility-left a, .utility-left span {
     display: flex; align-items: center; gap: 0.4rem; color: #c8dcf0;
     transition: color .2s;
   }
   .utility-left a:hover { color: var(--gold-lt); }
-  .utility-right { display: flex; gap: 0.5rem; align-items: center; }
+  .utility-right { display: flex; gap: 0.55rem; align-items: center; flex-wrap: wrap; }
   .util-btn {
     background: rgba(255,255,255,0.10);
     color: #d0e4f7;
     border: 1px solid rgba(255,255,255,0.18);
-    border-radius: 4px;
-    padding: 3px 10px;
-    font-size: 0.78rem;
+    border-radius: 5px;
+    padding: 4px 12px;
+    font-size: 0.80rem;
     font-family: var(--font-ui);
-    font-weight: 600;
+    font-weight: 700;
     cursor: pointer;
     transition: background .2s, color .2s;
     letter-spacing: 0.02em;
     display: flex; align-items: center; gap: 0.35rem;
   }
   .util-btn:hover { background: var(--gold); color: var(--navy-dark); border-color: var(--gold); }
-
-  /* ===== OWNER LOGIN BUTTON ===== */
   .util-btn-owner {
     background: rgba(196,154,0,0.15);
     color: var(--gold-lt);
     border: 1px solid rgba(196,154,0,0.35);
-    border-radius: 4px;
-    padding: 3px 12px;
-    font-size: 0.78rem;
+    border-radius: 5px;
+    padding: 4px 14px;
+    font-size: 0.80rem;
     font-family: var(--font-ui);
-    font-weight: 700;
+    font-weight: 800;
     cursor: pointer;
     transition: background .2s, color .2s, border-color .2s;
     letter-spacing: 0.03em;
@@ -127,84 +123,18 @@
     border-top: 4px solid var(--gold);
   }
   @keyframes modalIn { from { opacity:0; transform:translateY(-18px) scale(0.97); } to { opacity:1; transform:none; } }
-  .modal-close {
-    position: absolute; top: 14px; right: 16px;
-    background: none; border: none; font-size: 1.1rem;
-    color: var(--text-light); cursor: pointer;
-    transition: color .18s;
-  }
+  .modal-close { position: absolute; top: 14px; right: 16px; background: none; border: none; font-size: 1.1rem; color: var(--text-light); cursor: pointer; transition: color .18s; }
   .modal-close:hover { color: var(--navy); }
-  .modal-icon {
-    width: 52px; height: 52px;
-    background: linear-gradient(135deg, var(--navy), var(--navy-mid));
-    border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.3rem; color: var(--gold-lt);
-    margin: 0 auto 1.1rem;
-  }
-  .modal-title {
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--navy-dark);
-    text-align: center;
-    margin-bottom: 0.3rem;
-  }
-  .modal-sub {
-    font-size: 0.83rem;
-    color: var(--text-light);
-    text-align: center;
-    margin-bottom: 1.5rem;
-    font-family: var(--font-ui);
-  }
-  .pin-inputs {
-    display: flex; gap: 0.6rem; justify-content: center;
-    margin-bottom: 1.2rem;
-  }
-  .pin-digit {
-    width: 52px; height: 56px;
-    border: 2px solid var(--border);
-    border-radius: 9px;
-    font-size: 1.5rem;
-    font-family: var(--font-display);
-    font-weight: 700;
-    text-align: center;
-    color: var(--navy-dark);
-    background: var(--offwhite);
-    outline: none;
-    transition: border-color .2s, box-shadow .2s;
-    -webkit-text-security: disc;
-    letter-spacing: 0;
-  }
-  .pin-digit:focus {
-    border-color: var(--navy-mid);
-    box-shadow: 0 0 0 3px rgba(30,74,133,0.12);
-    background: white;
-  }
+  .modal-icon { width: 52px; height: 52px; background: linear-gradient(135deg, var(--navy), var(--navy-mid)); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; color: var(--gold-lt); margin: 0 auto 1.1rem; }
+  .modal-title { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--navy-dark); text-align: center; margin-bottom: 0.3rem; }
+  .modal-sub { font-size: 0.83rem; color: var(--text-light); text-align: center; margin-bottom: 1.5rem; font-family: var(--font-ui); }
+  .pin-inputs { display: flex; gap: 0.6rem; justify-content: center; margin-bottom: 1.2rem; }
+  .pin-digit { width: 52px; height: 56px; border: 2px solid var(--border); border-radius: 9px; font-size: 1.5rem; font-family: var(--font-display); font-weight: 700; text-align: center; color: var(--navy-dark); background: var(--offwhite); outline: none; transition: border-color .2s, box-shadow .2s; -webkit-text-security: disc; }
+  .pin-digit:focus { border-color: var(--navy-mid); box-shadow: 0 0 0 3px rgba(30,74,133,0.12); background: white; }
   .pin-digit.error { border-color: #e53e3e; background: #fff5f5; animation: shake .35s ease; }
   @keyframes shake { 0%,100%{transform:translateX(0)} 20%,60%{transform:translateX(-5px)} 40%,80%{transform:translateX(5px)} }
-  .pin-error-msg {
-    font-size: 0.82rem;
-    font-family: var(--font-ui);
-    color: #e53e3e;
-    text-align: center;
-    margin-bottom: 0.8rem;
-    min-height: 1.1rem;
-  }
-  .btn-pin-submit {
-    width: 100%;
-    background: var(--navy);
-    color: white;
-    font-family: var(--font-ui);
-    font-weight: 700;
-    font-size: 0.92rem;
-    padding: 0.78rem;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background .2s;
-    display: flex; align-items: center; justify-content: center; gap: 0.5rem;
-    letter-spacing: 0.02em;
-  }
+  .pin-error-msg { font-size: 0.82rem; font-family: var(--font-ui); color: #e53e3e; text-align: center; margin-bottom: 0.8rem; min-height: 1.1rem; }
+  .btn-pin-submit { width: 100%; background: var(--navy); color: white; font-family: var(--font-ui); font-weight: 700; font-size: 0.92rem; padding: 0.78rem; border-radius: 8px; cursor: pointer; transition: background .2s; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
   .btn-pin-submit:hover { background: var(--navy-mid); }
 
   /* ===== MAIN NAVBAR ===== */
@@ -215,49 +145,86 @@
     box-shadow: 0 2px 16px rgba(26,60,110,0.07);
   }
   .navbar-inner {
-    max-width: 1280px;
+    max-width: 95%;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 1.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-height: 72px;
+    min-height: 80px;
   }
-  .nav-logo {
-    display: flex; align-items: center; gap: 0.85rem;
-    cursor: pointer;
-  }
-  .nav-logo img { height: 52px; width: auto; object-fit: contain; }
+  .nav-logo { display: flex; align-items: center; gap: 1rem; cursor: pointer; }
+  .nav-logo img { height: 64px; width: auto; object-fit: contain; }
   .nav-logo-text { display: flex; flex-direction: column; line-height: 1.2; }
-  .nav-logo-text .brand-name {
-    font-family: var(--font-display);
-    font-size: 1.18rem;
-    font-weight: 700;
-    color: var(--navy);
-    letter-spacing: 0.03em;
-  }
-  .nav-logo-text .brand-full {
-    font-size: 0.68rem;
-    font-family: var(--font-ui);
-    color: var(--text-light);
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-  }
-  .nav-links {
+  .nav-logo-text .brand-name { font-family: var(--font-display); font-size: 1.45rem; font-weight: 700; color: var(--navy); letter-spacing: 0.03em; }
+  .nav-logo-text .brand-full { font-size: 0.76rem; font-family: var(--font-ui); color: var(--text-light); font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  /* foSTaC TRAINING TICKER STRIP — prominent full-width bar */
+  .foSTaC-strip {
+    background: linear-gradient(90deg, #dff0ff 0%, #f0f8ff 50%, #dff0ff 100%);
+    border-bottom: 2px solid var(--border);
+    border-top: 1px solid var(--border);
+    padding: 0 2.5rem;
     display: flex;
     align-items: center;
-    gap: 0.1rem;
+    gap: 1.5rem;
+    min-height: 54px;          /* taller bar */
+    width: 100%;               /* full width, no max-width clipping */
   }
-  .nav-item {
-    position: relative;
+  .foSTaC-label {
+    font-family: var(--font-ui);
+    font-size: 1rem;           /* larger */
+    font-weight: 800;
+    color: var(--navy-dark);
+    white-space: nowrap;
+    display: flex; align-items: center; gap: 0.55rem;
+    letter-spacing: 0.01em;
+    flex-shrink: 0;
   }
+  .foSTaC-label .foSTaC-word {
+    color: var(--gold);
+    font-size: 1.05rem;
+    font-weight: 900;
+    background: rgba(196,154,0,0.12);
+    border: 1.5px solid rgba(196,154,0,0.40);
+    padding: 2px 10px;
+    border-radius: 5px;
+    letter-spacing: 0.03em;
+  }
+  .foSTaC-divider { width: 2px; height: 28px; background: var(--border); flex-shrink: 0; }
+  .foSTaC-text {
+    font-family: var(--font-ui);
+    font-size: 0.92rem;        /* larger */
+    color: var(--text);
+    font-weight: 600;
+    flex: 1;
+  }
+  .foSTaC-view-btn {
+    background: var(--navy);
+    color: white;
+    font-family: var(--font-ui);
+    font-weight: 700;
+    font-size: 0.88rem;        /* larger */
+    padding: 8px 22px;         /* more padding */
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex; align-items: center; gap: 0.4rem;
+    transition: background .2s;
+    white-space: nowrap;
+    flex-shrink: 0;
+    letter-spacing: 0.02em;
+    border: none;
+  }
+  .foSTaC-view-btn:hover { background: var(--navy-mid); }
+
+  .nav-links { display: flex; align-items: center; gap: 0.15rem; }
+  .nav-item { position: relative; }
   .nav-link {
     font-family: var(--font-ui);
-    font-size: 0.88rem;
-    font-weight: 600;
+    font-size: 0.94rem;
+    font-weight: 700;
     color: var(--navy);
-    padding: 0.6rem 0.85rem;
+    padding: 0.6rem 0.95rem;
     border-radius: 6px;
     cursor: pointer;
     display: flex; align-items: center; gap: 0.28rem;
@@ -265,18 +232,13 @@
     letter-spacing: 0.01em;
     white-space: nowrap;
   }
-  .nav-link:hover, .nav-link.active {
-    background: var(--alice);
-    color: var(--navy-mid);
-  }
-
-  /* Compliance Manager nav link — special gold accent */
+  .nav-link:hover, .nav-link.active { background: var(--alice); color: var(--navy-mid); }
   .nav-link-compliance {
     font-family: var(--font-ui);
-    font-size: 0.88rem;
-    font-weight: 700;
+    font-size: 0.94rem;
+    font-weight: 800;
     color: var(--gold);
-    padding: 0.6rem 0.85rem;
+    padding: 0.6rem 0.95rem;
     border-radius: 6px;
     cursor: pointer;
     display: flex; align-items: center; gap: 0.28rem;
@@ -286,848 +248,396 @@
     border: 1px solid rgba(196,154,0,0.25);
     background: rgba(196,154,0,0.06);
   }
-  .nav-link-compliance:hover, .nav-link-compliance.active {
-    background: rgba(196,154,0,0.14);
-    color: var(--gold);
-  }
-
+  .nav-link-compliance:hover, .nav-link-compliance.active { background: rgba(196,154,0,0.14); color: var(--gold); }
   .nav-link .chevron { font-size: 0.65rem; transition: transform .2s; }
   .nav-item:hover .chevron { transform: rotate(180deg); }
 
-  /* Dropdown */
   .dropdown {
-    position: absolute;
-    top: calc(100% + 6px);
-    left: 0;
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow-lg);
-    min-width: 220px;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-8px);
-    transition: all .22s;
-    z-index: 1000;
-    overflow: hidden;
+    position: absolute; top: calc(100% + 6px); left: 0;
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: var(--radius); box-shadow: var(--shadow-lg);
+    min-width: 220px; opacity: 0; visibility: hidden;
+    transform: translateY(-8px); transition: all .22s; z-index: 1000; overflow: hidden;
   }
-  .nav-item:hover .dropdown {
-    opacity: 1; visibility: visible; transform: translateY(0);
-  }
+  .nav-item:hover .dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
   .dropdown-item {
-    padding: 0.65rem 1.1rem;
-    font-size: 0.85rem;
-    font-family: var(--font-ui);
-    font-weight: 500;
-    color: var(--text);
-    cursor: pointer;
-    display: flex; align-items: center; gap: 0.5rem;
-    transition: background .15s, color .15s;
-    border-bottom: 1px solid #f0f4f8;
+    padding: 0.68rem 1.1rem; font-size: 0.87rem; font-family: var(--font-ui); font-weight: 500;
+    color: var(--text); cursor: pointer; display: flex; align-items: center; gap: 0.5rem;
+    transition: background .15s, color .15s; border-bottom: 1px solid #f0f4f8;
   }
   .dropdown-item:last-child { border-bottom: none; }
   .dropdown-item:hover { background: var(--alice); color: var(--navy); }
   .dropdown-item i { width: 16px; text-align: center; color: var(--navy-mid); font-size: 0.78rem; }
 
-  /* Hamburger */
-  .hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    padding: 8px;
-  }
-  .hamburger span {
-    width: 24px; height: 2px;
-    background: var(--navy); border-radius: 2px;
-    transition: .25s;
-  }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
+  .hamburger span { width: 26px; height: 2.5px; background: var(--navy); border-radius: 2px; transition: .25s; }
 
   /* ===== PAGE SYSTEM ===== */
   .page { display: none; animation: fadeIn .35s ease; }
   .page.active { display: block; }
   @keyframes fadeIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:none; } }
 
-  /* ===== COMPLIANCE MANAGER PAGE ===== */
-  #page-compliance {
-    display: none;
-  }
-  #page-compliance.active {
-    display: block;
-  }
-  .compliance-iframe-container {
-    width: 100%;
-    height: calc(100vh - 110px);
-    min-height: 600px;
-    border: none;
-    display: block;
-    overflow: hidden;
-  }
-  .compliance-iframe-container iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    display: block;
-  }
-
-  /* ===== PAGE HERO BANNER ===== */
-  .page-banner {
-    background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-mid) 60%, #2a5f9e 100%);
-    color: white;
-    padding: 3.2rem 2rem;
+  /* ===== HERO SLIDESHOW — natural image dimensions ===== */
+  .hero-slideshow {
     position: relative;
+    width: 100%;
     overflow: hidden;
+    background: var(--navy-dark);
+    line-height: 0;
   }
-  .page-banner::before {
-    content: '';
+  /* Inactive slides sit on top but are invisible */
+  .slide {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    opacity: 0;
+    transition: opacity 1s ease;
+    z-index: 1;
+    pointer-events: none;
+  }
+  /* Active slide is in flow → drives container height naturally */
+  .slide.active {
+    position: relative;
+    opacity: 1;
+    z-index: 2;
+    pointer-events: auto;
+  }
+  .slide img {
+    width: 100%;
+    height: auto;           /* natural aspect ratio — NO forced stretch */
+    display: block;
+    object-position: center;
+  }
+  .slide-overlay {
     position: absolute; inset: 0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background: linear-gradient(to right, rgba(18,43,82,0.38) 0%, rgba(18,43,82,0.08) 55%, transparent 100%);
+    z-index: 3;
   }
-  .page-banner-inner {
-    max-width: 1280px; margin: 0 auto;
-    position: relative; z-index: 1;
+  .slideshow-nav {
+    position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%);
+    display: flex; gap: 10px; z-index: 10;
   }
-  .page-banner h1 {
-    font-family: var(--font-display);
-    font-size: 2.4rem;
-    font-weight: 700;
-    margin-bottom: 0.4rem;
-    letter-spacing: 0.01em;
+  .slide-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.45);
+    cursor: pointer;
+    transition: background .3s, transform .3s;
+    border: none;
   }
-  .breadcrumb {
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.72);
-    display: flex; align-items: center; gap: 0.4rem;
+  .slide-dot.active { background: var(--gold-lt); transform: scale(1.3); }
+  .slideshow-arrow {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: rgba(255,255,255,0.15);
+    border: 2px solid rgba(255,255,255,0.35);
+    border-radius: 50%;
+    width: 46px; height: 46px;
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-size: 1rem;
+    cursor: pointer; z-index: 10;
+    transition: background .2s;
+    backdrop-filter: blur(4px);
   }
-  .breadcrumb .sep { opacity: 0.5; }
-  .breadcrumb .current { color: var(--gold-lt); }
+  .slideshow-arrow:hover { background: rgba(255,255,255,0.30); }
+  .arrow-prev { left: 16px; }
+  .arrow-next { right: 16px; }
+
+  /* ===== STATS STRIP ===== */
+  .stats-strip { background: var(--navy); padding: 2rem 0; }
+  .stats-grid {
+    max-width: 95%; margin: 0 auto; padding: 0 2rem;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1rem; text-align: center;
+  }
+  .stat-num { font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; color: var(--gold-lt); line-height: 1; margin-bottom: 0.3rem; }
+  .stat-label { font-size: 0.84rem; color: rgba(255,255,255,0.70); font-family: var(--font-ui); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
 
   /* ===== CONTAINER ===== */
-  .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
-  .section { padding: 4.5rem 0; }
-  .section-sm { padding: 3rem 0; }
+  .container { max-width: 95%; margin: 0 auto; padding: 0 2rem; }
+  .section { padding: 4rem 0; }
+  .section-sm { padding: 2.5rem 0; }
   .section-alt { background: var(--offwhite); }
   .section-alice { background: var(--alice); }
 
   .section-label {
     display: inline-flex; align-items: center; gap: 0.5rem;
-    font-family: var(--font-ui);
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--navy-mid);
-    background: var(--alice-mid);
-    padding: 5px 14px;
-    border-radius: 20px;
-    margin-bottom: 0.9rem;
-    border: 1px solid var(--border);
+    font-family: var(--font-ui); font-size: 0.76rem; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 0.12em; color: var(--navy-mid);
+    background: var(--alice-mid); padding: 5px 14px; border-radius: 20px;
+    margin-bottom: 0.9rem; border: 1px solid var(--border);
   }
-  .section-title {
-    font-family: var(--font-display);
-    font-size: 2.1rem;
-    font-weight: 700;
-    color: var(--navy-dark);
-    line-height: 1.25;
-    margin-bottom: 0.6rem;
-  }
+  .section-title { font-family: var(--font-display); font-size: 2.2rem; font-weight: 700; color: var(--navy-dark); line-height: 1.25; margin-bottom: 0.6rem; }
   .section-title span { color: var(--navy-mid); }
-  .section-subtitle {
-    font-size: 1.02rem;
-    color: var(--text-light);
-    max-width: 600px;
-    line-height: 1.75;
-  }
-  .section-head { margin-bottom: 2.8rem; }
+  .section-subtitle { font-size: 1.04rem; color: var(--text-light); max-width: 640px; line-height: 1.75; }
+  .section-head { margin-bottom: 2.5rem; }
   .section-head.center { text-align: center; }
   .section-head.center .section-subtitle { margin: 0 auto; }
 
-  /* ===== DIVIDER LINE ===== */
-  .title-line {
-    width: 52px; height: 3px;
-    background: linear-gradient(90deg, var(--navy), var(--gold));
-    border-radius: 2px;
-    margin: 0.7rem 0 1rem;
-  }
+  .title-line { width: 52px; height: 3px; background: linear-gradient(90deg, var(--navy), var(--gold)); border-radius: 2px; margin: 0.7rem 0 1rem; }
   .title-line.center { margin: 0.7rem auto 1rem; }
 
-  /* ===== HERO (HOME PAGE) ===== */
-  .hero {
-    background: linear-gradient(135deg, var(--navy-dark) 0%, #1e4a85 50%, #2a6db5 100%);
-    color: white;
-    padding: 5rem 0 4rem;
-    position: relative;
+  /* ===== ABOUT SECTION ===== */
+  .about-split { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .about-img-main { width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); object-fit: cover; height: 400px; }
+  .about-badge-box { position: absolute; bottom: -20px; right: -20px; background: var(--navy); color: white; border-radius: var(--radius); padding: 1.2rem 1.5rem; text-align: center; box-shadow: var(--shadow); }
+  .about-img-wrap { position: relative; }
+  .about-badge-num { font-family: var(--font-display); font-size: 2rem; font-weight: 700; color: var(--gold-lt); line-height: 1; }
+  .about-badge-lbl { font-size: 0.72rem; font-family: var(--font-ui); color: rgba(255,255,255,0.7); margin-top: 3px; }
+  .value-pills { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.2rem; }
+  .value-pill { display: flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; font-family: var(--font-ui); font-weight: 700; color: var(--navy); background: var(--alice); border: 1px solid var(--border); padding: 6px 14px; border-radius: 20px; }
+  .value-pill i { color: var(--green); font-size: 0.72rem; }
+
+  /* ===== CLIENTS MARQUEE ===== */
+  .clients-section {
+    background: var(--white);
+    padding: 1.8rem 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
     overflow: hidden;
-    min-height: 88vh;
+  }
+  .clients-label {
+    text-align: center;
+    font-family: var(--font-ui);
+    font-size: 0.76rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-light);
+    margin-bottom: 1.1rem;
+  }
+  .marquee-track {
     display: flex;
-    align-items: center;
+    gap: 0;
+    overflow: hidden;
+    position: relative;
   }
-  .hero::before {
-    content:'';
-    position: absolute; inset:0;
-    background: radial-gradient(ellipse 80% 60% at 70% 50%, rgba(42,109,181,0.35) 0%, transparent 70%),
-                url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Crect x='0' y='0' width='40' height='40'/%3E%3Crect x='40' y='40' width='40' height='40'/%3E%3C/g%3E%3C/svg%3E");
+  .marquee-content {
+    display: flex;
+    gap: 0;
+    animation: marquee 28s linear infinite;
+    flex-shrink: 0;
+    min-width: 100%;
   }
-  .hero-inner {
-    max-width: 1280px; margin: 0 auto; padding: 0 2rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-    position: relative; z-index: 1;
-  }
-  .hero-badge {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    background: rgba(196,154,0,0.18);
-    border: 1px solid rgba(196,154,0,0.4);
-    color: var(--gold-lt);
-    font-size: 0.75rem;
+  .marquee-content:nth-child(2) { animation-delay: -14s; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-100%); } }
+  .client-chip {
+    display: flex; align-items: center; gap: 0.5rem;
+    padding: 0.6rem 1.4rem;
+    border-right: 1px solid var(--border);
+    white-space: nowrap;
     font-family: var(--font-ui);
+    font-size: 0.86rem;
     font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 5px 14px;
-    border-radius: 20px;
-    margin-bottom: 1.2rem;
+    color: var(--navy);
+    flex-shrink: 0;
   }
-  .hero h1 {
-    font-family: var(--font-display);
-    font-size: 3.2rem;
-    font-weight: 700;
-    line-height: 1.18;
-    margin-bottom: 1.2rem;
-    letter-spacing: 0.01em;
-  }
-  .hero h1 em {
-    font-style: normal;
-    color: var(--gold-lt);
-    display: block;
-  }
-  .hero-desc {
-    font-size: 1.05rem;
-    line-height: 1.8;
-    color: rgba(255,255,255,0.82);
-    max-width: 500px;
-    margin-bottom: 2rem;
-  }
-  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-  .btn-primary {
-    background: var(--gold);
-    color: var(--navy-dark);
-    font-family: var(--font-ui);
-    font-weight: 700;
-    font-size: 0.9rem;
-    padding: 0.75rem 1.6rem;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background .2s, transform .18s;
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    letter-spacing: 0.02em;
-  }
-  .btn-primary:hover { background: var(--gold-lt); transform: translateY(-1px); }
-  .btn-outline-white {
-    background: transparent;
-    color: white;
-    border: 2px solid rgba(255,255,255,0.45);
-    font-family: var(--font-ui);
-    font-weight: 600;
-    font-size: 0.9rem;
-    padding: 0.72rem 1.5rem;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all .2s;
-    display: inline-flex; align-items: center; gap: 0.5rem;
-  }
-  .btn-outline-white:hover { background: rgba(255,255,255,0.12); border-color: white; }
+  .client-chip i { color: var(--navy-mid); font-size: 0.9rem; }
 
-  .hero-visual {
-    display: flex; flex-direction: column; gap: 1.2rem;
-    align-items: flex-end;
-  }
-  .hero-card {
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: var(--radius-lg);
-    padding: 1.4rem 1.6rem;
-    width: 100%;
-    max-width: 360px;
-    backdrop-filter: blur(8px);
-  }
-  .hero-card-title {
-    font-family: var(--font-ui);
-    font-size: 0.72rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: rgba(255,255,255,0.55);
-    margin-bottom: 0.6rem;
-  }
-  .hero-stats-row { display: flex; gap: 1.5rem; }
-  .hero-stat-item { }
-  .hero-stat-num {
-    font-family: var(--font-display);
-    font-size: 1.9rem;
-    font-weight: 700;
-    color: var(--gold-lt);
-    line-height: 1;
-  }
-  .hero-stat-lbl { font-size: 0.75rem; color: rgba(255,255,255,0.65); font-family: var(--font-ui); margin-top: 2px; }
-  .hero-services-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
-  .hero-service-pill {
-    background: rgba(255,255,255,0.10);
-    border: 1px solid rgba(255,255,255,0.18);
-    color: rgba(255,255,255,0.85);
-    font-size: 0.75rem;
-    font-family: var(--font-ui);
-    padding: 3px 10px;
-    border-radius: 20px;
-  }
-
-  /* ===== STATS STRIP ===== */
-  .stats-strip {
-    background: var(--navy);
-    padding: 2rem 0;
-  }
-  .stats-grid {
-    max-width: 1280px; margin: 0 auto; padding: 0 2rem;
-    display: grid; grid-template-columns: repeat(4, 1fr);
-    gap: 1rem; text-align: center;
-  }
-  .stat-item { }
-  .stat-num {
-    font-family: var(--font-display);
-    font-size: 2.4rem;
-    font-weight: 700;
-    color: var(--gold-lt);
-    line-height: 1;
-    margin-bottom: 0.3rem;
-  }
-  .stat-label {
-    font-size: 0.82rem;
-    color: rgba(255,255,255,0.70);
-    font-family: var(--font-ui);
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  /* ===== CARDS ===== */
+  /* ===== SERVICE GRID ===== */
   .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
   .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.8rem; }
   .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
 
-  .card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    transition: box-shadow .25s, transform .25s;
-  }
-  .card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
-  .card-img { width: 100%; height: 200px; object-fit: cover; }
-  .card-body { padding: 1.4rem; }
-  .card-tag {
-    font-size: 0.72rem;
-    font-family: var(--font-ui);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.09em;
-    color: var(--navy-mid);
-    background: var(--alice);
-    padding: 2px 9px;
-    border-radius: 20px;
-    display: inline-block;
-    margin-bottom: 0.7rem;
-  }
-  .card-title {
-    font-family: var(--font-display);
-    font-size: 1.22rem;
-    font-weight: 600;
-    color: var(--navy-dark);
-    margin-bottom: 0.5rem;
-    line-height: 1.35;
-  }
-  .card-text { font-size: 0.88rem; color: var(--text-light); line-height: 1.7; }
-  .card-link {
-    display: inline-flex; align-items: center; gap: 0.35rem;
-    font-family: var(--font-ui);
-    font-size: 0.82rem;
-    font-weight: 700;
-    color: var(--navy-mid);
-    margin-top: 1rem;
-    cursor: pointer;
-    transition: gap .18s;
-  }
-  .card-link:hover { gap: 0.6rem; }
-
-  /* Service cards */
-  .service-card {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    transition: all .25s;
-    cursor: pointer;
-  }
+  .service-card { background: white; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; transition: all .25s; cursor: pointer; }
   .service-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
-  .service-card-img { width: 100%; height: 180px; object-fit: cover; }
+  .service-card-img { width: 100%; height: 175px; object-fit: cover; }
   .service-card-body { padding: 1.3rem; }
-  .service-card-icon {
-    width: 44px; height: 44px;
-    background: var(--alice);
-    border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    color: var(--navy-mid);
-    font-size: 1.1rem;
-    margin-bottom: 0.9rem;
-    border: 1px solid var(--border);
-  }
-  .service-card-title {
-    font-family: var(--font-display);
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: var(--navy-dark);
-    margin-bottom: 0.5rem;
-  }
-  .service-card-desc { font-size: 0.84rem; color: var(--text-light); line-height: 1.68; }
+  .service-card-icon { width: 44px; height: 44px; background: var(--alice); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--navy-mid); font-size: 1.1rem; margin-bottom: 0.8rem; border: 1px solid var(--border); }
+  .service-card-title { font-family: var(--font-display); font-size: 1.22rem; font-weight: 700; color: var(--navy-dark); margin-bottom: 0.45rem; }
+  .service-card-desc { font-size: 0.86rem; color: var(--text-light); line-height: 1.68; }
 
-  /* ===== ABOUT SECTION ===== */
-  .about-split {
+  /* ===== FEATURED SERVICE CARDS ===== */
+  .featured-services-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+    margin-bottom: 1.2rem;
   }
-  .about-img-wrap {
+  .featured-card {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
     position: relative;
+    cursor: pointer;
+    transition: transform .25s, box-shadow .25s;
+    height: 260px;           /* fixed height so cards are uniform */
+    display: flex; align-items: flex-end;
+    background: var(--navy-dark);
   }
-  .about-img-main {
-    width: 100%; border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-lg);
-    object-fit: cover; height: 420px;
+  .featured-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+  .featured-card img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;         /* fill card, crop if needed */
+    object-position: center;
+    opacity: 0.92;
   }
-  .about-badge-box {
-    position: absolute;
-    bottom: -20px; right: -20px;
-    background: var(--navy);
-    color: white;
-    border-radius: var(--radius);
-    padding: 1.2rem 1.5rem;
-    text-align: center;
-    box-shadow: var(--shadow);
+  .featured-card-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(10,25,55,0.96) 0%, rgba(10,25,55,0.55) 50%, rgba(10,25,55,0.15) 100%);
+    z-index: 1;
   }
-  .about-badge-num {
-    font-family: var(--font-display);
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--gold-lt);
-    line-height: 1;
-  }
-  .about-badge-lbl { font-size: 0.72rem; font-family: var(--font-ui); color: rgba(255,255,255,0.7); margin-top: 3px; }
-
-  /* ===== VALUE PILLS ===== */
-  .value-pills { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.2rem; }
-  .value-pill {
-    display: flex; align-items: center; gap: 0.4rem;
-    font-size: 0.83rem;
-    font-family: var(--font-ui);
-    font-weight: 600;
-    color: var(--navy);
-    background: var(--alice);
-    border: 1px solid var(--border);
-    padding: 5px 13px;
-    border-radius: 20px;
-  }
-  .value-pill i { color: var(--green); font-size: 0.72rem; }
+  .featured-card-content { position: relative; z-index: 2; padding: 1.4rem 1.5rem; width: 100%; }
+  .featured-card-icon { font-size: 1.6rem; color: var(--gold-lt); margin-bottom: 0.5rem; }
+  .featured-card-title { font-family: var(--font-display); font-size: 1.35rem; font-weight: 700; color: white; line-height: 1.25; margin-bottom: 0.3rem; text-shadow: 0 1px 6px rgba(0,0,0,0.5); }
+  .featured-card-sub { font-size: 0.82rem; color: rgba(255,255,255,0.88); font-family: var(--font-ui); font-weight: 600; text-shadow: 0 1px 4px rgba(0,0,0,0.4); }
 
   /* ===== MISSION VISION ===== */
-  .mv-card {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 2rem;
-    position: relative;
-    overflow: hidden;
-    transition: box-shadow .25s;
-  }
+  .mv-card { background: white; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; position: relative; overflow: hidden; transition: box-shadow .25s; }
   .mv-card:hover { box-shadow: var(--shadow-lg); }
-  .mv-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--navy), var(--gold));
-  }
-  .mv-card-icon {
-    width: 52px; height: 52px;
-    background: var(--alice);
-    border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.3rem; color: var(--navy);
-    margin-bottom: 1rem;
-    border: 1px solid var(--border);
-  }
-  .mv-card-title {
-    font-family: var(--font-display);
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--navy-dark);
-    margin-bottom: 0.8rem;
-  }
-  .mv-card-text { font-size: 0.92rem; color: var(--text-light); line-height: 1.8; }
+  .mv-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--navy), var(--gold)); }
+  .mv-card-icon { width: 52px; height: 52px; background: var(--alice); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; color: var(--navy); margin-bottom: 1rem; border: 1px solid var(--border); }
+  .mv-card-title { font-family: var(--font-display); font-size: 1.45rem; font-weight: 700; color: var(--navy-dark); margin-bottom: 0.8rem; }
+  .mv-card-text { font-size: 0.93rem; color: var(--text-light); line-height: 1.8; }
+
+  /* ===== BUTTONS ===== */
+  .btn-primary { background: var(--gold); color: var(--navy-dark); font-family: var(--font-ui); font-weight: 800; font-size: 0.92rem; padding: 0.78rem 1.7rem; border-radius: 6px; cursor: pointer; transition: background .2s, transform .18s; display: inline-flex; align-items: center; gap: 0.5rem; letter-spacing: 0.02em; border: none; }
+  .btn-primary:hover { background: var(--gold-lt); transform: translateY(-1px); }
+  .btn-outline-white { background: transparent; color: white; border: 2px solid rgba(255,255,255,0.45); font-family: var(--font-ui); font-weight: 700; font-size: 0.92rem; padding: 0.75rem 1.5rem; border-radius: 6px; cursor: pointer; transition: all .2s; display: inline-flex; align-items: center; gap: 0.5rem; }
+  .btn-outline-white:hover { background: rgba(255,255,255,0.12); border-color: white; }
+  .btn-submit { background: var(--navy); color: white; font-family: var(--font-ui); font-weight: 800; font-size: 0.93rem; padding: 0.82rem 2rem; border-radius: 7px; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; transition: background .2s, transform .18s; border: none; letter-spacing: 0.02em; }
+  .btn-submit:hover { background: var(--navy-mid); transform: translateY(-1px); }
+
+  /* ===== PAGE BANNER ===== */
+  .page-banner { background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-mid) 60%, #2a5f9e 100%); color: white; padding: 3.2rem 2rem; position: relative; overflow: hidden; }
+  .page-banner::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+  .page-banner-inner { max-width: 95%; margin: 0 auto; position: relative; z-index: 1; }
+  .page-banner h1 { font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; margin-bottom: 0.4rem; }
+  .breadcrumb { font-size: 0.85rem; color: rgba(255,255,255,0.72); display: flex; align-items: center; gap: 0.4rem; }
+  .breadcrumb .sep { opacity: 0.5; }
+  .breadcrumb .current { color: var(--gold-lt); }
 
   /* ===== ACT & RULE ===== */
-  .rule-category {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    margin-bottom: 2rem;
-  }
-  .rule-category-header {
-    background: var(--navy);
-    color: white;
-    padding: 1rem 1.5rem;
-    display: flex; align-items: center; gap: 0.7rem;
-    font-family: var(--font-display);
-    font-size: 1.28rem;
-    font-weight: 600;
-  }
+  .rule-category { background: white; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 2rem; }
+  .rule-category-header { background: var(--navy); color: white; padding: 1rem 1.5rem; display: flex; align-items: center; gap: 0.7rem; font-family: var(--font-display); font-size: 1.32rem; font-weight: 600; }
   .rule-category-header i { font-size: 1.1rem; color: var(--gold-lt); }
-  .rule-links-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 0;
-  }
-  .rule-link-item {
-    display: flex; align-items: center; gap: 0.8rem;
-    padding: 1rem 1.4rem;
-    border-bottom: 1px solid var(--border);
-    border-right: 1px solid var(--border);
-    cursor: pointer;
-    transition: background .18s;
-    text-decoration: none;
-    color: var(--text);
-  }
+  .rule-links-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0; }
+  .rule-link-item { display: flex; align-items: center; gap: 0.8rem; padding: 1rem 1.4rem; border-bottom: 1px solid var(--border); border-right: 1px solid var(--border); cursor: pointer; transition: background .18s; text-decoration: none; color: var(--text); }
   .rule-link-item:hover { background: var(--alice); }
   .rule-link-item i { color: var(--navy-mid); font-size: 0.85rem; width: 16px; }
   .rule-link-text { font-size: 0.87rem; font-family: var(--font-ui); font-weight: 500; }
 
-  /* ===== CONTACT PAGE ===== */
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 3rem;
-    align-items: start;
-  }
-  .contact-info-card {
-    background: var(--navy);
-    color: white;
-    border-radius: var(--radius-lg);
-    padding: 2.2rem;
-  }
-  .contact-info-card h3 {
-    font-family: var(--font-display);
-    font-size: 1.6rem;
-    margin-bottom: 0.4rem;
-    color: white;
-  }
+  /* ===== CONTACT ===== */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 3rem; align-items: start; }
+  .contact-info-card { background: var(--navy); color: white; border-radius: var(--radius-lg); padding: 2.2rem; }
+  .contact-info-card h3 { font-family: var(--font-display); font-size: 1.65rem; margin-bottom: 0.4rem; }
   .contact-info-card p { font-size: 0.9rem; color: rgba(255,255,255,0.7); margin-bottom: 1.8rem; line-height: 1.7; }
-  .contact-detail {
-    display: flex; align-items: flex-start; gap: 0.9rem;
-    margin-bottom: 1.3rem;
-  }
-  .contact-detail-icon {
-    width: 38px; height: 38px;
-    background: rgba(255,255,255,0.10);
-    border-radius: 8px;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-    font-size: 0.9rem; color: var(--gold-lt);
-  }
+  .contact-detail { display: flex; align-items: flex-start; gap: 0.9rem; margin-bottom: 1.3rem; }
+  .contact-detail-icon { width: 40px; height: 40px; background: rgba(255,255,255,0.10); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.9rem; color: var(--gold-lt); }
   .contact-detail-text { font-size: 0.88rem; color: rgba(255,255,255,0.82); line-height: 1.65; }
   .contact-detail-text strong { display: block; color: white; margin-bottom: 2px; font-family: var(--font-ui); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; }
-
-  .contact-form-card {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 2.2rem;
-    box-shadow: var(--shadow);
-  }
-  .contact-form-card h3 {
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    color: var(--navy-dark);
-    margin-bottom: 1.5rem;
-  }
+  .contact-form-card { background: white; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2.2rem; box-shadow: var(--shadow); }
+  .contact-form-card h3 { font-family: var(--font-display); font-size: 1.55rem; color: var(--navy-dark); margin-bottom: 1.5rem; }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
   .form-group { margin-bottom: 1.2rem; }
-  .form-label {
-    display: block;
-    font-size: 0.82rem;
-    font-family: var(--font-ui);
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 0.4rem;
-    letter-spacing: 0.02em;
-  }
-  .form-control {
-    width: 100%;
-    padding: 0.65rem 0.9rem;
-    border: 1.5px solid var(--border);
-    border-radius: 7px;
-    font-family: var(--font-body);
-    font-size: 0.9rem;
-    color: var(--text);
-    background: var(--offwhite);
-    outline: none;
-    transition: border-color .2s, box-shadow .2s;
-  }
-  .form-control:focus {
-    border-color: var(--navy-mid);
-    box-shadow: 0 0 0 3px rgba(30,74,133,0.10);
-    background: white;
-  }
+  .form-label { display: block; font-size: 0.82rem; font-family: var(--font-ui); font-weight: 700; color: var(--text); margin-bottom: 0.4rem; letter-spacing: 0.02em; }
+  .form-control { width: 100%; padding: 0.68rem 0.9rem; border: 1.5px solid var(--border); border-radius: 7px; font-family: var(--font-body); font-size: 0.9rem; color: var(--text); background: var(--offwhite); outline: none; transition: border-color .2s, box-shadow .2s; }
+  .form-control:focus { border-color: var(--navy-mid); box-shadow: 0 0 0 3px rgba(30,74,133,0.10); background: white; }
   textarea.form-control { resize: vertical; min-height: 120px; }
-  .btn-submit {
-    background: var(--navy);
+
+  /* WhatsApp button */
+  .whatsapp-btn {
+    background: #25D366;
     color: white;
     font-family: var(--font-ui);
-    font-weight: 700;
+    font-weight: 800;
     font-size: 0.92rem;
-    padding: 0.8rem 2rem;
+    padding: 0.78rem 1.6rem;
     border-radius: 7px;
     cursor: pointer;
     display: flex; align-items: center; gap: 0.5rem;
     transition: background .2s, transform .18s;
     border: none;
     letter-spacing: 0.02em;
+    text-decoration: none;
   }
-  .btn-submit:hover { background: var(--navy-mid); transform: translateY(-1px); }
+  .whatsapp-btn:hover { background: #128C7E; transform: translateY(-1px); }
 
-  /* ===== IFRAME WRAPPER ===== */
-  .iframe-wrapper {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    box-shadow: var(--shadow);
-  }
-  .iframe-wrapper iframe {
-    width: 100%;
-    border: none;
-    display: block;
-  }
-
-  /* ===== COMPLIANCE TOOL SECTION ===== */
-  .tool-header {
-    background: linear-gradient(135deg, #e8f4ff 0%, #f0f8ff 100%);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 1.5rem 2rem;
-    margin-bottom: 1.5rem;
-    display: flex; align-items: center; gap: 1rem;
-  }
-  .tool-header-icon {
-    width: 50px; height: 50px;
-    background: var(--navy);
-    border-radius: 12px;
+  /* Fixed WhatsApp floating button */
+  .whatsapp-float {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    background: #25D366;
+    color: white;
+    width: 58px; height: 58px;
+    border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    color: white; font-size: 1.2rem;
-    flex-shrink: 0;
+    font-size: 1.6rem;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+    z-index: 800;
+    cursor: pointer;
+    transition: transform .2s, box-shadow .2s;
+    text-decoration: none;
   }
-  .tool-header h3 { font-family: var(--font-display); font-size: 1.35rem; font-weight: 700; color: var(--navy-dark); }
+  .whatsapp-float:hover { transform: scale(1.12); box-shadow: 0 6px 28px rgba(37,211,102,0.55); }
+
+  /* ===== TRAINING ===== */
+  .tool-header { background: linear-gradient(135deg, #e8f4ff 0%, #f0f8ff 100%); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem 2rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
+  .tool-header-icon { width: 50px; height: 50px; background: var(--navy); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; flex-shrink: 0; }
+  .tool-header h3 { font-family: var(--font-display); font-size: 1.38rem; font-weight: 700; color: var(--navy-dark); }
   .tool-header p { font-size: 0.86rem; color: var(--text-light); margin-top: 3px; }
 
-  /* ===== TRAINING CARDS ===== */
-  .training-card {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    overflow: hidden;
-    transition: all .25s;
-  }
-  .training-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
-  .training-card-date {
-    background: var(--navy);
-    color: white;
-    padding: 0.6rem 1rem;
-    font-family: var(--font-ui);
-    font-size: 0.8rem;
-    font-weight: 600;
-    display: flex; align-items: center; gap: 0.4rem;
-  }
-  .training-card-date i { color: var(--gold-lt); }
-  .training-card-body { padding: 1.2rem; }
-  .training-card-title {
-    font-family: var(--font-display);
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--navy-dark);
-    margin-bottom: 0.5rem;
-  }
-  .training-card-meta { font-size: 0.8rem; color: var(--text-light); font-family: var(--font-ui); display: flex; gap: 1rem; flex-wrap: wrap; }
-  .training-card-meta span { display: flex; align-items: center; gap: 0.3rem; }
-  .training-register-btn {
-    margin-top: 0.9rem;
-    background: var(--navy);
-    color: white;
-    font-family: var(--font-ui);
-    font-weight: 600;
-    font-size: 0.8rem;
-    padding: 6px 14px;
-    border-radius: 5px;
-    cursor: pointer;
-    display: inline-flex; align-items: center; gap: 0.35rem;
-    transition: background .18s;
-  }
-  .training-register-btn:hover { background: var(--navy-mid); }
-
-  /* ===== FOOTER ===== */
-  .footer {
-    background: var(--navy-dark);
-    color: rgba(255,255,255,0.80);
-    padding: 4rem 0 0;
-  }
-  .footer-grid {
-    max-width: 1280px; margin: 0 auto; padding: 0 2rem;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1.4fr;
-    gap: 3rem;
-    margin-bottom: 3rem;
-  }
-  .footer-brand {}
-  .footer-logo-wrap {
-    display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1rem;
-  }
-  .footer-logo-wrap img { height: 48px; width: 48px; border-radius: 8px; object-fit: contain; background: white; padding: 4px; }
-  .footer-brand-name {
-    font-family: var(--font-display);
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: white;
-  }
-  .footer-desc {
-    font-size: 0.85rem;
-    line-height: 1.8;
-    color: rgba(255,255,255,0.60);
-    margin-bottom: 1.4rem;
-  }
-  .footer-social { display: flex; gap: 0.6rem; }
-  .footer-social a {
-    width: 34px; height: 34px;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.14);
-    border-radius: 7px;
-    display: flex; align-items: center; justify-content: center;
-    color: rgba(255,255,255,0.60);
-    font-size: 0.85rem;
-    transition: all .2s;
-  }
-  .footer-social a:hover { background: var(--gold); color: var(--navy-dark); border-color: var(--gold); }
-  .footer-col h5 {
-    font-family: var(--font-ui);
-    font-size: 0.78rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: rgba(255,255,255,0.45);
-    margin-bottom: 1rem;
-  }
-  .footer-links { display: flex; flex-direction: column; gap: 0.5rem; }
-  .footer-links a, .footer-link-item {
-    font-size: 0.86rem;
-    color: rgba(255,255,255,0.62);
-    transition: color .18s;
-    cursor: pointer;
-    display: flex; align-items: center; gap: 0.4rem;
-  }
-  .footer-links a:hover, .footer-link-item:hover { color: var(--gold-lt); }
-  .footer-links a::before, .footer-link-item::before { content: '›'; opacity: 0.5; }
-  .footer-contact-item {
-    display: flex; gap: 0.7rem; align-items: flex-start;
-    margin-bottom: 0.9rem; font-size: 0.85rem; color: rgba(255,255,255,0.62);
-  }
-  .footer-contact-item i { color: var(--gold); margin-top: 2px; flex-shrink: 0; }
-  .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.10);
-    max-width: 1280px; margin: 0 auto; padding: 1.3rem 2rem;
-    display: flex; align-items: center; justify-content: space-between;
-    font-size: 0.82rem;
-    color: rgba(255,255,255,0.38);
-    font-family: var(--font-ui);
-    flex-wrap: wrap; gap: 0.5rem;
-  }
-
-  /* ===== HIGHLIGHT BOX ===== */
-  .highlight-box {
-    background: var(--alice);
-    border: 1px solid var(--border);
-    border-left: 4px solid var(--navy-mid);
-    border-radius: 0 var(--radius) var(--radius) 0;
-    padding: 1.1rem 1.4rem;
-    margin-bottom: 1.2rem;
-  }
-  .highlight-box p { font-size: 0.92rem; color: var(--text); line-height: 1.75; }
-
-  /* ===== CHECKLIST ===== */
-  .checklist { list-style: none; padding: 0; }
-  .checklist li {
-    display: flex; align-items: flex-start; gap: 0.7rem;
-    font-size: 0.88rem;
-    color: var(--text);
-    padding: 0.45rem 0;
-    border-bottom: 1px solid var(--border);
-    line-height: 1.6;
-  }
-  .checklist li:last-child { border-bottom: none; }
-  .checklist li i { color: var(--green); margin-top: 3px; flex-shrink: 0; font-size: 0.82rem; }
-
-  /* Tab system for services */
-  .tabs {
-    display: flex; gap: 0; flex-wrap: wrap;
-    border-bottom: 2px solid var(--border);
-    margin-bottom: 2rem;
-  }
-  .tab-btn {
-    font-family: var(--font-ui);
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--text-light);
-    padding: 0.75rem 1.2rem;
-    cursor: pointer;
-    border-bottom: 2px solid transparent;
-    margin-bottom: -2px;
-    transition: color .18s, border-color .18s;
-    display: flex; align-items: center; gap: 0.4rem;
-    white-space: nowrap;
-  }
+  /* ===== TABS ===== */
+  .tabs { display: flex; gap: 0; flex-wrap: wrap; border-bottom: 2px solid var(--border); margin-bottom: 2rem; }
+  .tab-btn { font-family: var(--font-ui); font-size: 0.87rem; font-weight: 700; color: var(--text-light); padding: 0.78rem 1.2rem; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: color .18s, border-color .18s; display: flex; align-items: center; gap: 0.4rem; white-space: nowrap; }
   .tab-btn:hover { color: var(--navy); }
   .tab-btn.active { color: var(--navy); border-bottom-color: var(--navy); }
   .tab-panel { display: none; }
   .tab-panel.active { display: block; animation: fadeIn .3s ease; }
+  .service-detail-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem; align-items: start; }
+  .service-detail-img { width: 100%; border-radius: var(--radius-lg); object-fit: cover; height: 380px; box-shadow: var(--shadow-lg); }
 
-  /* Service detail */
-  .service-detail-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 3rem;
-    align-items: start;
-  }
-  .service-detail-img {
+  /* ===== HIGHLIGHT BOX ===== */
+  .highlight-box { background: var(--alice); border: 1px solid var(--border); border-left: 4px solid var(--navy-mid); border-radius: 0 var(--radius) var(--radius) 0; padding: 1.1rem 1.4rem; margin-bottom: 1.2rem; }
+  .highlight-box p { font-size: 0.92rem; color: var(--text); line-height: 1.75; }
+
+  /* ===== CHECKLIST ===== */
+  .checklist { list-style: none; padding: 0; }
+  .checklist li { display: flex; align-items: flex-start; gap: 0.7rem; font-size: 0.88rem; color: var(--text); padding: 0.45rem 0; border-bottom: 1px solid var(--border); line-height: 1.6; }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist li i { color: var(--green); margin-top: 3px; flex-shrink: 0; font-size: 0.82rem; }
+
+  /* ===== ALERT ===== */
+  .alert { padding: 1rem 1.2rem; border-radius: var(--radius); font-size: 0.88rem; font-family: var(--font-ui); display: flex; align-items: flex-start; gap: 0.6rem; margin-bottom: 1rem; }
+  .alert-info { background: var(--alice); border: 1px solid var(--border); color: var(--navy); }
+  .alert i { color: var(--navy-mid); flex-shrink: 0; margin-top: 1px; }
+
+  /* ===== GOVT BADGE ===== */
+  .govt-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(46,125,50,0.08); border: 1px solid rgba(46,125,50,0.25); color: #1b5e20; font-size: 0.75rem; font-family: var(--font-ui); font-weight: 800; padding: 4px 12px; border-radius: 20px; margin-bottom: 1rem; letter-spacing: 0.04em; }
+
+  /* ===== IFRAME PAGES ===== */
+  .fullpage-iframe {
     width: 100%;
-    border-radius: var(--radius-lg);
-    object-fit: cover;
-    height: 380px;
-    box-shadow: var(--shadow-lg);
+    height: calc(100vh - 122px);
+    min-height: 600px;
+    border: none;
+    display: block;
   }
+  .compliance-iframe-container { width: 100%; height: calc(100vh - 122px); min-height: 600px; border: none; display: block; overflow: hidden; }
+  .compliance-iframe-container iframe { width: 100%; height: 100%; border: none; display: block; }
+
+  /* ===== FOOTER ===== */
+  .footer { background: var(--navy-dark); color: rgba(255,255,255,0.80); padding: 4rem 0 0; }
+  .footer-grid { max-width: 95%; margin: 0 auto; padding: 0 2rem; display: grid; grid-template-columns: 2fr 1fr 1fr 1.4fr; gap: 3rem; margin-bottom: 3rem; }
+  .footer-brand {}
+  .footer-logo-wrap { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1rem; }
+  .footer-logo-wrap img { height: 48px; width: 48px; border-radius: 8px; object-fit: contain; background: white; padding: 4px; }
+  .footer-brand-name { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; color: white; }
+  .footer-desc { font-size: 0.85rem; line-height: 1.8; color: rgba(255,255,255,0.60); margin-bottom: 1.4rem; }
+  .footer-social { display: flex; gap: 0.6rem; }
+  .footer-social a { width: 34px; height: 34px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14); border-radius: 7px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.60); font-size: 0.85rem; transition: all .2s; }
+  .footer-social a:hover { background: var(--gold); color: var(--navy-dark); border-color: var(--gold); }
+  .footer-col h5 { font-family: var(--font-ui); font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.45); margin-bottom: 1rem; }
+  .footer-links { display: flex; flex-direction: column; gap: 0.5rem; }
+  .footer-links a, .footer-link-item { font-size: 0.86rem; color: rgba(255,255,255,0.62); transition: color .18s; cursor: pointer; display: flex; align-items: center; gap: 0.4rem; }
+  .footer-links a:hover, .footer-link-item:hover { color: var(--gold-lt); }
+  .footer-links a::before, .footer-link-item::before { content: '›'; opacity: 0.5; }
+  .footer-contact-item { display: flex; gap: 0.7rem; align-items: flex-start; margin-bottom: 0.9rem; font-size: 0.85rem; color: rgba(255,255,255,0.62); }
+  .footer-contact-item i { color: var(--gold); margin-top: 2px; flex-shrink: 0; }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.10); max-width: 95%; margin: 0 auto; padding: 1.3rem 2rem; display: flex; align-items: center; justify-content: space-between; font-size: 0.82rem; color: rgba(255,255,255,0.38); font-family: var(--font-ui); flex-wrap: wrap; gap: 0.5rem; }
 
   /* ===== RESPONSIVE ===== */
   @media (max-width: 1024px) {
-    .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
-    .hero-visual { display: none; }
-    .hero h1 { font-size: 2.4rem; }
+    .featured-services-grid { grid-template-columns: repeat(2, 1fr); }
     .stats-grid { grid-template-columns: repeat(2, 1fr); }
     .grid-3 { grid-template-columns: repeat(2, 1fr); }
     .grid-4 { grid-template-columns: repeat(2, 1fr); }
@@ -1140,81 +650,35 @@
   @media (max-width: 768px) {
     .nav-links { display: none; }
     .hamburger { display: flex; }
-    .hero h1 { font-size: 1.9rem; }
-    .section-title { font-size: 1.6rem; }
+    .section-title { font-size: 1.7rem; }
     .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+    .featured-services-grid { grid-template-columns: repeat(2, 1fr); }
     .stats-grid { grid-template-columns: repeat(2, 1fr); }
     .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
-    .page-banner h1 { font-size: 1.7rem; }
+    .page-banner h1 { font-size: 1.8rem; }
     .utility-left { display: none; }
     .form-row { grid-template-columns: 1fr; }
+    .foSTaC-strip { display: none; }
+    .hero-slideshow { height: 55vw; min-height: 280px; }
   }
+  .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 80px; left: 0; right: 0; background: white; padding: 1rem; border-top: 1px solid var(--border); box-shadow: var(--shadow-lg); z-index: 899; max-height: 80vh; overflow-y: auto; }
+  .nav-links.open .dropdown { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: none; background: var(--offwhite); margin-left: 1rem; margin-top: 0.3rem; }
 
-  /* Mobile nav open */
-  .nav-links.open {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 72px; left: 0; right: 0;
-    background: white;
-    padding: 1rem;
-    border-top: 1px solid var(--border);
-    box-shadow: var(--shadow-lg);
-    z-index: 899;
-    max-height: 80vh;
-    overflow-y: auto;
-  }
-  .nav-links.open .dropdown {
-    position: static;
-    opacity: 1; visibility: visible; transform: none;
-    box-shadow: none;
-    border: none;
-    background: var(--offwhite);
-    margin-left: 1rem;
-    margin-top: 0.3rem;
-  }
-
-  /* Accent bar for home sections */
-  .accent-bar {
-    height: 3px;
-    background: linear-gradient(90deg, var(--navy) 0%, var(--gold) 50%, var(--alice-mid) 100%);
-    width: 100%;
-  }
-
-  /* Govt badge */
-  .govt-badge {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    background: rgba(46,125,50,0.08);
-    border: 1px solid rgba(46,125,50,0.25);
-    color: #1b5e20;
-    font-size: 0.75rem;
-    font-family: var(--font-ui);
-    font-weight: 700;
-    padding: 4px 12px;
-    border-radius: 20px;
-    margin-bottom: 1rem;
-    letter-spacing: 0.04em;
-  }
-
-  /* Alert */
-  .alert {
-    padding: 1rem 1.2rem;
-    border-radius: var(--radius);
-    font-size: 0.88rem;
-    font-family: var(--font-ui);
-    display: flex; align-items: flex-start; gap: 0.6rem;
-    margin-bottom: 1rem;
-  }
-  .alert-info { background: var(--alice); border: 1px solid var(--border); color: var(--navy); }
-  .alert i { color: var(--navy-mid); flex-shrink: 0; margin-top: 1px; }
+  /* Section spacing reduced */
+  .section-gap-sm { padding: 2.5rem 0; }
 </style>
 </head>
 <body>
 
-<!-- ===== PIN LOGIN MODAL ===== -->
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/919911991887" target="_blank" rel="noopener" class="whatsapp-float" title="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- ===== PIN MODAL ===== -->
 <div class="modal-overlay" id="pinModal">
   <div class="modal-box">
-    <button class="modal-close" onclick="closeModal()" aria-label="Close">&times;</button>
+    <button class="modal-close" onclick="closeModal()">&times;</button>
     <div class="modal-icon"><i class="fas fa-shield-alt"></i></div>
     <div class="modal-title">Owner Access</div>
     <div class="modal-sub">Enter your 4-digit PIN to continue</div>
@@ -1232,15 +696,15 @@
 <!-- ===== UTILITY BAR ===== -->
 <div class="utility-bar">
   <div class="utility-left">
-    <a href="tel:+919911991886"><i class="fas fa-phone-alt"></i> +91-9911991886</a>
+    <a href="tel:+919911991887"><i class="fas fa-phone-alt"></i> +91-9911991887</a>
     <a href="mailto:info@frcc.org.in"><i class="fas fa-envelope"></i> info@frcc.org.in</a>
     <span><i class="fas fa-map-marker-alt"></i> 122 Pocket E, Sector 17, Dwarka, New Delhi – 110078</span>
   </div>
   <div class="utility-right">
     <button class="util-btn" onclick="showPage('lms')"><i class="fas fa-video"></i> LMS</button>
-    <button class="util-btn" onclick="showPage('internship')"><i class="fas fa-user-graduate"></i> Internship Portal</button>
+    <button class="util-btn" onclick="showPage('internship')"><i class="fas fa-user-graduate"></i> Internship</button>
     <button class="util-btn" onclick="showPage('podcast')"><i class="fas fa-microphone-alt"></i> Podcast</button>
-    <!-- OWNER LOGIN / LOGOUT BUTTON -->
+    <button class="util-btn" onclick="showPage('jobs')"><i class="fas fa-briefcase"></i> Job Portal</button>
     <button class="util-btn-owner" id="ownerLoginBtn" onclick="handleOwnerButton()">
       <i class="fas fa-user-shield" id="ownerBtnIcon"></i>
       <span id="ownerBtnText">Owner Login</span>
@@ -1260,15 +724,13 @@
     </div>
 
     <ul class="nav-links" id="navLinks">
-      <li class="nav-item">
-        <span class="nav-link active" id="nav-home" onclick="showPage('home')">Home</span>
-      </li>
+      <li class="nav-item"><span class="nav-link active" id="nav-home" onclick="showPage('home')">Home</span></li>
       <li class="nav-item">
         <span class="nav-link" onclick="showPage('about')">About <i class="fas fa-chevron-down chevron"></i></span>
         <div class="dropdown">
           <div class="dropdown-item" onclick="showPage('about')"><i class="fas fa-info-circle"></i> About FRCC</div>
-          <div class="dropdown-item" onclick="showPage('about'); scrollToSection('what-we-do')"><i class="fas fa-tasks"></i> What We Do</div>
-          <div class="dropdown-item" onclick="showPage('about'); scrollToSection('mission-vision')"><i class="fas fa-bullseye"></i> Mission &amp; Vision</div>
+          <div class="dropdown-item" onclick="showPage('about')"><i class="fas fa-tasks"></i> What We Do</div>
+          <div class="dropdown-item" onclick="showPage('about')"><i class="fas fa-bullseye"></i> Mission &amp; Vision</div>
         </div>
       </li>
       <li class="nav-item">
@@ -1283,12 +745,8 @@
           <div class="dropdown-item" onclick="showPage('services'); activateTab('foodtesting')"><i class="fas fa-flask"></i> Food Testing</div>
         </div>
       </li>
-      <li class="nav-item">
-        <span class="nav-link" onclick="showPage('actrule')">Act &amp; Rule</span>
-      </li>
-      <li class="nav-item">
-        <span class="nav-link" onclick="showPage('training')">Training Calendar</span>
-      </li>
+      <li class="nav-item"><span class="nav-link" onclick="showPage('actrule')">Act &amp; Rule</span></li>
+      <li class="nav-item"><span class="nav-link" onclick="showPage('training')">Training Calendar</span></li>
       <li class="nav-item">
         <span class="nav-link" onclick="showPage('portals')">Portals <i class="fas fa-chevron-down chevron"></i></span>
         <div class="dropdown">
@@ -1298,10 +756,7 @@
           <div class="dropdown-item" onclick="showPage('jobs')"><i class="fas fa-briefcase"></i> Job Portal</div>
         </div>
       </li>
-      <li class="nav-item">
-        <span class="nav-link" onclick="showPage('contact')">Contact</span>
-      </li>
-      <!-- COMPLIANCE MANAGER NAV ITEM — hidden until owner logs in -->
+      <li class="nav-item"><span class="nav-link" onclick="showPage('contact')">Contact</span></li>
       <li class="nav-item" id="navCompliance" style="display:none;">
         <span class="nav-link-compliance" id="nav-compliance" onclick="showPage('compliance')">
           <i class="fas fa-chart-line"></i> Compliance Manager
@@ -1309,91 +764,65 @@
       </li>
     </ul>
 
-    <button class="hamburger" onclick="toggleMobileNav()" aria-label="Toggle menu">
+    <button class="hamburger" onclick="toggleMobileNav()">
       <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <!-- foSTaC Training Strip — full-width below nav -->
+  <div class="foSTaC-strip" id="foSTaCStrip">
+    <div class="foSTaC-label">
+      <i class="fas fa-certificate" style="color:var(--gold)"></i>
+      View Latest&nbsp;<span class="foSTaC-word">foSTaC</span>&nbsp;Training Programs
+    </div>
+    <div class="foSTaC-divider"></div>
+    <div class="foSTaC-text">FSSAI-certified food safety training programs — on-site &amp; online, scheduled monthly</div>
+    <button class="foSTaC-view-btn" onclick="showPage('training')">
+      <i class="fas fa-calendar-alt"></i> View Calendar
     </button>
   </div>
 </nav>
 
-<!-- ====================================================== -->
+<!-- ============================================================ -->
 <!-- PAGE: HOME -->
-<!-- ====================================================== -->
+<!-- ============================================================ -->
 <div id="page-home" class="page active">
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-inner">
-      <div class="hero-content">
-        <div class="govt-badge"><i class="fas fa-award"></i> Government Regulatory Partner</div>
-        <div class="hero-badge"><i class="fas fa-shield-alt"></i> Trusted Since 2019</div>
-        <h1>
-          India's Leading<br>
-          <em>Food Regulation &amp;<br>Compliance Authority</em>
-        </h1>
-        <p class="hero-desc">An independent, research and advocacy-based national scientific organization strengthening food regulatory frameworks and compliance through independent scientific advice across India.</p>
-        <div class="hero-btns">
-          <button class="btn-primary" onclick="showPage('services')"><i class="fas fa-arrow-right"></i> Explore Services</button>
-          <button class="btn-outline-white" onclick="showPage('contact')"><i class="fas fa-phone-alt"></i> Get In Touch</button>
-        </div>
-      </div>
-      <div class="hero-visual">
-        <div class="hero-card">
-          <div class="hero-card-title"><i class="fas fa-certificate"></i> &nbsp;Compliance Domains</div>
-          <div class="hero-services-list">
-            <span class="hero-service-pill">Food Safety</span>
-            <span class="hero-service-pill">Environment</span>
-            <span class="hero-service-pill">Water Quality</span>
-            <span class="hero-service-pill">Audits</span>
-            <span class="hero-service-pill">Export/Import</span>
-            <span class="hero-service-pill">Food Testing</span>
-            <span class="hero-service-pill">Training</span>
-          </div>
-        </div>
-        <div class="hero-card">
-          <div class="hero-card-title"><i class="fas fa-chart-bar"></i> &nbsp;Track Record</div>
-          <div class="hero-stats-row">
-            <div class="hero-stat-item">
-              <div class="hero-stat-num">500+</div>
-              <div class="hero-stat-lbl">Clients Served</div>
-            </div>
-            <div class="hero-stat-item">
-              <div class="hero-stat-num">15+</div>
-              <div class="hero-stat-lbl">Services</div>
-            </div>
-            <div class="hero-stat-item">
-              <div class="hero-stat-num">7</div>
-              <div class="hero-stat-lbl">Domains</div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <!-- ===== HERO SLIDESHOW ===== -->
+  <div class="hero-slideshow" id="heroSlideshow">
+    <div class="slide active">
+      <img src="https://raw.githubusercontent.com/zovacai-cloud/host_image/main/Banner.jpg" alt="FSSAI foSTaC Training Partner">
+      <div class="slide-overlay"></div>
     </div>
-  </section>
+    <div class="slide">
+      <img src="https://raw.githubusercontent.com/zovacai-cloud/host_image/main/Complete%20Food%20Safety%20Compliance%20Banner.jpg" alt="Complete Food Safety Compliance Consultation">
+      <div class="slide-overlay"></div>
+    </div>
+    <div class="slide">
+      <img src="https://raw.githubusercontent.com/zovacai-cloud/host_image/main/itbanner.jpg" alt="Food Safety Industrial Training">
+      <div class="slide-overlay"></div>
+    </div>
+    <div class="slide">
+      <img src="https://raw.githubusercontent.com/zovacai-cloud/host_image/main/internbanner.jpg" alt="Internship Program">
+      <div class="slide-overlay"></div>
+    </div>
+    <button class="slideshow-arrow arrow-prev" onclick="prevSlide()"><i class="fas fa-chevron-left"></i></button>
+    <button class="slideshow-arrow arrow-next" onclick="nextSlide()"><i class="fas fa-chevron-right"></i></button>
+    <div class="slideshow-nav" id="slideshowNav"></div>
+  </div>
 
   <!-- Stats Strip -->
   <div class="stats-strip">
     <div class="stats-grid">
-      <div class="stat-item">
-        <div class="stat-num">500+</div>
-        <div class="stat-label">Clients Served</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">7</div>
-        <div class="stat-label">Core Domains</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">100%</div>
-        <div class="stat-label">Regulatory Compliance</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">2019</div>
-        <div class="stat-label">Established</div>
-      </div>
+      <div class="stat-item"><div class="stat-num">500+</div><div class="stat-label">Clients Served</div></div>
+      <div class="stat-item"><div class="stat-num">7</div><div class="stat-label">Core Domains</div></div>
+      <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">Regulatory Compliance</div></div>
+      <div class="stat-item"><div class="stat-num">2019</div><div class="stat-label">Established</div></div>
     </div>
   </div>
 
   <!-- About Preview -->
-  <section class="section">
+  <section class="section" style="padding:3rem 0 1.5rem;">
     <div class="container">
       <div class="about-split">
         <div class="about-img-wrap">
@@ -1404,22 +833,20 @@
           </div>
         </div>
         <div>
+          <div class="govt-badge"><i class="fas fa-award"></i> Government Regulatory Partner</div>
           <div class="section-label"><i class="fas fa-info-circle"></i> About Us</div>
-          <h2 class="section-title">Food Regulation &amp; <span>Compliance Centre</span></h2>
+          <h2 class="section-title">India's Leading Food <span>Regulation Authority</span></h2>
           <div class="title-line"></div>
-          <p style="font-size:0.96rem;color:var(--text-light);line-height:1.85;margin-bottom:1.2rem;">
-            Food Regulation and Compliance Centre (FRCC) is an independent, research and advocacy-based multi-disciplinary national level scientific organization providing strength to national food regulatory frameworks and enhancing compliance through independent scientific advice.
-          </p>
-          <p style="font-size:0.96rem;color:var(--text-light);line-height:1.85;margin-bottom:1.5rem;">
-            FRCC navigates the scientific and regulatory requirements that products must meet to be marketed to the public. Our scientists and regulatory experts help navigate complex compliance landscapes every step of the way.
+          <p style="font-size:1rem;color:var(--text-light);line-height:1.85;margin-bottom:1rem;">
+            FRCC is an independent, research and advocacy-based national scientific organization — providing food regulatory compliance, FSSAI licensing, environmental clearances, food testing, training, and import/export support to food businesses across India.
           </p>
           <div class="value-pills">
-            <span class="value-pill"><i class="fas fa-check-circle"></i> Food Safety Compliance</span>
+            <span class="value-pill"><i class="fas fa-check-circle"></i> FSSAI Licensing</span>
+            <span class="value-pill"><i class="fas fa-check-circle"></i> Food Safety Audits</span>
             <span class="value-pill"><i class="fas fa-check-circle"></i> Environment Compliance</span>
-            <span class="value-pill"><i class="fas fa-check-circle"></i> Water &amp; Wastewater</span>
-            <span class="value-pill"><i class="fas fa-check-circle"></i> Audit Compliance</span>
-            <span class="value-pill"><i class="fas fa-check-circle"></i> Training</span>
-            <span class="value-pill"><i class="fas fa-check-circle"></i> Import Export</span>
+            <span class="value-pill"><i class="fas fa-check-circle"></i> foSTaC Training</span>
+            <span class="value-pill"><i class="fas fa-check-circle"></i> Export / Import</span>
+            <span class="value-pill"><i class="fas fa-check-circle"></i> Food Testing</span>
           </div>
           <br>
           <button class="btn-primary" onclick="showPage('about')" style="margin-top:0.5rem;display:inline-flex;">Read More <i class="fas fa-arrow-right"></i></button>
@@ -1428,8 +855,59 @@
     </div>
   </section>
 
+  <!-- Clients section removed per request -->
+
+  <!-- Featured Services (large cards) -->
+  <section style="padding:2rem 0 1rem;">
+    <div class="container">
+      <div class="section-head center" style="margin-bottom:1.5rem;">
+        <div class="section-label"><i class="fas fa-star"></i> Key Offerings</div>
+        <h2 class="section-title">What We <span>Offer</span></h2>
+        <div class="title-line center"></div>
+      </div>
+      <div class="featured-services-grid">
+        <div class="featured-card" onclick="showPage('services'); activateTab('training')" style="min-height:260px;">
+          <img src="https://raw.githubusercontent.com/zovacai-cloud/host_image/main/Banner.jpg" alt="foSTaC Training">
+          <div class="featured-card-overlay"></div>
+          <div class="featured-card-content">
+            <div class="featured-card-icon"><i class="fas fa-certificate"></i></div>
+            <div class="featured-card-title">FSSAI foSTaC Training</div>
+            <div class="featured-card-sub">Official FSSAI Training Partner</div>
+          </div>
+        </div>
+        <div class="featured-card" onclick="showPage('services'); activateTab('food')" style="min-height:260px;">
+          <img src="https://raw.githubusercontent.com/zovacai-cloud/host_image/main/Complete%20Food%20Safety%20Compliance%20Banner.jpg" alt="Food Safety Compliance">
+          <div class="featured-card-overlay"></div>
+          <div class="featured-card-content">
+            <div class="featured-card-icon"><i class="fas fa-shield-alt"></i></div>
+            <div class="featured-card-title">Food Safety Compliance</div>
+            <div class="featured-card-sub">End-to-End Regulatory Support</div>
+          </div>
+        </div>
+        <div class="featured-card" onclick="showPage('services'); activateTab('training')" style="min-height:260px;">
+          <img src="https://raw.githubusercontent.com/zovacai-cloud/host_image/main/itbanner.jpg" alt="Industrial Training">
+          <div class="featured-card-overlay"></div>
+          <div class="featured-card-content">
+            <div class="featured-card-icon"><i class="fas fa-industry"></i></div>
+            <div class="featured-card-title">Food Safety Industrial Training</div>
+            <div class="featured-card-sub">GMP, GHP, HACCP, Internal Auditor</div>
+          </div>
+        </div>
+        <div class="featured-card" onclick="showPage('internship')" style="min-height:260px;">
+          <img src="https://raw.githubusercontent.com/zovacai-cloud/host_image/main/internbanner.jpg" alt="Internship">
+          <div class="featured-card-overlay"></div>
+          <div class="featured-card-content">
+            <div class="featured-card-icon"><i class="fas fa-user-graduate"></i></div>
+            <div class="featured-card-title">Internship Program</div>
+            <div class="featured-card-sub">Food Technology Graduates &amp; PGs</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Services Grid -->
-  <section class="section section-alice">
+  <section class="section section-alice" style="padding-top:2rem;">
     <div class="container">
       <div class="section-head center">
         <div class="section-label"><i class="fas fa-cogs"></i> Our Services</div>
@@ -1467,7 +945,7 @@
           <div class="service-card-body">
             <div class="service-card-icon"><i class="fas fa-graduation-cap"></i></div>
             <div class="service-card-title">Training</div>
-            <p class="service-card-desc">FSSAI FoSTaC, HACCP, GMP, GHP, internal auditor training, and food safety management system courses.</p>
+            <p class="service-card-desc">FSSAI foSTaC, HACCP, GMP, GHP, internal auditor training, and food safety management system courses.</p>
           </div>
         </div>
         <div class="service-card" onclick="showPage('services'); activateTab('audits')">
@@ -1506,39 +984,24 @@
     </div>
   </section>
 
-  <!-- Training Updates Preview -->
+  <!-- Mission Vision -->
   <section class="section">
-    <div class="container">
-      <div class="section-head" style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:1rem;">
-        <div>
-          <div class="section-label"><i class="fas fa-calendar-alt"></i> Upcoming Training</div>
-          <h2 class="section-title">Training <span>Calendar</span></h2>
-          <div class="title-line"></div>
-          <p class="section-subtitle">FRCC is an active FoSTaC training partner with FSSAI. Register for on-site or online training programs.</p>
-        </div>
-        <button class="btn-primary" onclick="showPage('training')">View All <i class="fas fa-arrow-right"></i></button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Mission Vision Preview -->
-  <section class="section section-alice">
     <div class="container">
       <div class="section-head center">
         <div class="section-label"><i class="fas fa-bullseye"></i> Our Purpose</div>
         <h2 class="section-title">Mission &amp; <span>Vision</span></h2>
         <div class="title-line center"></div>
       </div>
-      <div class="grid-2" style="max-width:900px;margin:0 auto;">
+      <div class="grid-2" style="max-width:960px;margin:0 auto;">
         <div class="mv-card">
           <div class="mv-card-icon"><i class="fas fa-rocket"></i></div>
           <div class="mv-card-title">Our Mission</div>
-          <p class="mv-card-text">Food Regulation and Compliance Centre (FRCC) works towards the mission of paving the way for a safer, healthier society through facilitating the compliance for quality products in the market.</p>
+          <p class="mv-card-text">FRCC works towards paving the way for a safer, healthier society through facilitating the compliance for quality products in the market.</p>
         </div>
         <div class="mv-card">
           <div class="mv-card-icon"><i class="fas fa-eye"></i></div>
           <div class="mv-card-title">Our Vision</div>
-          <p class="mv-card-text">Food Regulation and Compliance Centre (FRCC) is the leading organization for assuring the safety and quality of the food we eat, the water we drink, and the environment we live in.</p>
+          <p class="mv-card-text">FRCC is the leading organization for assuring the safety and quality of the food we eat, the water we drink, and the environment we live in.</p>
         </div>
       </div>
     </div>
@@ -1547,9 +1010,9 @@
 </div><!-- end page-home -->
 
 
-<!-- ====================================================== -->
+<!-- ============================================================ -->
 <!-- PAGE: ABOUT -->
-<!-- ====================================================== -->
+<!-- ============================================================ -->
 <div id="page-about" class="page">
   <div class="page-banner">
     <div class="page-banner-inner">
@@ -1557,7 +1020,6 @@
       <div class="breadcrumb"><span onclick="showPage('home')" style="cursor:pointer;color:rgba(255,255,255,0.65)">Home</span><span class="sep">/</span><span class="current">About Us</span></div>
     </div>
   </div>
-
   <section class="section" id="about-main">
     <div class="container">
       <div class="grid-2" style="align-items:start;gap:3rem;">
@@ -1568,12 +1030,7 @@
           <div class="highlight-box">
             <p>Food Regulation and Compliance Centre (FRCC) is an independent, research and advocacy based multi-disciplinary national level scientific organization providing strength to national food regulatory frameworks and enhancing its compliance through independent scientific advice.</p>
           </div>
-          <p style="font-size:0.94rem;color:var(--text-light);line-height:1.85;margin-bottom:1rem;">
-            FRCC also educates consumers regarding food safety compliance and effective implementation of Food Safety Management System. FRCC navigates the scientific and regulatory requirements that products must meet in order to be marketed to the public.
-          </p>
-          <p style="font-size:0.94rem;color:var(--text-light);line-height:1.85;">
-            Our scientists and regulatory experts will help you navigate the scientific and regulatory requirements every step of the way — from product development to market launch.
-          </p>
+          <p style="font-size:0.95rem;color:var(--text-light);line-height:1.85;margin-bottom:1rem;">FRCC also educates consumers regarding food safety compliance and effective implementation of Food Safety Management System. Our scientists and regulatory experts will help you navigate requirements every step of the way — from product development to market launch.</p>
         </div>
         <div>
           <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80" alt="FRCC Laboratory" style="width:100%;border-radius:var(--radius-lg);object-fit:cover;height:360px;box-shadow:var(--shadow-lg);">
@@ -1581,53 +1038,23 @@
       </div>
     </div>
   </section>
-
   <section class="section section-alice" id="what-we-do">
     <div class="container">
       <div class="section-head center">
         <div class="section-label"><i class="fas fa-tasks"></i> What We Do</div>
         <h2 class="section-title">Our Core <span>Compliance Areas</span></h2>
         <div class="title-line center"></div>
-        <p class="section-subtitle">FRCC adds value to your business objectives by providing the most expedient and cost-effective route to satisfy regulatory requirements.</p>
       </div>
-      <div class="grid-3" style="margin-bottom:2.5rem;">
-        <div class="mv-card">
-          <div class="mv-card-icon"><i class="fas fa-utensils"></i></div>
-          <div class="mv-card-title">Food Safety Compliance</div>
-          <p class="mv-card-text">Helping food businesses comply with FSSAI regulations, labeling requirements, and food safety management systems.</p>
-        </div>
-        <div class="mv-card">
-          <div class="mv-card-icon"><i class="fas fa-leaf"></i></div>
-          <div class="mv-card-title">Environment Compliance</div>
-          <p class="mv-card-text">Ensuring companies follow environmental laws including CPCB/SPCB norms, EIA, and waste management regulations.</p>
-        </div>
-        <div class="mv-card">
-          <div class="mv-card-icon"><i class="fas fa-tint"></i></div>
-          <div class="mv-card-title">Water &amp; Wastewater</div>
-          <p class="mv-card-text">Water quality management, testing, RO/STP installation, and regulatory compliance for the food industry.</p>
-        </div>
-        <div class="mv-card">
-          <div class="mv-card-icon"><i class="fas fa-clipboard-check"></i></div>
-          <div class="mv-card-title">Audit Compliance</div>
-          <p class="mv-card-text">Internal and third-party food safety audits, HACCP audits, vendor assessments, and corrective action support.</p>
-        </div>
-        <div class="mv-card">
-          <div class="mv-card-icon"><i class="fas fa-graduation-cap"></i></div>
-          <div class="mv-card-title">Training</div>
-          <p class="mv-card-text">FSSAI FoSTaC training programs, HACCP, GMP, GHP, and specialized food safety management courses.</p>
-        </div>
-        <div class="mv-card">
-          <div class="mv-card-icon"><i class="fas fa-ship"></i></div>
-          <div class="mv-card-title">Import Export Compliance</div>
-          <p class="mv-card-text">FSSAI import/export licensing, IEC registration, APEDA compliance, and international trade facilitation.</p>
-        </div>
-      </div>
-      <div class="highlight-box" style="max-width:800px;margin:0 auto;">
-        <p>Our experts and food technologists help many players in the food sector every day to launch their products to market and ensure their claims and communication messages are in line with the regulations. Correct labeling and marketing claims in accordance with the regulations contribute to cost control by avoiding the risk of non-compliance and increase brand reputation.</p>
+      <div class="grid-3">
+        <div class="mv-card"><div class="mv-card-icon"><i class="fas fa-utensils"></i></div><div class="mv-card-title">Food Safety Compliance</div><p class="mv-card-text">FSSAI licensing, product approvals, labeling, FSMS development and implementation.</p></div>
+        <div class="mv-card"><div class="mv-card-icon"><i class="fas fa-leaf"></i></div><div class="mv-card-title">Environment Compliance</div><p class="mv-card-text">CPCB/SPCB norms, EIA, environmental clearance, and waste management.</p></div>
+        <div class="mv-card"><div class="mv-card-icon"><i class="fas fa-tint"></i></div><div class="mv-card-title">Water &amp; Wastewater</div><p class="mv-card-text">Water quality management, RO/STP installation, and zero discharge policy.</p></div>
+        <div class="mv-card"><div class="mv-card-icon"><i class="fas fa-clipboard-check"></i></div><div class="mv-card-title">Audit Compliance</div><p class="mv-card-text">Internal and third-party food safety audits, HACCP audits, vendor assessments.</p></div>
+        <div class="mv-card"><div class="mv-card-icon"><i class="fas fa-graduation-cap"></i></div><div class="mv-card-title">Training</div><p class="mv-card-text">foSTaC, HACCP, GMP, GHP, and specialized food safety management courses.</p></div>
+        <div class="mv-card"><div class="mv-card-icon"><i class="fas fa-ship"></i></div><div class="mv-card-title">Import Export Compliance</div><p class="mv-card-text">FSSAI import/export licensing, IEC registration, APEDA and international trade.</p></div>
       </div>
     </div>
   </section>
-
   <section class="section" id="mission-vision">
     <div class="container">
       <div class="section-head center">
@@ -1636,25 +1063,17 @@
         <div class="title-line center"></div>
       </div>
       <div class="grid-2" style="max-width:960px;margin:0 auto;gap:2.5rem;">
-        <div class="mv-card">
-          <div class="mv-card-icon"><i class="fas fa-rocket"></i></div>
-          <div class="mv-card-title">Our Mission</div>
-          <p class="mv-card-text">Food Regulation and Compliance Centre (FRCC) works towards the mission of paving the way for a safer, healthier society through facilitating the compliance for quality products in the market. We are committed to making compliance accessible, understandable, and achievable for all food businesses in India.</p>
-        </div>
-        <div class="mv-card">
-          <div class="mv-card-icon"><i class="fas fa-eye"></i></div>
-          <div class="mv-card-title">Our Vision</div>
-          <p class="mv-card-text">Food Regulation and Compliance Centre (FRCC) aspires to be the leading organization for assuring the safety and quality of the food we eat, the water we drink, and the environment we live in — a trusted partner for every food business in India navigating the complex regulatory landscape.</p>
-        </div>
+        <div class="mv-card"><div class="mv-card-icon"><i class="fas fa-rocket"></i></div><div class="mv-card-title">Our Mission</div><p class="mv-card-text">FRCC works towards the mission of paving the way for a safer, healthier society through facilitating the compliance for quality products in the market. We are committed to making compliance accessible, understandable, and achievable for all food businesses in India.</p></div>
+        <div class="mv-card"><div class="mv-card-icon"><i class="fas fa-eye"></i></div><div class="mv-card-title">Our Vision</div><p class="mv-card-text">FRCC aspires to be the leading organization for assuring the safety and quality of the food we eat, the water we drink, and the environment we live in — a trusted partner for every food business in India navigating the complex regulatory landscape.</p></div>
       </div>
     </div>
   </section>
-</div><!-- end page-about -->
+</div>
 
 
-<!-- ====================================================== -->
+<!-- ============================================================ -->
 <!-- PAGE: SERVICES -->
-<!-- ====================================================== -->
+<!-- ============================================================ -->
 <div id="page-services" class="page">
   <div class="page-banner">
     <div class="page-banner-inner">
@@ -1662,16 +1081,13 @@
       <div class="breadcrumb"><span onclick="showPage('home')" style="cursor:pointer;color:rgba(255,255,255,0.65)">Home</span><span class="sep">/</span><span class="current">Services</span></div>
     </div>
   </div>
-
   <section class="section">
     <div class="container">
       <div class="section-head center">
         <div class="section-label"><i class="fas fa-cogs"></i> Comprehensive Solutions</div>
         <h2 class="section-title">Regulatory Compliance <span>Services</span></h2>
         <div class="title-line center"></div>
-        <p class="section-subtitle">Select any service below to explore detailed offerings in each compliance domain.</p>
       </div>
-
       <div class="tabs" id="serviceTabs">
         <button class="tab-btn active" onclick="activateTab('food')" data-tab="food"><i class="fas fa-utensils"></i> Food Safety</button>
         <button class="tab-btn" onclick="activateTab('environment')" data-tab="environment"><i class="fas fa-leaf"></i> Environment</button>
@@ -1682,27 +1098,24 @@
         <button class="tab-btn" onclick="activateTab('foodtesting')" data-tab="foodtesting"><i class="fas fa-flask"></i> Food Testing</button>
       </div>
 
-      <!-- FOOD SAFETY -->
       <div id="tab-food" class="tab-panel active">
         <div class="service-detail-grid">
           <div>
             <div class="section-label"><i class="fas fa-utensils"></i> Food Safety Compliance</div>
-            <h3 style="font-family:var(--font-display);font-size:1.7rem;color:var(--navy-dark);margin-bottom:0.6rem;font-weight:700;">Food Safety &amp; FSSAI Compliance</h3>
+            <h3 style="font-family:var(--font-display);font-size:1.75rem;color:var(--navy-dark);margin-bottom:0.6rem;font-weight:700;">Food Safety &amp; FSSAI Compliance</h3>
             <div class="title-line"></div>
-            <p style="font-size:0.93rem;color:var(--text-light);line-height:1.85;margin-bottom:1.2rem;">It is the statutory obligation to treat food intended for human consumption in a controlled and managed way. The key requirements of the Act are that food must comply with food safety requirements, must be "of the nature, substance and quality demanded", and must be correctly described (labelled).</p>
-            <p style="font-size:0.93rem;color:var(--text-light);line-height:1.85;margin-bottom:1.5rem;">Our Experts help to maintain all food safety compliance requirements from licensing to product approvals, labeling guidance, and formulation development.</p>
+            <p style="font-size:0.93rem;color:var(--text-light);line-height:1.85;margin-bottom:1.2rem;">It is the statutory obligation to treat food intended for human consumption in a controlled and managed way. Our Experts help to maintain all food safety compliance requirements from licensing to product approvals, labeling guidance, and formulation development.</p>
             <ul class="checklist">
               <li><i class="fas fa-check-circle"></i> Food Safety Management System (FSMS) Development &amp; Implementation</li>
-              <li><i class="fas fa-check-circle"></i> FSSAI License – State &amp; Central (Importer, Manufacturer, Marketer, Distributor, Storage, Transporter, Re-Packer, Re-labeler, Exporter)</li>
+              <li><i class="fas fa-check-circle"></i> FSSAI License – State &amp; Central (all categories)</li>
               <li><i class="fas fa-check-circle"></i> FSSAI Registration Certificate</li>
-              <li><i class="fas fa-check-circle"></i> Registration for Shop &amp; Establishment Act, Legal Metrology Act, Start-Up, Make in India, MSME</li>
+              <li><i class="fas fa-check-circle"></i> Registration for Shop &amp; Establishment Act, Legal Metrology, MSME</li>
               <li><i class="fas fa-check-circle"></i> Modification/Renewal of License &amp; Annual Return</li>
               <li><i class="fas fa-check-circle"></i> Shelf Life Study &amp; Product Approval</li>
               <li><i class="fas fa-check-circle"></i> Advising on Food Labeling and Advertising</li>
               <li><i class="fas fa-check-circle"></i> Formulation Designing &amp; Development</li>
               <li><i class="fas fa-check-circle"></i> Process Development and Optimization</li>
               <li><i class="fas fa-check-circle"></i> Organic Certification</li>
-              <li><i class="fas fa-check-circle"></i> Calibration &amp; Validation of Equipment</li>
               <li><i class="fas fa-check-circle"></i> Food Product Testing / Compliance Report</li>
               <li><i class="fas fa-check-circle"></i> New Food Manufacturing Unit &amp; Restaurant Setup</li>
             </ul>
@@ -1711,15 +1124,13 @@
         </div>
       </div>
 
-      <!-- ENVIRONMENT -->
       <div id="tab-environment" class="tab-panel">
         <div class="service-detail-grid">
           <div>
             <div class="section-label"><i class="fas fa-leaf"></i> Environment Compliance</div>
-            <h3 style="font-family:var(--font-display);font-size:1.7rem;color:var(--navy-dark);margin-bottom:0.6rem;font-weight:700;">Environmental Compliance Services</h3>
+            <h3 style="font-family:var(--font-display);font-size:1.75rem;color:var(--navy-dark);margin-bottom:0.6rem;font-weight:700;">Environmental Compliance Services</h3>
             <div class="title-line"></div>
-            <p style="font-size:0.93rem;color:var(--text-light);line-height:1.85;margin-bottom:1.2rem;">Complying with environmental rules and regulations isn't just a matter of feeling better about your company's carbon footprint — it's absolutely essential to protecting profits and limiting your company's exposure to litigation and penalties.</p>
-            <p style="font-size:0.93rem;color:var(--text-light);line-height:1.85;margin-bottom:1.5rem;">Environmental compliance specialists ensure that companies and other agencies follow environmental laws and regulations. They may study the environmental impact of a company's protocols and suggest improvements.</p>
+            <p style="font-size:0.93rem;color:var(--text-light);line-height:1.85;margin-bottom:1.5rem;">Environmental compliance specialists ensure that companies follow environmental laws and regulations, protect profits, and limit exposure to penalties.</p>
             <ul class="checklist">
               <li><i class="fas fa-check-circle"></i> Environment and Health Safety Management System</li>
               <li><i class="fas fa-check-circle"></i> Central Pollution Control Board / State Pollution Control Board Compliance</li>
@@ -1736,14 +1147,12 @@
         </div>
       </div>
 
-      <!-- WATER -->
       <div id="tab-water" class="tab-panel">
         <div class="service-detail-grid">
           <div>
             <div class="section-label"><i class="fas fa-tint"></i> Water &amp; Waste Water</div>
-            <h3 style="font-family:var(--font-display);font-size:1.7rem;color:var(--navy-dark);margin-bottom:0.6rem;font-weight:700;">Water &amp; Wastewater Compliance</h3>
+            <h3 style="font-family:var(--font-display);font-size:1.75rem;color:var(--navy-dark);margin-bottom:0.6rem;font-weight:700;">Water &amp; Wastewater Compliance</h3>
             <div class="title-line"></div>
-            <p style="font-size:0.93rem;color:var(--text-light);line-height:1.85;margin-bottom:1.2rem;">The food industry needs large amounts of water as an ingredient of their products, but also — in large amounts — for the production process and for the cleaning of raw materials, machines, and equipment. Water quality matters a lot for your product quality.</p>
             <p style="font-size:0.93rem;color:var(--text-light);line-height:1.85;margin-bottom:1.5rem;">We have extensive regulation expertise regarding water and offer comprehensive solutions for water quality management and compliance.</p>
             <ul class="checklist">
               <li><i class="fas fa-check-circle"></i> Water RO / Softener Installation</li>
@@ -1758,26 +1167,21 @@
         </div>
       </div>
 
-      <!-- TRAINING -->
       <div id="tab-training" class="tab-panel">
         <div class="service-detail-grid">
           <div>
             <div class="section-label"><i class="fas fa-graduation-cap"></i> Training Programs</div>
-            <h3 style="font-family:var(--font-display);font-size:1.7rem;color:var(--navy-dark);margin-bottom:0.6rem;font-weight:700;">Food Safety Training &amp; Certification</h3>
+            <h3 style="font-family:var(--font-display);font-size:1.75rem;color:var(--navy-dark);margin-bottom:0.6rem;font-weight:700;">Food Safety Training &amp; Certification</h3>
             <div class="title-line"></div>
-            <p style="font-size:0.93rem;color:var(--text-light);line-height:1.85;margin-bottom:1.2rem;">Training and Audit are effective tools to implement or maintain food safety and quality. Food Regulation and Compliance Centre is an active training partner with FSSAI for Implementation of Food Safety Training and Certification (FoSTaC). We offer all FoSTaC courses on-site as per industry requirement.</p>
+            <p style="font-size:0.93rem;color:var(--text-light);line-height:1.85;margin-bottom:1.5rem;">FRCC is an active foSTaC training partner with FSSAI. We offer all foSTaC courses on-site as per industry requirement.</p>
             <ul class="checklist">
-              <li><i class="fas fa-check-circle"></i> FSSAI FoSTaC Training</li>
+              <li><i class="fas fa-check-circle"></i> FSSAI foSTaC Training</li>
               <li><i class="fas fa-check-circle"></i> Food Safety and Management System (FSMS)</li>
               <li><i class="fas fa-check-circle"></i> Organic Certification Training</li>
               <li><i class="fas fa-check-circle"></i> Food Startup Training for Entrepreneurs</li>
-              <li><i class="fas fa-check-circle"></i> Quality Audits and Inspections – Planning, Procedures, Report Writing</li>
               <li><i class="fas fa-check-circle"></i> Good Manufacturing Practices (GMP Training)</li>
               <li><i class="fas fa-check-circle"></i> Good Hygiene Practices (GHP Training)</li>
               <li><i class="fas fa-check-circle"></i> Good Lab Practices (GLP Training)</li>
-              <li><i class="fas fa-check-circle"></i> Food Regulatory Affairs</li>
-              <li><i class="fas fa-check-circle"></i> Food Quality Assurance &amp; Quality Control</li>
-              <li><i class="fas fa-check-circle"></i> Food Analysis and Quality Certification</li>
               <li><i class="fas fa-check-circle"></i> HACCP (All Levels)</li>
               <li><i class="fas fa-check-circle"></i> Internal Auditor Training for ISO / FSSC / OHSAS</li>
               <li><i class="fas fa-check-circle"></i> Fire Safety and Emergency Preparedness Training</li>
@@ -1788,15 +1192,13 @@
         </div>
       </div>
 
-      <!-- AUDITS -->
       <div id="tab-audits" class="tab-panel">
         <div class="service-detail-grid">
           <div>
             <div class="section-label"><i class="fas fa-clipboard-check"></i> Audit Services</div>
-            <h3 style="font-family:var(--font-display);font-size:1.7rem;color:var(--navy-dark);margin-bottom:0.6rem;font-weight:700;">Food Safety &amp; Quality Audits</h3>
+            <h3 style="font-family:var(--font-display);font-size:1.75rem;color:var(--navy-dark);margin-bottom:0.6rem;font-weight:700;">Food Safety &amp; Quality Audits</h3>
             <div class="title-line"></div>
-            <p style="font-size:0.93rem;color:var(--text-light);line-height:1.85;margin-bottom:1.2rem;">Food safety and quality audits are used widely in the food industry for various reasons such as to evaluate management systems, obtain certifications to certain food safety and quality standards, assess the condition of premises and products, and confirm legal compliance.</p>
-            <p style="font-size:0.93rem;color:var(--text-light);line-height:1.85;margin-bottom:1.5rem;">The audit procedure usually incorporates documentation review and conduction of checks and interviews to confirm compliance with a standard. The auditing process may involve the inspection of the whole manufacturing process from raw material through preparation to dispatch.</p>
+            <p style="font-size:0.93rem;color:var(--text-light);line-height:1.85;margin-bottom:1.5rem;">Food safety and quality audits are used for evaluating management systems, certifications, assessing premises and products, and confirming legal compliance.</p>
             <ul class="checklist">
               <li><i class="fas fa-check-circle"></i> Internal / External – Third Party Audit</li>
               <li><i class="fas fa-check-circle"></i> Food Safety / Compliance Audit</li>
@@ -1812,21 +1214,19 @@
         </div>
       </div>
 
-      <!-- EXPORT / IMPORT -->
       <div id="tab-exportimport" class="tab-panel">
         <div class="service-detail-grid">
           <div>
             <div class="section-label"><i class="fas fa-ship"></i> Export / Import</div>
-            <h3 style="font-family:var(--font-display);font-size:1.7rem;color:var(--navy-dark);margin-bottom:0.6rem;font-weight:700;">Export &amp; Import Compliance</h3>
+            <h3 style="font-family:var(--font-display);font-size:1.75rem;color:var(--navy-dark);margin-bottom:0.6rem;font-weight:700;">Export &amp; Import Compliance</h3>
             <div class="title-line"></div>
-            <p style="font-size:0.93rem;color:var(--text-light);line-height:1.85;margin-bottom:1.2rem;">Every product requires custom clearance when it goes from one state to another and one country to another. Import and export of goods into and outside a country should undergo a customs clearance process. The importer and exporter of goods should submit valid documents to clear this process.</p>
-            <p style="font-size:0.93rem;color:var(--text-light);line-height:1.85;margin-bottom:1.5rem;">To start your export-import business, we fulfill your basic requirements so that you can focus on other aspects of growing your business.</p>
+            <p style="font-size:0.93rem;color:var(--text-light);line-height:1.85;margin-bottom:1.5rem;">We fulfill your basic import/export requirements so you can focus on growing your business.</p>
             <ul class="checklist">
               <li><i class="fas fa-check-circle"></i> FSSAI Import / Export License</li>
               <li><i class="fas fa-check-circle"></i> FSSAI Import Clearance</li>
-              <li><i class="fas fa-check-circle"></i> IEC – Import Export Code (required for import/export business)</li>
+              <li><i class="fas fa-check-circle"></i> IEC – Import Export Code</li>
               <li><i class="fas fa-check-circle"></i> Export Council of India Compliance</li>
-              <li><i class="fas fa-check-circle"></i> APEDA – Agricultural and Processed Food Products Export Development Authority Compliance</li>
+              <li><i class="fas fa-check-circle"></i> APEDA Compliance</li>
               <li><i class="fas fa-check-circle"></i> Quality Assessment of Exported Food</li>
               <li><i class="fas fa-check-circle"></i> EU / USA and Gulf Country Export Compliance</li>
             </ul>
@@ -1835,15 +1235,13 @@
         </div>
       </div>
 
-      <!-- FOOD TESTING -->
       <div id="tab-foodtesting" class="tab-panel">
         <div class="service-detail-grid">
           <div>
             <div class="section-label"><i class="fas fa-flask"></i> Food Testing</div>
-            <h3 style="font-family:var(--font-display);font-size:1.7rem;color:var(--navy-dark);margin-bottom:0.6rem;font-weight:700;">Food Testing &amp; Laboratory Services</h3>
+            <h3 style="font-family:var(--font-display);font-size:1.75rem;color:var(--navy-dark);margin-bottom:0.6rem;font-weight:700;">Food Testing &amp; Laboratory Services</h3>
             <div class="title-line"></div>
-            <p style="font-size:0.93rem;color:var(--text-light);line-height:1.85;margin-bottom:1.2rem;">Food Testing and analysis is an essential part of the food safety ecosystem to assure that the food is safe to consume or as per legal food standard. The food testing industry works closely with manufacturers to ensure that all products are scientifically tested and proved to be safe for human consumption at a variety of stages.</p>
-            <p style="font-size:0.93rem;color:var(--text-light);line-height:1.85;margin-bottom:1.5rem;">Food testing can cover many aspects of the food manufacturing process — from raw material to production line to finished product. Most commonly, a common set of scientific techniques are used to analyze, assess, and record the safety and viability of a product.</p>
+            <p style="font-size:0.93rem;color:var(--text-light);line-height:1.85;margin-bottom:1.5rem;">Food testing and analysis is an essential part of the food safety ecosystem to assure that the food is safe to consume as per legal food standard.</p>
             <ul class="checklist">
               <li><i class="fas fa-check-circle"></i> In-House Lab Setting</li>
               <li><i class="fas fa-check-circle"></i> Third Party Product Testing</li>
@@ -1854,15 +1252,14 @@
           <img src="https://raw.githubusercontent.com/zovacai-cloud/host_image/main/foodtest.jpg" class="service-detail-img" alt="Food Testing">
         </div>
       </div>
-
     </div>
   </section>
-</div><!-- end page-services -->
+</div>
 
 
-<!-- ====================================================== -->
+<!-- ============================================================ -->
 <!-- PAGE: ACT & RULE -->
-<!-- ====================================================== -->
+<!-- ============================================================ -->
 <div id="page-actrule" class="page">
   <div class="page-banner">
     <div class="page-banner-inner">
@@ -1870,16 +1267,13 @@
       <div class="breadcrumb"><span onclick="showPage('home')" style="cursor:pointer;color:rgba(255,255,255,0.65)">Home</span><span class="sep">/</span><span class="current">Act &amp; Rule</span></div>
     </div>
   </div>
-
   <section class="section">
     <div class="container">
       <div class="section-head center">
         <div class="section-label"><i class="fas fa-gavel"></i> Regulatory Links</div>
         <h2 class="section-title">Key Acts &amp; <span>Regulatory Bodies</span></h2>
         <div class="title-line center"></div>
-        <p class="section-subtitle">Access official regulatory websites and government portals for food safety, environment, and trade compliance.</p>
       </div>
-
       <div class="rule-category">
         <div class="rule-category-header"><i class="fas fa-utensils"></i> Food Regulatory Links</div>
         <div class="rule-links-grid">
@@ -1888,7 +1282,6 @@
           <a href="https://consumeraffairs.nic.in/organisation-and-units/division/legal-metrology/weights-admeasures" target="_blank" class="rule-link-item"><i class="fas fa-external-link-alt"></i><span class="rule-link-text">Legal Metrology – Consumer Affairs</span></a>
         </div>
       </div>
-
       <div class="rule-category">
         <div class="rule-category-header"><i class="fas fa-leaf"></i> Environment Regulatory Links</div>
         <div class="rule-links-grid">
@@ -1899,7 +1292,6 @@
           <a href="http://moef.gov.in/" target="_blank" class="rule-link-item"><i class="fas fa-external-link-alt"></i><span class="rule-link-text">Ministry of Environment, Forest &amp; Climate Change</span></a>
         </div>
       </div>
-
       <div class="rule-category">
         <div class="rule-category-header"><i class="fas fa-ship"></i> Export / Import Regulatory Links</div>
         <div class="rule-links-grid">
@@ -1908,19 +1300,15 @@
           <a href="https://dgft.gov.in/" target="_blank" class="rule-link-item"><i class="fas fa-external-link-alt"></i><span class="rule-link-text">DGFT – Directorate General of Foreign Trade</span></a>
         </div>
       </div>
-
-      <div class="alert alert-info">
-        <i class="fas fa-info-circle"></i>
-        <span>All links above lead to official Government of India websites. FRCC helps you navigate and comply with all requirements listed on these portals. <strong onclick="showPage('contact')" style="cursor:pointer;text-decoration:underline;">Contact us</strong> for expert guidance.</span>
-      </div>
+      <div class="alert alert-info"><i class="fas fa-info-circle"></i><span>All links above lead to official Government of India websites. <strong onclick="showPage('contact')" style="cursor:pointer;text-decoration:underline;">Contact us</strong> for expert guidance.</span></div>
     </div>
   </section>
-</div><!-- end page-actrule -->
+</div>
 
 
-<!-- ====================================================== -->
+<!-- ============================================================ -->
 <!-- PAGE: TRAINING CALENDAR -->
-<!-- ====================================================== -->
+<!-- ============================================================ -->
 <div id="page-training" class="page">
   <div class="page-banner">
     <div class="page-banner-inner">
@@ -1932,28 +1320,19 @@
     <div class="container">
       <div class="tool-header">
         <div class="tool-header-icon"><i class="fas fa-calendar-alt"></i></div>
-        <div>
-          <h3>Dynamic Training Schedule</h3>
-          <p>Register for upcoming FRCC training programs. All registrations are confirmed via email.</p>
-        </div>
+        <div><h3>Dynamic Training Schedule</h3><p>Register for upcoming FRCC training programs. All registrations are confirmed via email.</p></div>
       </div>
-      <div class="section-head">
-        <div class="section-label"><i class="fas fa-graduation-cap"></i> Upcoming Programs</div>
-        <h2 class="section-title">Training <span>Schedule &amp; Registration</span></h2>
-        <div class="title-line"></div>
-        <p class="section-subtitle">FRCC is an active FoSTaC training partner with FSSAI. Register for on-site or online training programs.</p>
-      </div>
-      <div style="margin-top:1rem;" class="iframe-wrapper">
-        <iframe src="https://script.google.com/macros/s/AKfycbybOjA3ubNy71zdhO9wu-It1QiN2QWItRDqwvLDOYY9E-k6JU9IkcSkfi_oThfgZhsp/exec" style="min-height:600px;" title="FRCC Training Registration Form"></iframe>
+      <div style="border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow);">
+        <iframe src="https://script.google.com/macros/s/AKfycbybOjA3ubNy71zdhO9wu-It1QiN2QWItRDqwvLDOYY9E-k6JU9IkcSkfi_oThfgZhsp/exec" style="width:100%;min-height:640px;border:none;display:block;" title="FRCC Training Registration Form"></iframe>
       </div>
     </div>
   </section>
-</div><!-- end page-training -->
+</div>
 
 
-<!-- ====================================================== -->
-<!-- PAGE: LMS -->
-<!-- ====================================================== -->
+<!-- ============================================================ -->
+<!-- PAGE: LMS (embedded inline) -->
+<!-- ============================================================ -->
 <div id="page-lms" class="page">
   <div class="page-banner">
     <div class="page-banner-inner">
@@ -1961,52 +1340,18 @@
       <div class="breadcrumb"><span onclick="showPage('home')" style="cursor:pointer;color:rgba(255,255,255,0.65)">Home</span><span class="sep">/</span><span class="current">LMS</span></div>
     </div>
   </div>
-  <section class="section">
-    <div class="container">
-      <div class="grid-2" style="align-items:center;gap:3.5rem;max-width:960px;margin:0 auto;">
-        <div>
-          <div class="section-label"><i class="fas fa-video"></i> Online Learning</div>
-          <h2 class="section-title">FRCC Learning <span>Management System</span></h2>
-          <div class="title-line"></div>
-          <p style="font-size:0.95rem;color:var(--text-light);line-height:1.85;margin-bottom:1rem;">
-            Access FRCC's video learning resources, e-courses, and training materials for food safety and compliance education — all in one place.
-          </p>
-          <p style="font-size:0.95rem;color:var(--text-light);line-height:1.85;margin-bottom:1.8rem;">
-            The LMS hosts self-paced modules, recorded lectures, assessment quizzes, and certification resources curated by FRCC's regulatory experts.
-          </p>
-          <div class="value-pills" style="margin-bottom:1.8rem;">
-            <span class="value-pill"><i class="fas fa-check-circle"></i> Self-Paced Courses</span>
-            <span class="value-pill"><i class="fas fa-check-circle"></i> Video Lectures</span>
-            <span class="value-pill"><i class="fas fa-check-circle"></i> Certification Resources</span>
-            <span class="value-pill"><i class="fas fa-check-circle"></i> Expert Content</span>
-          </div>
-          <a href="https://script.google.com/macros/s/AKfycbxWaAxMCOOk4N_g6Ss1loNsYkl4-xwaBqxClcEPN7JkOGIkswTIVJu9E91xgSo_M2euQg/exec" target="_blank" rel="noopener">
-            <button class="btn-primary" style="font-size:1rem;padding:0.85rem 2rem;">
-              <i class="fas fa-external-link-alt"></i> Open LMS Portal
-            </button>
-          </a>
-        </div>
-        <div style="background:var(--alice);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2.5rem;text-align:center;">
-          <div style="width:72px;height:72px;background:var(--navy);border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 1.2rem;font-size:1.8rem;color:white;">
-            <i class="fas fa-play-circle"></i>
-          </div>
-          <h4 style="font-family:var(--font-display);font-size:1.4rem;color:var(--navy-dark);margin-bottom:0.5rem;">Start Learning Today</h4>
-          <p style="font-size:0.88rem;color:var(--text-light);margin-bottom:1.5rem;line-height:1.7;">Click the button to access the FRCC LMS platform and browse all available courses.</p>
-          <a href="https://script.google.com/macros/s/AKfycbxWaAxMCOOk4N_g6Ss1loNsYkl4-xwaBqxClcEPN7JkOGIkswTIVJu9E91xgSo_M2euQg/exec" target="_blank" rel="noopener">
-            <button style="background:var(--navy);color:white;font-family:var(--font-ui);font-weight:700;font-size:0.88rem;padding:0.7rem 1.5rem;border-radius:7px;cursor:pointer;display:inline-flex;align-items:center;gap:0.5rem;border:none;transition:background .2s;" onmouseover="this.style.background='#1e4a85'" onmouseout="this.style.background='var(--navy)'">
-              <i class="fas fa-video"></i> Access LMS
-            </button>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-</div><!-- end page-lms -->
+  <iframe
+    src="https://script.google.com/macros/s/AKfycbxWaAxMCOOk4N_g6Ss1loNsYkl4-xwaBqxClcEPN7JkOGIkswTIVJu9E91xgSo_M2euQg/exec"
+    class="fullpage-iframe"
+    title="FRCC LMS Portal"
+    allowfullscreen>
+  </iframe>
+</div>
 
 
-<!-- ====================================================== -->
-<!-- PAGE: PODCAST -->
-<!-- ====================================================== -->
+<!-- ============================================================ -->
+<!-- PAGE: PODCAST (embedded inline) -->
+<!-- ============================================================ -->
 <div id="page-podcast" class="page">
   <div class="page-banner">
     <div class="page-banner-inner">
@@ -2014,52 +1359,18 @@
       <div class="breadcrumb"><span onclick="showPage('home')" style="cursor:pointer;color:rgba(255,255,255,0.65)">Home</span><span class="sep">/</span><span class="current">Podcast</span></div>
     </div>
   </div>
-  <section class="section">
-    <div class="container">
-      <div class="grid-2" style="align-items:center;gap:3.5rem;max-width:960px;margin:0 auto;">
-        <div>
-          <div class="section-label"><i class="fas fa-microphone-alt"></i> Audio Content</div>
-          <h2 class="section-title">FRCC <span>Podcast Channel</span></h2>
-          <div class="title-line"></div>
-          <p style="font-size:0.95rem;color:var(--text-light);line-height:1.85;margin-bottom:1rem;">
-            Listen to expert discussions on food safety regulations, compliance updates, industry best practices, and regulatory affairs — curated by FRCC's team of scientists and food safety professionals.
-          </p>
-          <p style="font-size:0.95rem;color:var(--text-light);line-height:1.85;margin-bottom:1.8rem;">
-            Stay updated on the latest developments in food law, FSSAI guidelines, environmental compliance, and quality auditing through our informative podcast series.
-          </p>
-          <div class="value-pills" style="margin-bottom:1.8rem;">
-            <span class="value-pill"><i class="fas fa-check-circle"></i> Food Safety Updates</span>
-            <span class="value-pill"><i class="fas fa-check-circle"></i> Regulatory News</span>
-            <span class="value-pill"><i class="fas fa-check-circle"></i> Expert Interviews</span>
-            <span class="value-pill"><i class="fas fa-check-circle"></i> Compliance Tips</span>
-          </div>
-          <a href="https://script.google.com/macros/s/AKfycbwojqHQ0Uk62C2SDexDiTpFNlHUHBY04UJdLRYrLUs/dev" target="_blank" rel="noopener">
-            <button class="btn-primary" style="font-size:1rem;padding:0.85rem 2rem;">
-              <i class="fas fa-external-link-alt"></i> Listen to Podcast
-            </button>
-          </a>
-        </div>
-        <div style="background:var(--alice);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2.5rem;text-align:center;">
-          <div style="width:72px;height:72px;background:var(--navy);border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 1.2rem;font-size:1.8rem;color:white;">
-            <i class="fas fa-podcast"></i>
-          </div>
-          <h4 style="font-family:var(--font-display);font-size:1.4rem;color:var(--navy-dark);margin-bottom:0.5rem;">FRCC Podcast</h4>
-          <p style="font-size:0.88rem;color:var(--text-light);margin-bottom:1.5rem;line-height:1.7;">Click below to open the FRCC Podcast portal and browse all available episodes.</p>
-          <a href="https://script.google.com/macros/s/AKfycbwojqHQ0Uk62C2SDexDiTpFNlHUHBY04UJdLRYrLUs/dev" target="_blank" rel="noopener">
-            <button style="background:var(--navy);color:white;font-family:var(--font-ui);font-weight:700;font-size:0.88rem;padding:0.7rem 1.5rem;border-radius:7px;cursor:pointer;display:inline-flex;align-items:center;gap:0.5rem;border:none;transition:background .2s;" onmouseover="this.style.background='#1e4a85'" onmouseout="this.style.background='var(--navy)'">
-              <i class="fas fa-microphone-alt"></i> Open Podcast
-            </button>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-</div><!-- end page-podcast -->
+  <iframe
+    src="https://script.google.com/macros/s/AKfycbwm5lK-dMtJGEjb34YvYui6WJQ_8dwHkgx8lWYXzh_MVWiT012t5cCwJjHwWpP6OqEb/exec"
+    class="fullpage-iframe"
+    title="FRCC Podcast"
+    allowfullscreen>
+  </iframe>
+</div>
 
 
-<!-- ====================================================== -->
+<!-- ============================================================ -->
 <!-- PAGE: INTERNSHIP -->
-<!-- ====================================================== -->
+<!-- ============================================================ -->
 <div id="page-internship" class="page">
   <div class="page-banner">
     <div class="page-banner-inner">
@@ -2067,7 +1378,6 @@
       <div class="breadcrumb"><span onclick="showPage('home')" style="cursor:pointer;color:rgba(255,255,255,0.65)">Home</span><span class="sep">/</span><span class="current">Internship</span></div>
     </div>
   </div>
-
   <section class="section section-alice">
     <div class="container">
       <div class="grid-2" style="align-items:start;gap:3rem;margin-bottom:3rem;">
@@ -2075,41 +1385,30 @@
           <div class="section-label"><i class="fas fa-user-graduate"></i> Join FRCC</div>
           <h2 class="section-title">Internship <span>Program</span></h2>
           <div class="title-line"></div>
-          <p style="font-size:0.94rem;color:var(--text-light);line-height:1.85;margin-bottom:1rem;">
-            Food Regulation and Compliance Centre (FRCC) offers internships for Graduate and Postgraduate students of Food Technology. Internships are practical work-placement programs designed to provide you with professional experience in an area related to your field of study or the career you are working towards.
-          </p>
-          <p style="font-size:0.94rem;color:var(--text-light);line-height:1.85;margin-bottom:1.3rem;">
-            The aim of providing industry-specific opportunities is to enable you to develop skills that will enhance your prospects of gaining meaningful employment, building your career, and starting your future.
-          </p>
+          <p style="font-size:0.95rem;color:var(--text-light);line-height:1.85;margin-bottom:1rem;">FRCC offers internships for Graduate and Postgraduate students of Food Technology. Internships are practical work-placement programs designed to provide professional experience in your field of study.</p>
           <div class="value-pills">
             <span class="value-pill"><i class="fas fa-check-circle"></i> Food Technology Graduates</span>
             <span class="value-pill"><i class="fas fa-check-circle"></i> Postgraduate Students</span>
             <span class="value-pill"><i class="fas fa-check-circle"></i> Practical Training</span>
             <span class="value-pill"><i class="fas fa-check-circle"></i> Career Development</span>
           </div>
-          <div class="highlight-box" style="margin-top:1.3rem;">
-            <p>Interested students can also write directly to us at <strong>info@frcc.org.in</strong> with their CV and field of interest.</p>
-          </div>
+          <div class="highlight-box" style="margin-top:1.3rem;"><p>Interested students can write to us at <strong>info@frcc.org.in</strong> with their CV and field of interest.</p></div>
           <div style="margin-top:1.6rem;">
             <a href="https://script.google.com/macros/s/AKfycbxYz3T-Mrg3LbnzEsssXg86XVkmr0MB4sEzJpEqXz3tTdVcONU33K9ZR3WXun_DTNql/exec" target="_blank" rel="noopener">
-              <button class="btn-primary" style="font-size:1rem;padding:0.85rem 2rem;">
-                <i class="fas fa-paper-plane"></i> Apply for Internship
-              </button>
+              <button class="btn-primary" style="font-size:1rem;padding:0.85rem 2rem;"><i class="fas fa-paper-plane"></i> Apply for Internship</button>
             </a>
           </div>
         </div>
-        <div>
-          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=80" alt="Internship" style="width:100%;border-radius:var(--radius-lg);height:320px;object-fit:cover;box-shadow:var(--shadow-lg);">
-        </div>
+        <div><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=80" alt="Internship" style="width:100%;border-radius:var(--radius-lg);height:320px;object-fit:cover;box-shadow:var(--shadow-lg);"></div>
       </div>
     </div>
   </section>
-</div><!-- end page-internship -->
+</div>
 
 
-<!-- ====================================================== -->
+<!-- ============================================================ -->
 <!-- PAGE: JOBS -->
-<!-- ====================================================== -->
+<!-- ============================================================ -->
 <div id="page-jobs" class="page">
   <div class="page-banner">
     <div class="page-banner-inner">
@@ -2117,26 +1416,14 @@
       <div class="breadcrumb"><span onclick="showPage('home')" style="cursor:pointer;color:rgba(255,255,255,0.65)">Home</span><span class="sep">/</span><span class="current">Job Portal</span></div>
     </div>
   </div>
-
-  <section class="section section-alice">
-    <div class="container">
-      <div class="section-head center">
-        <div class="section-label"><i class="fas fa-briefcase"></i> Careers at FRCC</div>
-        <h2 class="section-title">Join Our <span>Expert Team</span></h2>
-        <div class="title-line center"></div>
-        <p class="section-subtitle">Be part of India's leading food regulation and compliance organization. We are always looking for passionate food scientists, regulatory experts, and compliance professionals.</p>
-      </div>
-    </div>
-  </section>
-
   <section class="section">
     <div class="container">
       <div class="grid-2" style="align-items:center;gap:3.5rem;max-width:960px;margin:0 auto;">
         <div>
-          <div class="section-label"><i class="fas fa-briefcase"></i> Open Positions</div>
-          <h3 style="font-family:var(--font-display);font-size:1.8rem;color:var(--navy-dark);margin-bottom:0.6rem;font-weight:700;">Current Job Openings</h3>
+          <div class="section-label"><i class="fas fa-briefcase"></i> Careers at FRCC</div>
+          <h3 style="font-family:var(--font-display);font-size:1.9rem;color:var(--navy-dark);margin-bottom:0.6rem;font-weight:700;">Current Job Openings</h3>
           <div class="title-line"></div>
-          <p style="font-size:0.94rem;color:var(--text-light);line-height:1.85;margin-bottom:1.2rem;">Browse and apply for current openings at FRCC. We are always looking for passionate food scientists, regulatory experts, compliance professionals, and field auditors.</p>
+          <p style="font-size:0.95rem;color:var(--text-light);line-height:1.85;margin-bottom:1.2rem;">Browse and apply for current openings at FRCC. We are always looking for passionate food scientists, regulatory experts, compliance professionals, and field auditors.</p>
           <div class="value-pills" style="margin-bottom:1.8rem;">
             <span class="value-pill"><i class="fas fa-check-circle"></i> Food Scientists</span>
             <span class="value-pill"><i class="fas fa-check-circle"></i> Regulatory Experts</span>
@@ -2144,19 +1431,15 @@
             <span class="value-pill"><i class="fas fa-check-circle"></i> Audit Professionals</span>
           </div>
           <a href="https://script.google.com/macros/s/AKfycbyI63Bedg3VMzyXkYeCfI8rOkV-sZJ1MSz7WYr3YlIttR6tl9lJACYqWdlzGrq_fI9tvQ/exec" target="_blank" rel="noopener">
-            <button class="btn-primary" style="font-size:1rem;padding:0.85rem 2rem;">
-              <i class="fas fa-external-link-alt"></i> View &amp; Apply for Jobs
-            </button>
+            <button class="btn-primary" style="font-size:1rem;padding:0.85rem 2rem;"><i class="fas fa-external-link-alt"></i> View &amp; Apply for Jobs</button>
           </a>
         </div>
         <div style="background:var(--alice);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2.5rem;text-align:center;">
-          <div style="width:72px;height:72px;background:var(--navy);border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 1.2rem;font-size:1.8rem;color:white;">
-            <i class="fas fa-briefcase"></i>
-          </div>
+          <div style="width:72px;height:72px;background:var(--navy);border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 1.2rem;font-size:1.8rem;color:white;"><i class="fas fa-briefcase"></i></div>
           <h4 style="font-family:var(--font-display);font-size:1.4rem;color:var(--navy-dark);margin-bottom:0.5rem;">Join the FRCC Team</h4>
-          <p style="font-size:0.88rem;color:var(--text-light);margin-bottom:1.5rem;line-height:1.7;">Click below to open the job portal and submit your application for any current opening.</p>
+          <p style="font-size:0.88rem;color:var(--text-light);margin-bottom:1.5rem;line-height:1.7;">Click below to open the job portal and submit your application.</p>
           <a href="https://script.google.com/macros/s/AKfycbyI63Bedg3VMzyXkYeCfI8rOkV-sZJ1MSz7WYr3YlIttR6tl9lJACYqWdlzGrq_fI9tvQ/exec" target="_blank" rel="noopener">
-            <button style="background:var(--navy);color:white;font-family:var(--font-ui);font-weight:700;font-size:0.88rem;padding:0.7rem 1.5rem;border-radius:7px;cursor:pointer;display:inline-flex;align-items:center;gap:0.5rem;border:none;transition:background .2s;" onmouseover="this.style.background='#1e4a85'" onmouseout="this.style.background='var(--navy)'">
+            <button style="background:var(--navy);color:white;font-family:var(--font-ui);font-weight:800;font-size:0.88rem;padding:0.7rem 1.5rem;border-radius:7px;cursor:pointer;display:inline-flex;align-items:center;gap:0.5rem;border:none;">
               <i class="fas fa-arrow-right"></i> Open Job Portal
             </button>
           </a>
@@ -2164,12 +1447,12 @@
       </div>
     </div>
   </section>
-</div><!-- end page-jobs -->
+</div>
 
 
-<!-- ====================================================== -->
+<!-- ============================================================ -->
 <!-- PAGE: CONTACT -->
-<!-- ====================================================== -->
+<!-- ============================================================ -->
 <div id="page-contact" class="page">
   <div class="page-banner">
     <div class="page-banner-inner">
@@ -2177,20 +1460,19 @@
       <div class="breadcrumb"><span onclick="showPage('home')" style="cursor:pointer;color:rgba(255,255,255,0.65)">Home</span><span class="sep">/</span><span class="current">Contact</span></div>
     </div>
   </div>
-
   <section class="section">
     <div class="container">
       <div class="contact-grid">
         <div class="contact-info-card">
           <h3>Get In Touch</h3>
-          <p>Our regulatory experts are ready to assist you with all compliance requirements. Reach out for a consultation.</p>
+          <p>Our regulatory experts are ready to assist you with all compliance requirements.</p>
           <div class="contact-detail">
             <div class="contact-detail-icon"><i class="fas fa-map-marker-alt"></i></div>
             <div class="contact-detail-text"><strong>Head Office</strong>122 Pocket E, Sector 17, Dwarka, New Delhi – 110078</div>
           </div>
           <div class="contact-detail">
             <div class="contact-detail-icon"><i class="fas fa-phone-alt"></i></div>
-            <div class="contact-detail-text"><strong>Phone</strong><a href="tel:+919911991886" style="color:rgba(255,255,255,0.82);">+91-9911991886</a></div>
+            <div class="contact-detail-text"><strong>Phone</strong><a href="tel:+919911991887" style="color:rgba(255,255,255,0.82);">+91-9911991887</a></div>
           </div>
           <div class="contact-detail">
             <div class="contact-detail-icon"><i class="fas fa-envelope"></i></div>
@@ -2201,7 +1483,11 @@
             <div class="contact-detail-text"><strong>Working Hours</strong>Monday – Saturday: 9:00 AM – 6:00 PM</div>
           </div>
           <br>
-          <div class="footer-social">
+          <!-- WhatsApp Direct Button in contact card -->
+          <a href="https://wa.me/919911991887?text=Hello%20FRCC%2C%20I%20would%20like%20to%20enquire%20about%20your%20compliance%20services." target="_blank" rel="noopener" class="whatsapp-btn" style="margin-bottom:1rem;">
+            <i class="fab fa-whatsapp" style="font-size:1.2rem;"></i> Chat on WhatsApp
+          </a>
+          <div class="footer-social" style="margin-top:0.5rem;">
             <a href="#"><i class="fab fa-facebook-f"></i></a>
             <a href="#"><i class="fab fa-linkedin-in"></i></a>
             <a href="#"><i class="fab fa-twitter"></i></a>
@@ -2235,36 +1521,36 @@
               <label class="form-label">Message *</label>
               <textarea id="cf_message" class="form-control" placeholder="Describe your compliance requirement..." required></textarea>
             </div>
-            <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+            <div style="display:flex;gap:0.8rem;flex-wrap:wrap;align-items:center;">
+              <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+              <a href="https://wa.me/919911991887?text=Hello%20FRCC%2C%20I%20would%20like%20to%20enquire%20about%20your%20compliance%20services." target="_blank" rel="noopener" class="whatsapp-btn">
+                <i class="fab fa-whatsapp"></i> WhatsApp Us
+              </a>
+            </div>
           </form>
           <div id="contactSuccess" style="display:none;margin-top:1rem;" class="alert alert-info">
-            <i class="fas fa-check-circle"></i> <span>Your message has been composed. Your default email client will open — just hit send. Alternatively, email us directly at <a href="mailto:info@frcc.org.in" style="color:var(--navy);font-weight:600;">info@frcc.org.in</a>.</span>
+            <i class="fas fa-check-circle"></i> <span>Your message has been composed. Your default email client will open — just hit send. Alternatively, email us at <a href="mailto:info@frcc.org.in" style="color:var(--navy);font-weight:600;">info@frcc.org.in</a>.</span>
           </div>
         </div>
       </div>
     </div>
   </section>
-</div><!-- end page-contact -->
+</div>
 
 
-<!-- ====================================================== -->
+<!-- ============================================================ -->
 <!-- PAGE: COMPLIANCE MANAGER (OWNER ONLY) -->
-<!-- ====================================================== -->
+<!-- ============================================================ -->
 <div id="page-compliance" class="page">
   <div class="compliance-iframe-container">
-    <iframe
-      id="complianceIframe"
-      src="about:blank"
-      title="FRCC Compliance Manager"
-      allowfullscreen>
-    </iframe>
+    <iframe id="complianceIframe" src="about:blank" title="FRCC Compliance Manager" allowfullscreen></iframe>
   </div>
-</div><!-- end page-compliance -->
+</div>
 
 
-<!-- ====================================================== -->
+<!-- ============================================================ -->
 <!-- FOOTER -->
-<!-- ====================================================== -->
+<!-- ============================================================ -->
 <footer class="footer">
   <div class="footer-grid">
     <div class="footer-brand">
@@ -2272,7 +1558,7 @@
         <img src="https://raw.githubusercontent.com/zovacai-cloud/host_image/main/frcc.jpg" alt="FRCC Logo">
         <span class="footer-brand-name">FRCC</span>
       </div>
-      <p class="footer-desc">Food Regulation and Compliance Centre (FRCC) is an independent, research and advocacy based multi-disciplinary national level scientific organization provides strength to national food regulatory frameworks and enhancing its compliance through independent scientific advice.</p>
+      <p class="footer-desc">Food Regulation and Compliance Centre (FRCC) is an independent, research and advocacy based multi-disciplinary national level scientific organization providing strength to national food regulatory frameworks and enhancing its compliance through independent scientific advice.</p>
       <div class="footer-social">
         <a href="#"><i class="fab fa-facebook-f"></i></a>
         <a href="#"><i class="fab fa-linkedin-in"></i></a>
@@ -2281,7 +1567,6 @@
         <a href="#"><i class="fab fa-instagram"></i></a>
       </div>
     </div>
-
     <div class="footer-col">
       <h5>Quick Links</h5>
       <div class="footer-links">
@@ -2293,7 +1578,6 @@
         <span class="footer-link-item" onclick="showPage('contact')">Contact Us</span>
       </div>
     </div>
-
     <div class="footer-col">
       <h5>Portals</h5>
       <div class="footer-links">
@@ -2310,47 +1594,40 @@
         <span class="footer-link-item" onclick="showPage('services'); activateTab('exportimport')">Export / Import</span>
       </div>
     </div>
-
     <div class="footer-col">
       <h5>Information</h5>
       <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>122 Pocket E, Sector 17, Dwarka, New Delhi – 110078</span></div>
-      <div class="footer-contact-item"><i class="fas fa-phone-alt"></i><a href="tel:+919911991886" style="color:rgba(255,255,255,0.62);">+91-9911991886</a></div>
+      <div class="footer-contact-item"><i class="fas fa-phone-alt"></i><a href="tel:+919911991887" style="color:rgba(255,255,255,0.62);">+91-9911991887</a></div>
       <div class="footer-contact-item"><i class="fas fa-envelope"></i><a href="mailto:info@frcc.org.in" style="color:rgba(255,255,255,0.62);">info@frcc.org.in</a></div>
+      <div class="footer-contact-item"><i class="fab fa-whatsapp" style="color:#25D366;"></i><a href="https://wa.me/919911991887" target="_blank" style="color:rgba(255,255,255,0.62);">WhatsApp Us</a></div>
       <div style="margin-top:1rem;">
-        <div style="font-family:var(--font-ui);font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.35);margin-bottom:0.6rem;">Regulatory Partners</div>
+        <div style="font-family:var(--font-ui);font-size:0.72rem;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.35);margin-bottom:0.6rem;">Regulatory Partners</div>
         <div style="font-size:0.82rem;color:rgba(255,255,255,0.55);line-height:1.7;">FSSAI · MoFPI · CPCB · APEDA · DGFT · CGWB</div>
       </div>
     </div>
   </div>
-
   <div style="border-top:1px solid rgba(255,255,255,0.10);padding:0.5rem 0;"></div>
-  <div class="footer-bottom" style="max-width:1280px;margin:0 auto;padding:1.3rem 2rem;">
+  <div class="footer-bottom">
     <span>2019 © Copyright FRCC. All rights Reserved.</span>
     <span>Food Regulation and Compliance Centre | New Delhi, India</span>
   </div>
 </footer>
 
 
-<!-- ====================================================== -->
+<!-- ============================================================ -->
 <!-- JAVASCRIPT -->
-<!-- ====================================================== -->
+<!-- ============================================================ -->
 <script>
-  // ===== OWNER AUTH STATE =====
-  // Change this PIN to whatever 4-digit code you want
+  // ===== OWNER AUTH =====
   const OWNER_PIN = '1234';
   let isOwnerLoggedIn = false;
 
   // ===== PAGE NAVIGATION =====
   function showPage(pageId) {
-    // Guard: compliance page only accessible when logged in
     if (pageId === 'compliance' && !isOwnerLoggedIn) return;
-
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     const target = document.getElementById('page-' + pageId);
-    if (target) {
-      target.classList.add('active');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    if (target) { target.classList.add('active'); window.scrollTo({ top: 0, behavior: 'smooth' }); }
     document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
     document.querySelectorAll('.nav-link-compliance').forEach(l => l.classList.remove('active'));
     const navEl = document.getElementById('nav-' + pageId);
@@ -2358,17 +1635,8 @@
     document.getElementById('navLinks').classList.remove('open');
   }
 
-  function scrollToSection(id) {
-    setTimeout(() => {
-      const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 200);
-  }
-
   // ===== MOBILE NAV =====
-  function toggleMobileNav() {
-    document.getElementById('navLinks').classList.toggle('open');
-  }
+  function toggleMobileNav() { document.getElementById('navLinks').classList.toggle('open'); }
 
   // ===== TAB SYSTEM =====
   function activateTab(tabId) {
@@ -2378,11 +1646,55 @@
     const panel = document.getElementById('tab-' + tabId);
     if (btn) btn.classList.add('active');
     if (panel) panel.classList.add('active');
-    setTimeout(() => {
-      const tabs = document.getElementById('serviceTabs');
-      if (tabs) tabs.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }, 100);
   }
+
+  // ===== HERO SLIDESHOW =====
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.slide');
+  const navContainer = document.getElementById('slideshowNav');
+  let slideshowTimer;
+
+  function buildDots() {
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'slide-dot' + (i === 0 ? ' active' : '');
+      dot.onclick = () => goToSlide(i);
+      navContainer.appendChild(dot);
+    });
+  }
+
+  function updateSlideshow() {
+    slides.forEach((s, i) => s.classList.toggle('active', i === currentSlide));
+    document.querySelectorAll('.slide-dot').forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    updateSlideshow();
+    resetTimer();
+  }
+
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    updateSlideshow();
+    resetTimer();
+  }
+
+  function goToSlide(idx) {
+    currentSlide = idx;
+    updateSlideshow();
+    resetTimer();
+  }
+
+  function resetTimer() {
+    clearInterval(slideshowTimer);
+    slideshowTimer = setInterval(nextSlide, 5000);
+  }
+
+  buildDots();
+  slideshowTimer = setInterval(nextSlide, 5000);
+
+  // Clients marquee removed per request
 
   // ===== CONTACT FORM =====
   function handleContactForm(e) {
@@ -2392,111 +1704,49 @@
     const email   = document.getElementById('cf_email').value.trim();
     const subject = document.getElementById('cf_subject').value.trim() || 'Enquiry from FRCC Website';
     const message = document.getElementById('cf_message').value.trim();
-
-    const body = encodeURIComponent(
-      'Name: ' + name + '\n' +
-      'Phone: ' + (phone || 'Not provided') + '\n' +
-      'Email: ' + email + '\n\n' +
-      'Message:\n' + message
-    );
-    const mailtoLink = 'mailto:info@frcc.org.in?subject=' + encodeURIComponent(subject) + '&body=' + body;
-    window.location.href = mailtoLink;
+    const body = encodeURIComponent('Name: ' + name + '\nPhone: ' + (phone || 'Not provided') + '\nEmail: ' + email + '\n\nMessage:\n' + message);
+    window.location.href = 'mailto:info@frcc.org.in?subject=' + encodeURIComponent(subject) + '&body=' + body;
     document.getElementById('contactSuccess').style.display = 'flex';
     document.getElementById('contactForm').reset();
-    setTimeout(() => {
-      document.getElementById('contactSuccess').style.display = 'none';
-    }, 8000);
+    setTimeout(() => { document.getElementById('contactSuccess').style.display = 'none'; }, 8000);
   }
 
   // ===== OWNER LOGIN / LOGOUT =====
-  function handleOwnerButton() {
-    if (isOwnerLoggedIn) {
-      ownerLogout();
-    } else {
-      openModal();
-    }
-  }
-
+  function handleOwnerButton() { isOwnerLoggedIn ? ownerLogout() : openModal(); }
   function openModal() {
     document.getElementById('pinModal').classList.add('open');
     clearPinInputs();
     document.getElementById('pinError').textContent = '';
     setTimeout(() => document.getElementById('pin1').focus(), 100);
   }
-
-  function closeModal() {
-    document.getElementById('pinModal').classList.remove('open');
-    clearPinInputs();
-    document.getElementById('pinError').textContent = '';
-  }
-
-  function clearPinInputs() {
-    ['pin1','pin2','pin3','pin4'].forEach(id => {
-      document.getElementById(id).value = '';
-      document.getElementById(id).classList.remove('error');
-    });
-  }
-
+  function closeModal() { document.getElementById('pinModal').classList.remove('open'); clearPinInputs(); document.getElementById('pinError').textContent = ''; }
+  function clearPinInputs() { ['pin1','pin2','pin3','pin4'].forEach(id => { document.getElementById(id).value = ''; document.getElementById(id).classList.remove('error'); }); }
   function verifyPin() {
-    const digits = ['pin1','pin2','pin3','pin4'].map(id => document.getElementById(id).value);
-    const entered = digits.join('');
-
-    if (entered.length < 4) {
-      showPinError('Please enter all 4 digits.');
-      return;
-    }
-
-    if (entered === OWNER_PIN) {
-      // Correct PIN — log in
-      isOwnerLoggedIn = true;
-      closeModal();
-      updateOwnerUI(true);
-    } else {
-      // Wrong PIN
-      showPinError('Incorrect PIN. Please try again.');
-      clearPinInputs();
-      document.getElementById('pin1').focus();
-    }
+    const entered = ['pin1','pin2','pin3','pin4'].map(id => document.getElementById(id).value).join('');
+    if (entered.length < 4) { showPinError('Please enter all 4 digits.'); return; }
+    if (entered === OWNER_PIN) { isOwnerLoggedIn = true; closeModal(); updateOwnerUI(true); }
+    else { showPinError('Incorrect PIN. Please try again.'); clearPinInputs(); document.getElementById('pin1').focus(); }
   }
-
   function showPinError(msg) {
     document.getElementById('pinError').textContent = msg;
-    ['pin1','pin2','pin3','pin4'].forEach(id => {
-      const el = document.getElementById(id);
-      el.classList.add('error');
-      setTimeout(() => el.classList.remove('error'), 500);
-    });
+    ['pin1','pin2','pin3','pin4'].forEach(id => { const el = document.getElementById(id); el.classList.add('error'); setTimeout(() => el.classList.remove('error'), 500); });
   }
-
   function ownerLogout() {
-    isOwnerLoggedIn = false;
-    updateOwnerUI(false);
-    // If currently on compliance page, redirect to home
-    if (document.getElementById('page-compliance').classList.contains('active')) {
-      showPage('home');
-    }
-    // Unload the iframe src to stop it running in background
+    isOwnerLoggedIn = false; updateOwnerUI(false);
+    if (document.getElementById('page-compliance').classList.contains('active')) showPage('home');
     document.getElementById('complianceIframe').src = 'about:blank';
   }
-
   function updateOwnerUI(loggedIn) {
     const btn = document.getElementById('ownerLoginBtn');
     const icon = document.getElementById('ownerBtnIcon');
     const text = document.getElementById('ownerBtnText');
     const navItem = document.getElementById('navCompliance');
-
     if (loggedIn) {
-      btn.classList.add('logged-in');
-      icon.className = 'fas fa-sign-out-alt';
-      text.textContent = 'Owner Logout';
+      btn.classList.add('logged-in'); icon.className = 'fas fa-sign-out-alt'; text.textContent = 'Owner Logout';
       navItem.style.display = 'list-item';
-      // Load the compliance tool iframe
-      document.getElementById('complianceIframe').src =
-        'https://script.google.com/macros/s/AKfycbz7q_mjhDiiy1vStiUaslaEF8JzQnR8S90nBhhDc-Zo7AW2NCopcT3rzrSkdyfhSGza/exec';
+      document.getElementById('complianceIframe').src = 'https://script.google.com/macros/s/AKfycbz7q_mjhDiiy1vStiUaslaEF8JzQnR8S90nBhhDc-Zo7AW2NCopcT3rzrSkdyfhSGza/exec';
     } else {
-      btn.classList.remove('logged-in');
-      icon.className = 'fas fa-user-shield';
-      text.textContent = 'Owner Login';
+      btn.classList.remove('logged-in'); icon.className = 'fas fa-user-shield'; text.textContent = 'Owner Login';
       navItem.style.display = 'none';
     }
   }
@@ -2504,49 +1754,27 @@
   // ===== PIN INPUT AUTO-ADVANCE =====
   ['pin1','pin2','pin3','pin4'].forEach((id, idx, arr) => {
     const el = document.getElementById(id);
-
     el.addEventListener('input', function() {
-      // Only allow single digit
       this.value = this.value.replace(/[^0-9]/g, '').slice(-1);
-      if (this.value && idx < arr.length - 1) {
-        document.getElementById(arr[idx + 1]).focus();
-      }
-      // Auto-submit when last digit entered
-      if (idx === arr.length - 1 && this.value) {
-        setTimeout(verifyPin, 80);
-      }
+      if (this.value && idx < arr.length - 1) document.getElementById(arr[idx + 1]).focus();
+      if (idx === arr.length - 1 && this.value) setTimeout(verifyPin, 80);
     });
-
     el.addEventListener('keydown', function(e) {
-      if (e.key === 'Backspace' && !this.value && idx > 0) {
-        document.getElementById(arr[idx - 1]).focus();
-      }
-      if (e.key === 'Enter') {
-        verifyPin();
-      }
+      if (e.key === 'Backspace' && !this.value && idx > 0) document.getElementById(arr[idx - 1]).focus();
+      if (e.key === 'Enter') verifyPin();
     });
-
     el.addEventListener('paste', function(e) {
       e.preventDefault();
       const paste = (e.clipboardData || window.clipboardData).getData('text').replace(/\D/g, '').slice(0, 4);
-      paste.split('').forEach((char, i) => {
-        if (arr[idx + i]) document.getElementById(arr[idx + i]).value = char;
-      });
+      paste.split('').forEach((char, i) => { if (arr[idx + i]) document.getElementById(arr[idx + i]).value = char; });
       const nextIdx = Math.min(idx + paste.length, arr.length - 1);
       document.getElementById(arr[nextIdx]).focus();
       if (paste.length === 4) setTimeout(verifyPin, 80);
     });
   });
 
-  // ===== CLOSE MODAL ON OVERLAY CLICK =====
-  document.getElementById('pinModal').addEventListener('click', function(e) {
-    if (e.target === this) closeModal();
-  });
-
-  // ===== CLOSE MODAL ON ESC =====
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeModal();
-  });
+  document.getElementById('pinModal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
 </script>
 </body>
 </html>
