@@ -50,36 +50,36 @@
     background: var(--navy-dark);
     color: #d0e4f7;
     font-family: var(--font-ui);
-    font-size: 0.84rem;
+    font-size: 1.16rem;
     font-weight: 500;
-    padding: 0 2.5rem;
+    padding: 0 3.45rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1rem;
-    min-height: 42px;
+    gap: 1.38rem;
+    min-height: 58px;
     letter-spacing: 0.01em;
   }
-  .utility-left { display: flex; gap: 1.6rem; align-items: center; flex-wrap: wrap; }
+  .utility-left { display: flex; gap: 2.2rem; align-items: center; flex-wrap: wrap; }
   .utility-left a, .utility-left span {
-    display: flex; align-items: center; gap: 0.4rem; color: #c8dcf0;
+    display: flex; align-items: center; gap: 0.55rem; color: #c8dcf0;
     transition: color .2s;
   }
   .utility-left a:hover { color: var(--gold-lt); }
-  .utility-right { display: flex; gap: 0.55rem; align-items: center; flex-wrap: wrap; }
+  .utility-right { display: flex; gap: 0.76rem; align-items: center; flex-wrap: wrap; }
   .util-btn {
     background: rgba(255,255,255,0.10);
     color: #d0e4f7;
     border: 1px solid rgba(255,255,255,0.18);
-    border-radius: 5px;
-    padding: 4px 12px;
-    font-size: 0.80rem;
+    border-radius: 7px;
+    padding: 6px 17px;
+    font-size: 1.10rem;
     font-family: var(--font-ui);
     font-weight: 700;
     cursor: pointer;
     transition: background .2s, color .2s;
     letter-spacing: 0.02em;
-    display: flex; align-items: center; gap: 0.35rem;
+    display: flex; align-items: center; gap: 0.48rem;
   }
   .util-btn:hover { background: var(--gold); color: var(--navy-dark); border-color: var(--gold); }
   .util-btn-internship { background: #f59e0b; color: #fff; border-color: #f59e0b; }
@@ -113,9 +113,9 @@
   .nav-logo { display: flex; align-items: center; gap: 1rem; cursor: pointer; }
   .nav-logo img { height: 64px; width: auto; object-fit: contain; }
   .nav-logo-text { display: flex; flex-direction: column; line-height: 1.2; }
-  .nav-logo-text .brand-name { font-family: var(--font-display); font-size: 1.7rem; font-weight: 700; color: var(--navy); letter-spacing: 0.03em; }
-  .nav-logo-text .brand-full { font-size: 0.85rem; font-family: var(--font-ui); color: var(--text-light); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
-  .nav-logo-text .brand-hindi { font-size: 0.76rem; font-family: var(--font-ui); color: var(--text-light); font-weight: 600; letter-spacing: 0.02em; margin-top: 1px; }
+  .nav-logo-text .brand-name { font-family: var(--font-ui); font-size: 1rem; font-weight: 700; color: var(--navy-mid); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 1px; opacity: 0.75; }
+  .nav-logo-text .brand-full { font-size: 1.08rem; font-family: var(--font-display); color: var(--navy-dark); font-weight: 700; letter-spacing: 0.01em; line-height: 1.15; }
+  .nav-logo-text .brand-hindi { font-size: 0.82rem; font-family: var(--font-body); color: var(--text-light); font-weight: 600; letter-spacing: 0.02em; margin-top: 2px; }
 
   .nav-links { display: flex; align-items: center; gap: 0.15rem; }
   .nav-item { position: relative; }
@@ -501,6 +501,45 @@
   .footer-contact-item i { color: var(--gold); margin-top: 2px; flex-shrink: 0; }
   .footer-bottom { border-top: 1px solid rgba(255,255,255,0.10); max-width: 95%; margin: 0 auto; padding: 1.3rem 2rem; display: flex; align-items: center; justify-content: space-between; font-size: 0.82rem; color: rgba(255,255,255,0.38); font-family: var(--font-ui); flex-wrap: wrap; gap: 0.5rem; }
 
+  /* ===== CLIENTS MARQUEE ===== */
+  .clients-section { background: var(--white); padding: 1.4rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; }
+  .clients-label { text-align:center; font-family:var(--font-ui); font-size:0.72rem; font-weight:800; text-transform:uppercase; letter-spacing:0.12em; color:var(--text-light); margin-bottom:0.9rem; }
+  .marquee-track { display:flex; overflow:hidden; position:relative; width:100%; }
+  .marquee-content {
+    display:flex;
+    align-items:center;
+    gap:5rem;
+    animation:marquee 40s linear infinite;
+    flex-shrink:0;
+    will-change:transform;
+    padding-right:5rem;
+  }
+  @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+  .client-chip {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:0.5rem 2rem;
+    border-right:1px solid var(--border);
+    flex-shrink:0;
+    min-width:120px;
+  }
+  .client-chip img {
+    height:48px;
+    width:auto;
+    max-width:200px;
+    object-fit:contain;
+    filter:grayscale(20%);
+    opacity:0.85;
+    transition:opacity .2s, filter .2s;
+    display:block;
+  }
+  .client-chip img:hover { opacity:1; filter:none; }
+
+  /* Blink animation for internship quick-apply */
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+  .blink-dot { animation:blink 1.1s step-start infinite; color:#ffffff; font-size:0.7rem; font-weight:800; font-family:var(--font-ui); letter-spacing:0.01em; margin-left:3px; vertical-align:middle; }
+
   /* ===== FOSTAC TRAINING STRIP ===== */
   .fostac-strip {
     background: linear-gradient(90deg, #dff0ff 0%, #f0f8ff 50%, #dff0ff 100%);
@@ -570,9 +609,9 @@
     .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
     .form-row { grid-template-columns: 1fr; }
     .utility-left { display: none; }
-    .utility-bar { padding: 6px 8px; min-height: unset; flex-direction: column; align-items: stretch; gap: 0; }
-    .utility-right { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; padding: 0; width: 100%; }
-    .util-btn { justify-content: center; text-align: center; font-size: 0.73rem; padding: 7px 4px; width: 100%; }
+    .utility-bar { padding: 8px 11px; min-height: unset; flex-direction: column; align-items: stretch; gap: 0; }
+    .utility-right { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; padding: 0; width: 100%; }
+    .util-btn { justify-content: center; text-align: center; font-size: 1.01rem; padding: 10px 6px; width: 100%; }
     .hero-slideshow { height: auto; min-height: unset; background: transparent; }
     .slide { position: absolute; top: 0; left: 0; right: 0; }
     .slide.active { position: relative; }
@@ -592,7 +631,7 @@
     .slide-dot { width: 8px; height: 8px; }
   }
   @media (max-width: 400px) {
-    .util-btn { font-size: 0.67rem; padding: 6px 3px; }
+    .util-btn { font-size: 0.92rem; padding: 8px 4px; }
     .navbar-inner { padding: 0 0.75rem; }
     .nav-logo img { height: 52px; }
     .nav-logo-text .brand-name { font-size: 1.3rem; }
@@ -600,6 +639,7 @@
   .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 80px; left: 0; right: 0; background: white; padding: 1rem; border-top: 1px solid var(--border); box-shadow: var(--shadow-lg); z-index: 899; max-height: 80vh; overflow-y: auto; }
   .nav-links.open .dropdown { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: none; background: var(--offwhite); margin-left: 1rem; margin-top: 0.3rem; }
 </style>
+<base target="_blank">
 <base target="_blank">
 </head>
 <body>
@@ -635,7 +675,7 @@
     <a href="mailto:info@frcc.org.in"><i class="fas fa-envelope"></i> info@frcc.org.in</a>
   </div>
   <div class="utility-right">
-    <a href="https://script.google.com/macros/s/AKfycbxYz3T-Mrg3LbnzEsssXg86XVkmr0MB4sEzJpEqXz3tTdVcONU33K9ZR3WXun_DTNql/exec" target="_blank" rel="noopener" class="util-btn util-btn-internship" style="text-decoration:none;"><i class="fas fa-user-graduate"></i> Apply – Internship</a>
+    <button class="util-btn util-btn-internship" onclick="showPage('internship')" style="position:relative;"><i class="fas fa-user-graduate"></i> Internship <span class="blink-dot">● Apply Here</span></button>
     <button class="util-btn util-btn-jobs" onclick="showPage('jobs')"><i class="fas fa-briefcase"></i> Job Portal</button>
     <button class="util-btn util-btn-lms" onclick="showPage('lms')"><i class="fas fa-video"></i> E-learning</button>
     <button class="util-btn util-btn-podcast" onclick="showPage('podcast')"><i class="fas fa-microphone-alt"></i> Podcast</button>
@@ -648,9 +688,9 @@
     <div class="nav-logo" onclick="showPage('home')" target="_self">
       <img src="https://raw.githubusercontent.com/zovacai-cloud/host_image/main/frcc.jpg" alt="FRCC Logo" onerror="this.style.display='none'">
       <div class="nav-logo-text">
-        <span class="brand-name">FRCC</span>
         <span class="brand-full">Food Regulation &amp; Compliance Centre</span>
         <span class="brand-hindi">खाद्य विनियमन एवं अनुपालन केंद्र</span>
+        <span class="brand-name">FRCC</span>
       </div>
     </div>
 
@@ -676,19 +716,20 @@
       <li class="nav-item">
         <span class="nav-link" onclick="showPage('services')">Services <i class="fas fa-chevron-down chevron"></i></span>
         <div class="dropdown">
+          <div class="dropdown-item" onclick="showPage('services'); activateTab('fssai')"><i class="fas fa-id-card"></i> FSSAI Licensing</div>
           <div class="dropdown-item" onclick="showPage('services'); activateTab('food')"><i class="fas fa-shield-alt"></i> Food Safety Compliance</div>
           <div class="dropdown-item" onclick="showPage('services'); activateTab('training')"><i class="fas fa-graduation-cap"></i> Training / Industrial Training</div>
           <div class="dropdown-item" onclick="showPage('services'); activateTab('audits')"><i class="fas fa-clipboard-check"></i> Food Safety Audits</div>
           <div class="dropdown-item" onclick="showPage('services'); activateTab('collaboration')"><i class="fas fa-handshake"></i> Institutional Collaboration</div>
-          <div class="dropdown-item" onclick="showPage('services'); activateTab('eatright')"><i class="fas fa-leaf"></i> Eat Right India</div>
-          <div class="dropdown-item" onclick="showPage('services'); activateTab('exportimport')"><i class="fas fa-ship"></i> Export / Import</div>
+          <div class="dropdown-item" onclick="showPage('services'); activateTab('eatright')"><i class="fas fa-leaf"></i> Eat Right India Implementation</div>
+          <div class="dropdown-item" onclick="showPage('services'); activateTab('exportimport')"><i class="fas fa-ship"></i> Export Import Compliance</div>
         </div>
       </li>
 
-      <!-- Internship — HIGHLIGHTED -->
+      <!-- FSSAI Licensing -->
       <li class="nav-item">
-        <span class="nav-link-internship" onclick="showPage('internship')">
-          <i class="fas fa-user-graduate"></i> Internship
+        <span class="nav-link" onclick="showPage('fssai')">
+          <i class="fas fa-id-card"></i> FSSAI Licensing
         </span>
       </li>
 
@@ -719,7 +760,7 @@
 <!-- ===== FOSTAC TRAINING STRIP ===== -->
 <div class="fostac-strip">
   <div class="fostac-label">
-    <i class="fas fa-certificate" style="color:var(--gold)"></i>
+    <i class="fas fa-certificate" style="color:var(--gold);animation:blink 1.1s step-start infinite;"></i>
     Latest&nbsp;<span class="fostac-word">FoSTaC</span>&nbsp;Training Programs
   </div>
   <div class="fostac-divider"></div>
@@ -757,10 +798,37 @@
   <!-- Stats Strip -->
   <div class="stats-strip">
     <div class="stats-grid">
-      <div class="stat-item"><div class="stat-num">500+</div><div class="stat-label">Clients Served</div></div>
+      <div class="stat-item"><div class="stat-num">500+</div><div class="stat-label">Client Services Served</div></div>
       <div class="stat-item"><div class="stat-num">7</div><div class="stat-label">Core Domains</div></div>
-      <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">Regulatory Compliance</div></div>
+      <div class="stat-item"><div class="stat-num">10+</div><div class="stat-label">Regulatory Solutions</div></div>
       <div class="stat-item"><div class="stat-num">2015</div><div class="stat-label">Established</div></div>
+    </div>
+  </div>
+
+  <!-- Client Logos Marquee -->
+  <div class="clients-section">
+    <div class="clients-label">Our Partners &amp; Clients</div>
+    <div class="marquee-track">
+      <div class="marquee-content">
+        <!-- Unique logos (set 1) -->
+        <div class="client-chip"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Eat_Right_India_logo.svg/320px-Eat_Right_India_logo.svg.png" alt="Eat Right India" onerror="this.src='https://www.fssai.gov.in/upload/media/FSSAI_eat.png'"></div>
+        <div class="client-chip"><img src="https://raw.githubusercontent.com/zovacai-cloud/host_image/main/logo1.jpg" alt="Client 1"></div>
+        <div class="client-chip"><img src="https://raw.githubusercontent.com/zovacai-cloud/host_image/main/logo2.jpg" alt="Client 2"></div>
+        <div class="client-chip"><img src="https://raw.githubusercontent.com/zovacai-cloud/host_image/main/logo4.jpg" alt="Client 4"></div>
+        <div class="client-chip"><img src="https://raw.githubusercontent.com/zovacai-cloud/host_image/main/logo5.jpg" alt="Client 5"></div>
+        <div class="client-chip"><img src="https://raw.githubusercontent.com/zovacai-cloud/host_image/main/logo6.jpg" alt="Client 6"></div>
+        <div class="client-chip"><img src="https://raw.githubusercontent.com/zovacai-cloud/host_image/main/logo7.jpg" alt="Client 7"></div>
+        <div class="client-chip"><img src="https://raw.githubusercontent.com/zovacai-cloud/host_image/main/logo8.jpg" alt="Client 8"></div>
+        <!-- Duplicated set for seamless infinite loop -->
+        <div class="client-chip" aria-hidden="true"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Eat_Right_India_logo.svg/320px-Eat_Right_India_logo.svg.png" alt="Eat Right India" onerror="this.src='https://www.fssai.gov.in/upload/media/FSSAI_eat.png'"></div>
+        <div class="client-chip" aria-hidden="true"><img src="https://raw.githubusercontent.com/zovacai-cloud/host_image/main/logo1.jpg" alt="Client 1"></div>
+        <div class="client-chip" aria-hidden="true"><img src="https://raw.githubusercontent.com/zovacai-cloud/host_image/main/logo2.jpg" alt="Client 2"></div>
+        <div class="client-chip" aria-hidden="true"><img src="https://raw.githubusercontent.com/zovacai-cloud/host_image/main/logo4.jpg" alt="Client 4"></div>
+        <div class="client-chip" aria-hidden="true"><img src="https://raw.githubusercontent.com/zovacai-cloud/host_image/main/logo5.jpg" alt="Client 5"></div>
+        <div class="client-chip" aria-hidden="true"><img src="https://raw.githubusercontent.com/zovacai-cloud/host_image/main/logo6.jpg" alt="Client 6"></div>
+        <div class="client-chip" aria-hidden="true"><img src="https://raw.githubusercontent.com/zovacai-cloud/host_image/main/logo7.jpg" alt="Client 7"></div>
+        <div class="client-chip" aria-hidden="true"><img src="https://raw.githubusercontent.com/zovacai-cloud/host_image/main/logo8.jpg" alt="Client 8"></div>
+      </div>
     </div>
   </div>
 
@@ -859,6 +927,11 @@
         <p class="section-subtitle">End-to-end regulatory support across food safety, audits, training, and international trade compliance.</p>
       </div>
       <div class="grid-4">
+        <div class="service-card-compact" onclick="showPage('services'); activateTab('fssai')">
+          <div class="scc-icon"><i class="fas fa-id-card"></i></div>
+          <div class="scc-title">FSSAI Licensing</div>
+          <p class="scc-desc">State &amp; Central FSSAI License, Registration, renewal, modification, and compliance support.</p>
+        </div>
         <div class="service-card-compact" onclick="showPage('services'); activateTab('food')">
           <div class="scc-icon"><i class="fas fa-shield-alt"></i></div>
           <div class="scc-title">Food Safety Compliance</div>
@@ -881,23 +954,18 @@
         </div>
         <div class="service-card-compact" onclick="showPage('services'); activateTab('eatright')">
           <div class="scc-icon"><i class="fas fa-leaf"></i></div>
-          <div class="scc-title">Eat Right India</div>
+          <div class="scc-title">Eat Right India Implementation</div>
           <p class="scc-desc">Eat Right Campus, Eat Right School, and other FSSAI Eat Right India initiative programs.</p>
         </div>
         <div class="service-card-compact" onclick="showPage('services'); activateTab('exportimport')">
           <div class="scc-icon"><i class="fas fa-ship"></i></div>
-          <div class="scc-title">Export / Import</div>
+          <div class="scc-title">Export Import Compliance</div>
           <p class="scc-desc">FSSAI import/export license, IEC, APEDA compliance, EU/USA/Gulf export compliance.</p>
         </div>
         <div class="service-card-compact" onclick="showPage('internship')">
           <div class="scc-icon"><i class="fas fa-user-graduate"></i></div>
           <div class="scc-title">Internship Program</div>
           <p class="scc-desc">Practical food safety internships for graduates in food technology and allied sciences.</p>
-        </div>
-        <div class="service-card-compact" onclick="showPage('jobs')">
-          <div class="scc-icon"><i class="fas fa-briefcase"></i></div>
-          <div class="scc-title">Job Portal</div>
-          <p class="scc-desc">Current openings at FRCC for food scientists, regulatory experts, and compliance professionals.</p>
         </div>
       </div>
     </div>
@@ -923,18 +991,6 @@
           <p class="mv-card-text">FRCC is the leading organization for assuring the safety and quality of the food we eat, the water we drink, and the environment we live in.</p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Training Calendar CTA -->
-  <section style="background:var(--navy);padding:3rem 0;">
-    <div class="container" style="text-align:center;">
-      <div class="section-label" style="background:rgba(255,255,255,0.1);color:var(--gold-lt);border-color:rgba(255,255,255,0.2);margin-bottom:1rem;"><i class="fas fa-certificate"></i> FoSTaC Training</div>
-      <h2 style="font-family:var(--font-display);font-size:2rem;color:white;font-weight:700;margin-bottom:0.5rem;">FSSAI FoSTaC Approved Training Programs</h2>
-      <p style="color:rgba(255,255,255,0.7);margin-bottom:1.5rem;font-size:0.95rem;">FSSAI-certified food safety training programs — on-site &amp; online, scheduled monthly</p>
-      <button class="btn-primary" onclick="showPage('training')" style="margin:0 auto;font-size:1rem;padding:0.9rem 2.2rem;">
-        <i class="fas fa-calendar-alt"></i> View Training Calendar
-      </button>
     </div>
   </section>
 
@@ -1012,156 +1068,224 @@
         <div class="title-line center"></div>
       </div>
       <div class="tabs" id="serviceTabs">
-        <button class="tab-btn active" onclick="activateTab('food')" data-tab="food"><i class="fas fa-shield-alt"></i> Food Safety Compliance</button>
+        <button class="tab-btn active" onclick="activateTab('fssai')" data-tab="fssai"><i class="fas fa-id-card"></i> FSSAI Licensing</button>
+        <button class="tab-btn" onclick="activateTab('food')" data-tab="food"><i class="fas fa-shield-alt"></i> Food Safety Compliance</button>
         <button class="tab-btn" onclick="activateTab('training')" data-tab="training"><i class="fas fa-graduation-cap"></i> Training / Industrial Training</button>
         <button class="tab-btn" onclick="activateTab('audits')" data-tab="audits"><i class="fas fa-clipboard-check"></i> Food Safety Audits</button>
         <button class="tab-btn" onclick="activateTab('collaboration')" data-tab="collaboration"><i class="fas fa-handshake"></i> Institutional Collaboration</button>
-        <button class="tab-btn" onclick="activateTab('eatright')" data-tab="eatright"><i class="fas fa-leaf"></i> Eat Right India</button>
-        <button class="tab-btn" onclick="activateTab('exportimport')" data-tab="exportimport"><i class="fas fa-ship"></i> Export / Import</button>
+        <button class="tab-btn" onclick="activateTab('eatright')" data-tab="eatright"><i class="fas fa-leaf"></i> Eat Right India Implementation</button>
+        <button class="tab-btn" onclick="activateTab('exportimport')" data-tab="exportimport"><i class="fas fa-ship"></i> Export Import Compliance</button>
+      </div>
+
+      <!-- FSSAI Licensing -->
+      <div id="tab-fssai" class="tab-panel active">
+        <div>
+          <div class="section-label"><i class="fas fa-id-card"></i> FSSAI Licensing</div>
+          <h3 style="font-family:var(--font-display);font-size:1.75rem;color:var(--navy-dark);margin-bottom:0.3rem;font-weight:700;"><span style="color:var(--navy-mid);">FSSAI</span> License &amp; Registration Services</h3>
+          <div class="title-line"></div>
+          <p style="font-size:0.93rem;color:var(--text-light);line-height:1.85;margin-bottom:1.2rem;">FSSAI License is a mandatory requirement for all food businesses operating in India. FRCC provides end-to-end FSSAI licensing support — from new applications to renewals, modifications, and annual compliance. Our experts ensure your business is fully compliant at every stage.</p>
+          <div style="background:var(--alice);border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;padding:1rem 1.3rem;margin-bottom:1.3rem;">
+            <p style="font-size:0.9rem;color:var(--navy-dark);font-weight:600;"><i class="fas fa-star" style="color:var(--gold);margin-right:0.4rem;"></i> All food businesses — manufacturers, traders, importers, restaurants, and e-commerce food sellers — require a valid FSSAI License or Registration to operate legally in India.</p>
+          </div>
+          <ul class="checklist">
+            <li><i class="fas fa-check-circle"></i> FSSAI License – State License (Annual Turnover ₹12L–₹20Cr)</li>
+            <li><i class="fas fa-check-circle"></i> FSSAI License – Central License (Annual Turnover above ₹20Cr / importers / multi-state)</li>
+            <li><i class="fas fa-check-circle"></i> FSSAI Registration Certificate (Annual Turnover up to ₹12 Lakhs)</li>
+            <li><i class="fas fa-check-circle"></i> Registration for Shop &amp; Establishment Act</li>
+            <li><i class="fas fa-check-circle"></i> Legal Metrology Registration</li>
+            <li><i class="fas fa-check-circle"></i> Startup &amp; MSME Registration</li>
+            <li><i class="fas fa-check-circle"></i> Modification of FSSAI License</li>
+            <li><i class="fas fa-check-circle"></i> Renewal of License &amp; Annual Return Filing</li>
+            <li><i class="fas fa-check-circle"></i> Shelf Life Study &amp; Product Approval</li>
+            <li><i class="fas fa-check-circle"></i> Organic Certification</li>
+            <li><i class="fas fa-check-circle"></i> Calibration &amp; Equipment Compliance</li>
+            <li><i class="fas fa-check-circle"></i> FSSAI Product Approval &amp; NOC</li>
+          </ul>
+          <div style="margin-top:1.5rem;display:flex;gap:0.8rem;flex-wrap:wrap;align-items:center;">
+            <button class="btn-primary" onclick="showPage('contact'); prefillSubject('FSSAI License Enquiry')">
+              <i class="fas fa-envelope"></i> Contact Us for your FSSAI License
+            </button>
+            <span style="font-size:0.82rem;color:var(--text-light);font-family:var(--font-ui);">
+              <a onclick="showPage('contact'); prefillSubject('FSSAI License Enquiry')" style="cursor:pointer;color:var(--navy-mid);font-weight:600;text-decoration:underline;">Apply Here</a>
+            </span>
+          </div>
+        </div>
       </div>
 
       <!-- Food Safety Compliance -->
-      <div id="tab-food" class="tab-panel active">
-        <div class="service-detail-grid">
-          <div>
-            <div class="section-label"><i class="fas fa-shield-alt"></i> Food Safety Compliance</div>
-            <h3 style="font-family:var(--font-display);font-size:1.75rem;color:var(--navy-dark);margin-bottom:0.6rem;font-weight:700;">Food Safety &amp; FSSAI Compliance</h3>
-            <div class="title-line"></div>
-            <p style="font-size:0.93rem;color:var(--text-light);line-height:1.85;margin-bottom:1.2rem;">It is the statutory obligation to treat food intended for human consumption in a controlled and managed way. Our Experts help to maintain all food safety compliance requirements from licensing to product approvals, labeling guidance, and formulation development.</p>
-            <ul class="checklist">
-              <li><i class="fas fa-check-circle"></i> Food Safety Management System (FSMS) Development &amp; Implementation</li>
-              <li><i class="fas fa-check-circle"></i> FSSAI License – State &amp; Central (all categories)</li>
-              <li><i class="fas fa-check-circle"></i> FSSAI Registration Certificate</li>
-              <li><i class="fas fa-check-circle"></i> Registration for Shop &amp; Establishment Act, Legal Metrology, MSME</li>
-              <li><i class="fas fa-check-circle"></i> Modification/Renewal of License &amp; Annual Return</li>
-              <li><i class="fas fa-check-circle"></i> Shelf Life Study &amp; Product Approval</li>
-              <li><i class="fas fa-check-circle"></i> Advising on Food Labeling and Advertising</li>
-              <li><i class="fas fa-check-circle"></i> Formulation Designing &amp; Development</li>
-              <li><i class="fas fa-check-circle"></i> Process Development and Optimization</li>
-              <li><i class="fas fa-check-circle"></i> Organic Certification</li>
-              <li><i class="fas fa-check-circle"></i> Food Product Testing / Compliance Report</li>
-              <li><i class="fas fa-check-circle"></i> New Food Manufacturing Unit &amp; Restaurant Setup</li>
-            </ul>
-          </div>
-          <img src="https://raw.githubusercontent.com/zovacai-cloud/host_image/main/food.jpg" class="service-detail-img" alt="Food Safety">
+      <div id="tab-food" class="tab-panel">
+        <div>
+          <div class="section-label"><i class="fas fa-shield-alt"></i> Food Safety Compliance</div>
+          <h3 style="font-family:var(--font-display);font-size:1.75rem;color:var(--navy-dark);margin-bottom:0.6rem;font-weight:700;">Food Safety &amp; FSSAI Compliance</h3>
+          <div class="title-line"></div>
+          <p style="font-size:0.93rem;color:var(--text-light);line-height:1.85;margin-bottom:1.2rem;">It is the statutory obligation to treat food intended for human consumption in a controlled and managed way. Our Experts help to maintain all food safety compliance requirements from licensing to product approvals, labeling guidance, and formulation development.</p>
+          <ul class="checklist">
+            <li><i class="fas fa-check-circle"></i> Food Safety Management System (FSMS) Development &amp; Implementation</li>
+            <li><i class="fas fa-check-circle"></i> FSSAI License – State &amp; Central (all categories)</li>
+            <li><i class="fas fa-check-circle"></i> FSSAI Registration Certificate</li>
+            <li><i class="fas fa-check-circle"></i> Registration for Shop &amp; Establishment Act, Legal Metrology, MSME</li>
+            <li><i class="fas fa-check-circle"></i> Modification/Renewal of License &amp; Annual Return</li>
+            <li><i class="fas fa-check-circle"></i> Shelf Life Study &amp; Product Approval</li>
+            <li><i class="fas fa-check-circle"></i> Advising on Food Labeling and Advertising</li>
+            <li><i class="fas fa-check-circle"></i> Formulation Designing &amp; Development</li>
+            <li><i class="fas fa-check-circle"></i> Process Development and Optimization</li>
+            <li><i class="fas fa-check-circle"></i> Organic Certification</li>
+            <li><i class="fas fa-check-circle"></i> Food Product Testing / Compliance Report</li>
+            <li><i class="fas fa-check-circle"></i> New Food Manufacturing Unit &amp; Restaurant Setup</li>
+          </ul>
         </div>
       </div>
 
       <!-- Training -->
       <div id="tab-training" class="tab-panel">
-        <div class="service-detail-grid">
-          <div>
-            <div class="section-label"><i class="fas fa-graduation-cap"></i> Training Programs</div>
-            <h3 style="font-family:var(--font-display);font-size:1.75rem;color:var(--navy-dark);margin-bottom:0.6rem;font-weight:700;">Food Safety Training &amp; Industrial Training</h3>
-            <div class="title-line"></div>
-            <p style="font-size:0.93rem;color:var(--text-light);line-height:1.85;margin-bottom:1.5rem;">FRCC is an active FoSTaC Training Partner with FSSAI. We offer all FoSTaC courses on-site as per industry requirement, along with industrial training programs for professionals.</p>
-            <ul class="checklist">
-              <li><i class="fas fa-check-circle"></i> FSSAI FoSTaC Training (All levels)</li>
-              <li><i class="fas fa-check-circle"></i> Food Safety and Management System (FSMS)</li>
-              <li><i class="fas fa-check-circle"></i> Organic Certification Training</li>
-              <li><i class="fas fa-check-circle"></i> Food Startup Training for Entrepreneurs</li>
-              <li><i class="fas fa-check-circle"></i> Good Manufacturing Practices (GMP Training)</li>
-              <li><i class="fas fa-check-circle"></i> Good Hygiene Practices (GHP Training)</li>
-              <li><i class="fas fa-check-circle"></i> Good Lab Practices (GLP Training)</li>
-              <li><i class="fas fa-check-circle"></i> HACCP (All Levels)</li>
-              <li><i class="fas fa-check-circle"></i> Internal Auditor Training for ISO / FSSC / OHSAS</li>
-              <li><i class="fas fa-check-circle"></i> Fire Safety and Emergency Preparedness Training</li>
-              <li><i class="fas fa-check-circle"></i> Product Recall / Allergen Handling / High Risk Material Handling</li>
-            </ul>
-            <br>
-            <button class="btn-primary" onclick="showPage('training')"><i class="fas fa-calendar-alt"></i> View Training Calendar</button>
-          </div>
-          <img src="https://raw.githubusercontent.com/zovacai-cloud/host_image/main/train.jpg" class="service-detail-img" alt="Training">
+        <div>
+          <div class="section-label"><i class="fas fa-graduation-cap"></i> Training Programs</div>
+          <h3 style="font-family:var(--font-display);font-size:1.75rem;color:var(--navy-dark);margin-bottom:0.6rem;font-weight:700;">Food Safety Training &amp; Industrial Training</h3>
+          <div class="title-line"></div>
+          <p style="font-size:0.93rem;color:var(--text-light);line-height:1.85;margin-bottom:1.5rem;">FRCC is an active FoSTaC Training Partner with FSSAI. We offer all FoSTaC courses on-site as per industry requirement, along with industrial training programs for professionals.</p>
+          <ul class="checklist">
+            <li><i class="fas fa-check-circle"></i> FSSAI FoSTaC Training (All levels)</li>
+            <li><i class="fas fa-check-circle"></i> Food Safety and Management System (FSMS)</li>
+            <li><i class="fas fa-check-circle"></i> Organic Certification Training</li>
+            <li><i class="fas fa-check-circle"></i> Food Startup Training for Entrepreneurs</li>
+            <li><i class="fas fa-check-circle"></i> Good Manufacturing Practices (GMP Training)</li>
+            <li><i class="fas fa-check-circle"></i> Good Hygiene Practices (GHP Training)</li>
+            <li><i class="fas fa-check-circle"></i> Good Lab Practices (GLP Training)</li>
+            <li><i class="fas fa-check-circle"></i> HACCP (All Levels)</li>
+            <li><i class="fas fa-check-circle"></i> Internal Auditor Training for ISO / FSSC / OHSAS</li>
+            <li><i class="fas fa-check-circle"></i> Fire Safety and Emergency Preparedness Training</li>
+            <li><i class="fas fa-check-circle"></i> Product Recall / Allergen Handling / High Risk Material Handling</li>
+          </ul>
+          <br>
+          <button class="btn-primary" onclick="showPage('training')"><i class="fas fa-calendar-alt"></i> View Training Calendar</button>
         </div>
       </div>
 
       <!-- Food Safety Audits -->
       <div id="tab-audits" class="tab-panel">
-        <div class="service-detail-grid">
-          <div>
-            <div class="section-label"><i class="fas fa-clipboard-check"></i> Audit Services</div>
-            <h3 style="font-family:var(--font-display);font-size:1.75rem;color:var(--navy-dark);margin-bottom:0.6rem;font-weight:700;">Food Safety &amp; Quality Audits</h3>
-            <div class="title-line"></div>
-            <p style="font-size:0.93rem;color:var(--text-light);line-height:1.85;margin-bottom:1.5rem;">Food safety and quality audits are used for evaluating management systems, certifications, assessing premises and products, and confirming legal compliance.</p>
-            <ul class="checklist">
-              <li><i class="fas fa-check-circle"></i> Internal / External – Third Party Audit</li>
-              <li><i class="fas fa-check-circle"></i> Food Safety / Compliance Audit</li>
-              <li><i class="fas fa-check-circle"></i> Inspection or Vendor Audit</li>
-              <li><i class="fas fa-check-circle"></i> Risk Assessment Audit</li>
-              <li><i class="fas fa-check-circle"></i> Third Party Manufacturing Audit</li>
-              <li><i class="fas fa-check-circle"></i> Root Cause Analysis and Corrective Action</li>
-              <li><i class="fas fa-check-circle"></i> HACCP / FSMS Audit</li>
-              <li><i class="fas fa-check-circle"></i> Fire Safety and Emergency Preparedness Audit</li>
-            </ul>
-          </div>
-          <img src="https://raw.githubusercontent.com/zovacai-cloud/host_image/main/audit.jpg" class="service-detail-img" alt="Audits">
+        <div>
+          <div class="section-label"><i class="fas fa-clipboard-check"></i> Audit Services</div>
+          <h3 style="font-family:var(--font-display);font-size:1.75rem;color:var(--navy-dark);margin-bottom:0.6rem;font-weight:700;">Food Safety &amp; Quality Audits</h3>
+          <div class="title-line"></div>
+          <p style="font-size:0.93rem;color:var(--text-light);line-height:1.85;margin-bottom:1.5rem;">Food safety and quality audits are used for evaluating management systems, certifications, assessing premises and products, and confirming legal compliance.</p>
+          <ul class="checklist">
+            <li><i class="fas fa-check-circle"></i> Internal / External – Third Party Audit</li>
+            <li><i class="fas fa-check-circle"></i> Food Safety / Compliance Audit</li>
+            <li><i class="fas fa-check-circle"></i> Inspection or Vendor Audit</li>
+            <li><i class="fas fa-check-circle"></i> Risk Assessment Audit</li>
+            <li><i class="fas fa-check-circle"></i> Third Party Manufacturing Audit</li>
+            <li><i class="fas fa-check-circle"></i> Root Cause Analysis and Corrective Action</li>
+            <li><i class="fas fa-check-circle"></i> HACCP / FSMS Audit</li>
+            <li><i class="fas fa-check-circle"></i> Fire Safety and Emergency Preparedness Audit</li>
+          </ul>
         </div>
       </div>
 
       <!-- Institutional Collaboration -->
       <div id="tab-collaboration" class="tab-panel">
-        <div class="service-detail-grid">
-          <div>
-            <div class="section-label"><i class="fas fa-handshake"></i> Institutional Collaboration</div>
-            <h3 style="font-family:var(--font-display);font-size:1.75rem;color:var(--navy-dark);margin-bottom:0.6rem;font-weight:700;">Institutional MoU &amp; Collaboration</h3>
-            <div class="title-line"></div>
-            <p style="font-size:0.93rem;color:var(--text-light);line-height:1.85;margin-bottom:1.5rem;">FRCC partners with universities, research institutions, and industry bodies through formal MoUs to advance food safety knowledge, research, training, and regulatory capacity building across India.</p>
-            <ul class="checklist">
-              <li><i class="fas fa-check-circle"></i> MoU for Research &amp; Development collaboration</li>
-              <li><i class="fas fa-check-circle"></i> MoU for Training &amp; Academic Programs</li>
-              <li><i class="fas fa-check-circle"></i> Subject Matter Expert engagement</li>
-              <li><i class="fas fa-check-circle"></i> Internship &amp; Placement tie-ups with universities</li>
-              <li><i class="fas fa-check-circle"></i> Industry–Academia linkage programs</li>
-              <li><i class="fas fa-check-circle"></i> Joint food safety research initiatives</li>
-            </ul>
-            <br>
-            <button class="btn-primary" onclick="showPage('membership')"><i class="fas fa-handshake"></i> Learn About Membership</button>
-          </div>
-          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80" class="service-detail-img" alt="Collaboration">
+        <div>
+          <div class="section-label"><i class="fas fa-handshake"></i> Institutional Collaboration</div>
+          <h3 style="font-family:var(--font-display);font-size:1.75rem;color:var(--navy-dark);margin-bottom:0.6rem;font-weight:700;">Institutional MoU &amp; Collaboration</h3>
+          <div class="title-line"></div>
+          <p style="font-size:0.93rem;color:var(--text-light);line-height:1.85;margin-bottom:1.5rem;">FRCC partners with universities, research institutions, and industry bodies through formal MoUs to advance food safety knowledge, research, training, and regulatory capacity building across India.</p>
+          <ul class="checklist">
+            <li><i class="fas fa-check-circle"></i> MoU for Research &amp; Development collaboration</li>
+            <li><i class="fas fa-check-circle"></i> MoU for Training &amp; Academic Programs</li>
+            <li><i class="fas fa-check-circle"></i> Subject Matter Expert engagement</li>
+            <li><i class="fas fa-check-circle"></i> Internship &amp; Placement tie-ups with universities</li>
+            <li><i class="fas fa-check-circle"></i> Industry–Academia linkage programs</li>
+            <li><i class="fas fa-check-circle"></i> Joint food safety research initiatives</li>
+          </ul>
+          <br>
+          <button class="btn-primary" onclick="showPage('membership')"><i class="fas fa-handshake"></i> Learn About Membership</button>
         </div>
       </div>
 
-      <!-- Eat Right India -->
+      <!-- Eat Right India Implementation -->
       <div id="tab-eatright" class="tab-panel">
-        <div class="service-detail-grid">
-          <div>
-            <div class="section-label"><i class="fas fa-leaf"></i> Eat Right India</div>
-            <h3 style="font-family:var(--font-display);font-size:1.75rem;color:var(--navy-dark);margin-bottom:0.6rem;font-weight:700;">FSSAI Eat Right India Initiative</h3>
-            <div class="title-line"></div>
-            <p style="font-size:0.93rem;color:var(--text-light);line-height:1.85;margin-bottom:1.5rem;">FRCC actively supports FSSAI's Eat Right India initiative — transforming food systems to ensure safe, healthy, and sustainable food for all Indians. We implement Eat Right programs across campuses, schools, workplaces, and communities.</p>
-            <ul class="checklist">
-              <li><i class="fas fa-check-circle"></i> Eat Right Campus certification &amp; implementation</li>
-              <li><i class="fas fa-check-circle"></i> Eat Right School programs</li>
-              <li><i class="fas fa-check-circle"></i> Eat Right Workplace programs</li>
-              <li><i class="fas fa-check-circle"></i> Swachh Bharat food safety activities</li>
-              <li><i class="fas fa-check-circle"></i> Community nutrition awareness programs</li>
-              <li><i class="fas fa-check-circle"></i> FSSAI Eat Right Awards support and documentation</li>
-            </ul>
-          </div>
-          <img src="https://raw.githubusercontent.com/zovacai-cloud/host_image/main/environment.jpg" class="service-detail-img" alt="Eat Right India">
+        <div>
+          <div class="section-label"><i class="fas fa-leaf"></i> Eat Right India Implementation</div>
+          <h3 style="font-family:var(--font-display);font-size:1.75rem;color:var(--navy-dark);margin-bottom:0.6rem;font-weight:700;">FSSAI Eat Right India Implementation</h3>
+          <div class="title-line"></div>
+          <p style="font-size:0.93rem;color:var(--text-light);line-height:1.85;margin-bottom:1.5rem;">FRCC actively supports FSSAI's Eat Right India initiative — transforming food systems to ensure safe, healthy, and sustainable food for all Indians. We implement Eat Right programs across campuses, schools, workplaces, and communities.</p>
+          <ul class="checklist">
+            <li><i class="fas fa-check-circle"></i> Eat Right Campus certification &amp; implementation</li>
+            <li><i class="fas fa-check-circle"></i> Eat Right School programs</li>
+            <li><i class="fas fa-check-circle"></i> Eat Right Workplace programs</li>
+            <li><i class="fas fa-check-circle"></i> Swachh Bharat food safety activities</li>
+            <li><i class="fas fa-check-circle"></i> Community nutrition awareness programs</li>
+            <li><i class="fas fa-check-circle"></i> FSSAI Eat Right Awards support and documentation</li>
+          </ul>
         </div>
       </div>
 
-      <!-- Export Import -->
+      <!-- Export Import Compliance -->
       <div id="tab-exportimport" class="tab-panel">
-        <div class="service-detail-grid">
-          <div>
-            <div class="section-label"><i class="fas fa-ship"></i> Export / Import</div>
-            <h3 style="font-family:var(--font-display);font-size:1.75rem;color:var(--navy-dark);margin-bottom:0.6rem;font-weight:700;">Food Export &amp; Import Compliance</h3>
-            <div class="title-line"></div>
-            <p style="font-size:0.93rem;color:var(--text-light);line-height:1.85;margin-bottom:1.5rem;">We fulfill your basic import/export requirements so you can focus on growing your business globally. Our team ensures full compliance with Indian and international food trade regulations.</p>
-            <ul class="checklist">
-              <li><i class="fas fa-check-circle"></i> FSSAI Import / Export License</li>
-              <li><i class="fas fa-check-circle"></i> FSSAI Import Clearance</li>
-              <li><i class="fas fa-check-circle"></i> IEC – Import Export Code</li>
-              <li><i class="fas fa-check-circle"></i> Export Council of India Compliance</li>
-              <li><i class="fas fa-check-circle"></i> APEDA Compliance</li>
-              <li><i class="fas fa-check-circle"></i> Quality Assessment of Exported Food</li>
-              <li><i class="fas fa-check-circle"></i> EU / USA and Gulf Country Export Compliance</li>
-            </ul>
-          </div>
-          <img src="https://raw.githubusercontent.com/zovacai-cloud/host_image/main/export.jpg" class="service-detail-img" alt="Export Import">
+        <div>
+          <div class="section-label"><i class="fas fa-ship"></i> Export Import Compliance</div>
+          <h3 style="font-family:var(--font-display);font-size:1.75rem;color:var(--navy-dark);margin-bottom:0.6rem;font-weight:700;">Food Export &amp; Import Compliance</h3>
+          <div class="title-line"></div>
+          <p style="font-size:0.93rem;color:var(--text-light);line-height:1.85;margin-bottom:1.5rem;">We fulfill your basic import/export requirements so you can focus on growing your business globally. Our team ensures full compliance with Indian and international food trade regulations.</p>
+          <ul class="checklist">
+            <li><i class="fas fa-check-circle"></i> FSSAI Import / Export License</li>
+            <li><i class="fas fa-check-circle"></i> FSSAI Import Clearance</li>
+            <li><i class="fas fa-check-circle"></i> IEC – Import Export Code</li>
+            <li><i class="fas fa-check-circle"></i> Export Council of India Compliance</li>
+            <li><i class="fas fa-check-circle"></i> APEDA Compliance</li>
+            <li><i class="fas fa-check-circle"></i> Quality Assessment of Exported Food</li>
+            <li><i class="fas fa-check-circle"></i> EU / USA and Gulf Country Export Compliance</li>
+          </ul>
         </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- PAGE: FSSAI LICENSING -->
+<!-- ============================================================ -->
+<div id="page-fssai" class="page">
+  <div class="page-banner">
+    <div class="page-banner-inner">
+      <h1>FSSAI Licensing</h1>
+      <div class="breadcrumb">
+        <span onclick="showPage('home')">Home</span> <span class="sep">/</span> <span class="current">FSSAI Licensing</span>
+      </div>
+    </div>
+  </div>
+  <section class="section" style="padding-top:2.5rem;">
+    <div class="container">
+      <div class="section-label"><i class="fas fa-id-card"></i> Regulatory Compliance</div>
+      <h2 class="section-title">FSSAI License &amp; <span>Registration Services</span></h2>
+      <div class="title-line"></div>
+      <div class="highlight-box">
+        <p>It is a statutory obligation to handle food intended for human consumption in a controlled and managed manner. The key requirements of the Act are that food must comply with food safety standards, must be "of the nature, substance and quality demanded", and must be correctly described and labelled. Our experts help maintain the following compliances:</p>
+      </div>
+      <ul class="checklist">
+        <li><i class="fas fa-check-circle"></i> Food Safety Management System Development &amp; Implementation</li>
+        <li><i class="fas fa-check-circle"></i> FSSAI License — State &amp; Central License (Importer, Manufacturer, Marketer, Distributor, Storage, Transporter, Re-Packer, Relabeller and Exporter, etc.)</li>
+        <li><i class="fas fa-check-circle"></i> FSSAI Registration Certificate</li>
+        <li><i class="fas fa-check-circle"></i> Registration for — The Shop and Establishment Act, Legal Metrology Act, Start-Up India, Make in India and MSME</li>
+        <li><i class="fas fa-check-circle"></i> Modification / Renewal in License</li>
+        <li><i class="fas fa-check-circle"></i> Annual Return</li>
+        <li><i class="fas fa-check-circle"></i> Shelf Life Study</li>
+        <li><i class="fas fa-check-circle"></i> Product Approval</li>
+        <li><i class="fas fa-check-circle"></i> Advising on Food Labelling and Advertising</li>
+        <li><i class="fas fa-check-circle"></i> Formulation Designing &amp; Development</li>
+        <li><i class="fas fa-check-circle"></i> Process Development and Optimization</li>
+        <li><i class="fas fa-check-circle"></i> Organic Certification</li>
+        <li><i class="fas fa-check-circle"></i> Calibration &amp; Validation of Equipment</li>
+        <li><i class="fas fa-check-circle"></i> Food Product Testing / Compliance Report</li>
+        <li><i class="fas fa-check-circle"></i> New Food Manufacturing Unit &amp; Restaurant Set-Up</li>
+      </ul>
+      <div style="margin-top:1.5rem;display:flex;gap:0.8rem;flex-wrap:wrap;align-items:center;">
+        <button class="btn-primary" onclick="showPage('contact'); prefillSubject('FSSAI License Enquiry')">
+          <i class="fas fa-envelope"></i> Contact Us for your FSSAI License
+        </button>
+        <span style="font-size:0.82rem;color:var(--text-light);font-family:var(--font-ui);">
+          <a onclick="showPage('contact'); prefillSubject('FSSAI License Enquiry')" style="cursor:pointer;color:var(--navy-mid);font-weight:600;text-decoration:underline;">Apply Here</a>
+        </span>
       </div>
     </div>
   </section>
@@ -1227,7 +1351,7 @@
           </div>
           <div style="display:flex;gap:0.8rem;flex-wrap:wrap;">
             <a href="https://script.google.com/macros/s/AKfycbxYz3T-Mrg3LbnzEsssXg86XVkmr0MB4sEzJpEqXz3tTdVcONU33K9ZR3WXun_DTNql/exec" target="_blank" rel="noopener">
-              <button class="btn-primary" style="font-size:1rem;padding:0.9rem 2.2rem;"><i class="fas fa-paper-plane"></i> Apply for Internship</button>
+              <button class="btn-primary" style="font-size:1rem;padding:0.9rem 2.2rem;"><i class="fas fa-paper-plane"></i> Apply for Internship / View Latest Brochure</button>
             </a>
             <button class="btn-outline-navy" onclick="document.getElementById('internship-areas').scrollIntoView({behavior:'smooth'})">
               <i class="fas fa-th-large"></i> View Areas
@@ -1310,7 +1434,7 @@
       </div>
       <div style="text-align:center;margin-top:2rem;">
         <a href="https://script.google.com/macros/s/AKfycbxYz3T-Mrg3LbnzEsssXg86XVkmr0MB4sEzJpEqXz3tTdVcONU33K9ZR3WXun_DTNql/exec" target="_blank" rel="noopener">
-          <button class="btn-primary" style="font-size:1rem;padding:0.9rem 2.5rem;"><i class="fas fa-paper-plane"></i> Apply for Internship</button>
+          <button class="btn-primary" style="font-size:1rem;padding:0.9rem 2.5rem;"><i class="fas fa-paper-plane"></i> Apply for Internship / View Latest Brochure</button>
         </a>
         <p style="font-size:0.85rem;color:var(--text-light);margin-top:0.8rem;">Or email your CV to <a href="mailto:info@frcc.org.in" style="color:var(--navy);font-weight:600;">info@frcc.org.in</a> with your area of interest</p>
       </div>
@@ -1326,10 +1450,10 @@
   <section class="section" style="padding-top:2.5rem;">
     <div class="container">
       <div class="section-head center">
-        <div class="section-label"><i class="fas fa-briefcase"></i> Careers at FRCC</div>
+        <div class="section-label"><i class="fas fa-briefcase"></i> Careers</div>
         <h2 class="section-title">Current Job <span>Openings</span></h2>
         <div class="title-line center"></div>
-        <p class="section-subtitle">Browse and apply for current openings at FRCC. We are always looking for passionate food scientists, regulatory experts, compliance professionals, and field auditors.</p>
+        <p class="section-subtitle">Browse and apply for current openings. We are always looking for passionate food scientists, regulatory experts, compliance professionals, and field auditors.</p>
       </div>
       <div class="appscript-iframe-wrap">
         <iframe src="https://script.google.com/macros/s/AKfycbwumJ-3xkO643NBYQYsxyScYSkRFIa95XuQsGKW2Pma9Qe1A--d5-es3Ju5OCIgjFSL/exec" class="appscript-iframe" title="FRCC Job Portal"></iframe>
@@ -1527,6 +1651,7 @@
         <span class="footer-link-item" onclick="showPage('home')">Home</span>
         <span class="footer-link-item" onclick="showPage('about')">About Us</span>
         <span class="footer-link-item" onclick="showPage('services')">Our Services</span>
+        <span class="footer-link-item" onclick="showPage('fssai')">FSSAI Licensing</span>
         <span class="footer-link-item" onclick="showPage('compliance')">Compliance Manager</span>
         <span class="footer-link-item" onclick="showPage('membership')">Membership</span>
         <span class="footer-link-item" onclick="showPage('contact')">Contact Us</span>
@@ -1541,24 +1666,20 @@
         <span class="footer-link-item" onclick="showPage('podcast')">Podcast</span>
         <span class="footer-link-item" onclick="showPage('training')">Training Calendar</span>
       </div>
-      <h5 style="margin-top:1.5rem;">Services</h5>
-      <div class="footer-links">
-        <span class="footer-link-item" onclick="showPage('services'); activateTab('food')">Food Safety Compliance</span>
-        <span class="footer-link-item" onclick="showPage('services'); activateTab('training')">Training</span>
-        <span class="footer-link-item" onclick="showPage('services'); activateTab('audits')">Food Safety Audits</span>
-        <span class="footer-link-item" onclick="showPage('services'); activateTab('exportimport')">Export / Import</span>
-      </div>
     </div>
     <div class="footer-col">
-      <h5>Information</h5>
-      <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>122 Pocket E, Sector 17, Dwarka, New Delhi – 110078</span></div>
+      <h5>Contact Us</h5>
+      <div style="margin-bottom:1rem;">
+        <div style="font-family:var(--font-ui);font-size:0.72rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.45);margin-bottom:0.5rem;">Delhi Office</div>
+        <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>122 Pocket E, Sector 17, Dwarka, New Delhi – 110078</span></div>
+      </div>
+      <div style="margin-bottom:1rem;">
+        <div style="font-family:var(--font-ui);font-size:0.72rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.45);margin-bottom:0.5rem;">Chandigarh Office</div>
+        <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>ISBT Complex, Office No. 85, Sector 17, Chandigarh – 160017</span></div>
+      </div>
       <div class="footer-contact-item"><i class="fas fa-phone-alt"></i><a href="tel:+919911991887" style="color:rgba(255,255,255,0.62);">+91-9911991887</a></div>
       <div class="footer-contact-item"><i class="fab fa-whatsapp" style="color:#25D366;"></i><a href="https://wa.me/919911991887" target="_blank" style="color:rgba(255,255,255,0.62);">+91-9911991887</a></div>
       <div class="footer-contact-item"><i class="fas fa-envelope"></i><a href="mailto:info@frcc.org.in" style="color:rgba(255,255,255,0.62);">info@frcc.org.in</a></div>
-      <div style="margin-top:1rem;">
-        <div style="font-family:var(--font-ui);font-size:0.72rem;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.35);margin-bottom:0.6rem;">Regulatory Partners</div>
-        <div style="font-size:0.82rem;color:rgba(255,255,255,0.55);line-height:1.7;">FSSAI · MoFPI · CPCB · APEDA · DGFT · CGWB</div>
-      </div>
     </div>
   </div>
   <div style="border-top:1px solid rgba(255,255,255,0.10);padding:0.5rem 0;"></div>
