@@ -591,57 +591,165 @@
     .service-detail-grid { grid-template-columns: 1fr; }
     .internship-hero-grid { grid-template-columns: 1fr; }
   }
+
   @media (max-width: 768px) {
-    :root { --base-font: 17px; }
-    .fostac-strip { top: 80px; flex-direction: column; align-items: flex-start; gap: 5px; min-height: unset; padding: 8px 12px; }
-    .fostac-label { font-size: 0.88rem; }
-    .fostac-divider { display: none; }
-    .fostac-text { font-size: 0.82rem; line-height: 1.4; }
-    .fostac-view-btn { font-size: 0.82rem; padding: 6px 14px; align-self: flex-start; }
+    /* --- Base font reduced for mobile readability --- */
+    :root { --base-font: 15px; }
+
+    /* --- Utility bar: 2x2 grid of buttons, no left links --- */
+    .utility-left { display: none; }
+    .utility-bar {
+      padding: 7px 8px; min-height: unset;
+      flex-direction: column; align-items: stretch; gap: 0;
+    }
+    .utility-right {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 6px; padding: 0; width: 100%;
+    }
+    .util-btn {
+      justify-content: center; text-align: center;
+      font-size: 0.88rem; padding: 9px 4px; width: 100%;
+    }
+
+    /* --- Navbar: compact on mobile --- */
+    .navbar-inner { min-height: 68px; padding: 0 0.75rem; }
+    .nav-logo img { height: 52px; }
+    .nav-logo-text .brand-full { font-size: 1.05rem; }
+    .nav-logo-text .brand-hindi { font-size: 0.78rem; }
+    .nav-logo-text .brand-name { font-size: 0.82rem; }
     .nav-links { display: none; }
     .hamburger { display: flex; }
-    .section-title { font-size: 2rem; }
-    .page-banner h1 { font-size: 2.1rem; }
-    .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
-    .featured-services-grid { grid-template-columns: repeat(2, 1fr); }
-    .footer-grid { grid-template-columns: 1fr; gap: 1.5rem; max-width: 100%; }
-    .footer-bottom { max-width: 100%; }
-    .form-row { grid-template-columns: 1fr; }
-    .utility-left { display: none; }
-    .utility-bar { padding: 8px 11px; min-height: unset; flex-direction: column; align-items: stretch; gap: 0; }
-    .utility-right { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; padding: 0; width: 100%; }
-    .util-btn { justify-content: center; text-align: center; font-size: 1.01rem; padding: 10px 6px; width: 100%; }
+
+    /* --- FoSTaC strip: stacked, compact --- */
+    .fostac-strip {
+      top: 68px; /* matches reduced navbar height */
+      flex-direction: column; align-items: flex-start;
+      gap: 4px; min-height: unset; padding: 7px 12px;
+    }
+    .fostac-label { font-size: 0.82rem; gap: 0.35rem; }
+    .fostac-divider { display: none; }
+    .fostac-text { font-size: 0.76rem; line-height: 1.4; }
+    .fostac-view-btn { font-size: 0.76rem; padding: 5px 12px; align-self: flex-start; margin-top: 2px; }
+
+    /* --- Hero slideshow --- */
     .hero-slideshow { height: auto; min-height: unset; background: transparent; }
     .slide { position: absolute; top: 0; left: 0; right: 0; }
     .slide.active { position: relative; }
     .slide img { width: 100%; height: auto; display: block; }
-    .footer { padding: 2rem 0 5rem; }
-    .appscript-iframe { height: calc(100svh - 96px); min-height: unset; }
+
+    /* --- Marquee: shorter chips, less padding --- */
+    .clients-section { padding: 1rem 0; }
+    .clients-label { font-size: 0.72rem; margin-bottom: 0.6rem; letter-spacing: 0.08em; }
+    .client-chip {
+      padding: 0.35rem 0.9rem;
+      min-width: 110px; max-width: 140px;
+    }
+    .client-chip img {
+      height: 36px;
+      max-width: 110px;
+    }
+    .marquee-stat-pill {
+      padding: 0.3rem 0.9rem;
+      min-width: 110px;
+    }
+    .marquee-stat-num { font-size: 1.15rem; }
+    .marquee-stat-lbl { font-size: 0.58rem; margin-top: 2px; }
+
+    /* --- Section typography --- */
+    .section-title { font-size: 1.7rem; }
+    .section-subtitle { font-size: 1.05rem; }
+    .page-banner h1 { font-size: 1.8rem; }
+
+    /* --- Grids: single column on mobile --- */
+    .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+    .featured-services-grid { grid-template-columns: repeat(2, 1fr); gap: 0.7rem; }
+    .featured-card { height: 200px; }
+    .featured-card-title { font-size: 1.1rem; }
+    .featured-card-sub { font-size: 0.82rem; }
+
+    /* --- About section mobile: image hidden on mobile in about page, show on home --- */
+    .about-split { grid-template-columns: 1fr; gap: 1.5rem; }
+
+    /* --- Contact form --- */
+    .form-row { grid-template-columns: 1fr; }
+
+    /* --- Footer: single column, full width --- */
+    .footer { padding: 2rem 0 4rem; }
+    .footer-grid { grid-template-columns: 1fr; gap: 1.2rem; max-width: 100%; padding: 0 1rem; }
+    .footer-bottom { max-width: 100%; padding: 0.8rem 1rem; font-size: 0.78rem; }
+    .footer-desc { font-size: 0.82rem; }
+    .footer-links a, .footer-link-item { font-size: 0.88rem; }
+
+    /* --- iFrames --- */
+    .appscript-iframe { height: calc(100svh - 68px); min-height: unset; }
     .appscript-iframe-wrap { border-radius: 0; border-left: none; border-right: none; box-shadow: none; margin: 0 -1rem; }
-    .appscript-fullpage-iframe { height: calc(100svh - 96px); min-height: unset; }
-    .internship-hero { padding: 1.5rem 1rem; }
-    .internship-hero h1 { font-size: 2rem; }
-    .navbar-inner { min-height: 80px; }
+    .appscript-fullpage-iframe { height: calc(100svh - 68px); min-height: unset; }
+
+    /* --- Internship page --- */
+    .internship-hero { padding: 1.2rem 1rem; }
+    .internship-hero h1 { font-size: 1.6rem; }
+    .internship-hero p { font-size: 0.95rem; }
+    .internship-hero img { height: 200px; }
+    .internship-area-card .ia-title { font-size: 1.05rem; }
+    .internship-area-card .ia-desc { font-size: 0.85rem; }
+
+    /* --- Service / MV cards --- */
+    .mv-card-title { font-size: 1.3rem; }
+    .mv-card-text { font-size: 0.92rem; }
+    .scc-title { font-size: 1.1rem; }
+    .scc-desc { font-size: 0.88rem; }
+    .checklist li { font-size: 0.9rem; }
+    .highlight-box p { font-size: 0.95rem; }
+
+    /* --- Buttons --- */
+    .btn-primary { font-size: 0.92rem; padding: 0.72rem 1.3rem; }
+    .btn-outline-navy { font-size: 0.92rem; padding: 0.7rem 1.1rem; }
+    .btn-submit { font-size: 0.92rem; padding: 0.75rem 1.4rem; }
+    .whatsapp-btn { font-size: 0.92rem; padding: 0.72rem 1.2rem; }
+
+    /* --- Tabs: scrollable row --- */
+    .tabs { overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; }
+    .tab-btn { font-size: 0.82rem; padding: 0.65rem 0.9rem; white-space: nowrap; }
+
+    /* --- Compliance manager --- */
+    .compliance-manager-hero h1 { font-size: 2rem; }
+    .compliance-manager-hero p { font-size: 0.95rem; }
   }
+
   @media (max-width: 480px) {
-    .slideshow-arrow { width: 34px; height: 34px; font-size: 0.78rem; }
-    .arrow-prev { left: 8px; }
-    .arrow-next { right: 8px; }
-    .slideshow-nav { bottom: 10px; }
-    .slide-dot { width: 8px; height: 8px; }
+    .slideshow-arrow { width: 32px; height: 32px; font-size: 0.72rem; }
+    .arrow-prev { left: 6px; }
+    .arrow-next { right: 6px; }
+    .slideshow-nav { bottom: 8px; }
+    .slide-dot { width: 7px; height: 7px; }
+    .featured-services-grid { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+    .featured-card { height: 170px; }
+    .featured-card-title { font-size: 0.95rem; }
+    .featured-card-content { padding: 0.9rem 0.8rem; }
+    .featured-card-icon { font-size: 1.2rem; margin-bottom: 0.3rem; }
   }
+
   @media (max-width: 400px) {
-    .util-btn { font-size: 0.92rem; padding: 8px 4px; }
+    .util-btn { font-size: 0.8rem; padding: 8px 2px; }
     .navbar-inner { padding: 0 0.5rem; }
-    .nav-logo img { height: 62px; }
+    .nav-logo img { height: 46px; }
+    .nav-logo-text .brand-full { font-size: 0.92rem; }
+    .featured-services-grid { grid-template-columns: 1fr; }
+    .featured-card { height: 180px; }
   }
+
+  /* Nav mobile open state */
   .nav-links.open {
-    display: flex; flex-direction: column; position: absolute; top: 96px;
+    display: flex; flex-direction: column; position: absolute; top: 68px;
     left: 0; right: 0; background: white; padding: 1rem;
     border-top: 1px solid var(--border); box-shadow: var(--shadow-lg);
     z-index: 899; max-height: 80vh; overflow-y: auto;
   }
-  .nav-links.open .dropdown { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: none; background: var(--offwhite); margin-left: 1rem; margin-top: 0.3rem; }
+  .nav-links.open .dropdown {
+    position: static; opacity: 1; visibility: visible; transform: none;
+    box-shadow: none; border: none; background: var(--offwhite);
+    margin-left: 1rem; margin-top: 0.3rem;
+  }
 </style>
 <base target="_blank">
 </head>
@@ -1028,9 +1136,9 @@
           <div class="govt-badge"><i class="fas fa-award"></i> FSSAI FoSTaC Approved Training Partner</div>
         </div>
         <div>
-          <!-- Image fixed: same size/style as homepage -->
+          <!-- Image: contain so full image is always visible -->
           <img src="https://raw.githubusercontent.com/zovacai-cloud/host_image/main/aboutus.jpg" alt="FRCC Team"
-            style="width:100%;border-radius:var(--radius-lg);object-fit:cover;height:360px;max-height:360px;box-shadow:var(--shadow-lg);display:block;">
+            style="width:100%;border-radius:var(--radius-lg);object-fit:contain;max-height:300px;height:auto;box-shadow:var(--shadow-lg);display:block;background:var(--alice);padding:0.5rem;">
         </div>
       </div>
     </div>
